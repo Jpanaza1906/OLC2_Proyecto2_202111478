@@ -1,0 +1,114 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+Frontend Proyecto 2 Organizacion de Lenguajes y Compiladores 2
+Desarrollador: José David Panaza Batres
+Carnet: 202111478
+Correo: 3848221850101@ingenieria.usac.edu.gt
+Semestre: 2do Semestre 2023
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TswiftGen</title>
+  <link rel="stylesheet" href="app.component.css">
+</head>
+
+<body>
+  <!-- Nav bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Tswift Generator</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Archivo
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="javascript:void(0)" (click)="onOpenFile()">Abrir</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" (click)="onSaveFile()">Guardar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Editar
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="javascript:void(0)" (click)="clearTextArea()">Limpiar Entrada</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Limpiar Consola</a></li>
+              <li><a class="dropdown-item" href="#">Limpiar Simbolos</a></li>
+              <li><a class="dropdown-item" href="#">Limpiar Errores</a></li>
+              <li><a class="dropdown-item" href="#">Limpiar Funciones</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Acerca de</a>
+          </li>
+        </ul>
+        <form class="d-flex ms-auto" role="action">
+          <button type="button" class="btn btn-dark  me-md-3"><i class="fa-solid fa-file"></i>&nbsp;Reporte</button>
+          <button type="button" class="btn btn-success  me-md-3"><i class="fa-solid fa-play"></i>&nbsp;Compilar</button>
+          <button type="button" class="btn btn-outline-dark  me-md-3"><i
+              class="fa-solid fa-bomb"></i>&nbsp;Optimizar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="space"></div>
+  <div class="custom-container">
+    <div class="left">
+      <label><i class="fa-brands fa-swift"></i>Tswift</label>
+      <div class="editor">
+        <div class="line-numbers"></div>
+        <textarea appLineNumbers id="tswift-code" #tswiftCodeTextArea ></textarea>
+      </div>
+    </div>
+    <div class="right">
+      <label><i class="fa-solid fa-play"></i>Output 3D</label>
+      <iframe id="output-3d"></iframe>
+    </div>
+  </div>
+  <!-- Tab panel-->
+  <div class="tabs">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-consola-tab" data-bs-toggle="tab" data-bs-target="#nav-consola"
+          type="button" role="tab" aria-controls="nav-consola" aria-selected="true">Consola</button>
+        <button class="nav-link" id="nav-simbolos-tab" data-bs-toggle="tab" data-bs-target="#nav-simbolos" type="button"
+          role="tab" aria-controls="nav-simbolos" aria-selected="false">Simbolos</button>
+        <button class="nav-link" id="nav-errores-tab" data-bs-toggle="tab" data-bs-target="#nav-errores" type="button"
+          role="tab" aria-controls="nav-errores" aria-selected="false">Errores</button>
+        <button class="nav-link" id="nav-funciones-tab" data-bs-toggle="tab" data-bs-target="#nav-funciones"
+          type="button" role="tab" aria-controls="nav-funciones" aria-selected="false">Funciones</button>
+      </div>
+    </nav>
+
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-consola" role="tabpanel" aria-labelledby="nav-consola-tab">
+        <textarea id="consola-text"></textarea>
+      </div>
+      <div class="tab-pane fade" id="nav-simbolos" role="tabpanel" aria-labelledby="nav-simbolos-tab">
+        <textarea id="simbolos-text"></textarea>
+      </div>
+      <div class="tab-pane fade" id="nav-errores" role="tabpanel" aria-labelledby="nav-errores-tab">
+        <textarea id="errores-text"></textarea>
+      </div>
+      <div class="tab-pane fade" id="nav-funciones" role="tabpanel" aria-labelledby="nav-funciones-tab">
+        <textarea id="funciones-text"></textarea>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
