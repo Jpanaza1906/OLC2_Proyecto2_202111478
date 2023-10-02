@@ -1,4 +1,4 @@
-package main
+package api
 
 import (
 	compilador "OLC2_Proyecto2_202111478/Compilador"
@@ -84,6 +84,11 @@ func (tV *Visitor) VisitS_If(ctx *TswiftGen.S_IfContext) interface{} {
 	return ctx.If_sentencia().Accept(tV).(compilador.CAbstractExpr)
 }
 
+// Visit a parse tree produced by Tswift_GrammarNParser#S_Switch.
+func (tV *Visitor) VisitS_Switch(ctx *TswiftGen.S_SwitchContext) interface{} {
+	return ctx.Switch_sentencia().Accept(tV).(compilador.CAbstractExpr)
+}
+
 // PRINT ===============================================================
 
 // Visit a parse tree produced by Tswift_GrammarNParser#Print.
@@ -95,7 +100,69 @@ func (tV *Visitor) VisitPrint(ctx *TswiftGen.PrintContext) interface{} {
 
 // Visit a parse tree produced by Tswift_GrammarNParser#If.
 func (tV *Visitor) VisitIf(ctx *TswiftGen.IfContext) interface{} {
-	panic("not implemented") // TODO: Implement
+	var sentencias compilador.CAbstractExpr
+	var sentenciasElse compilador.CAbstractExpr
+
+	condicion := ctx.Condicion().Accept(tV).(compilador.CAbstractExpr)
+
+	listaSentencias := ctx.AllL_sentencias()
+	if listaSentencias != nil {
+		if len(listaSentencias) == 2 {
+			sentencias = listaSentencias[0].Accept(tV).(compilador.CAbstractExpr)
+			sentenciasElse = listaSentencias[1].Accept(tV).(compilador.CAbstractExpr)
+		} else {
+			sentencias = listaSentencias[0].Accept(tV).(compilador.CAbstractExpr)
+		}
+	}
+
+	//Si viene otro if
+	if ctx.If_sentencia() != nil {
+		sentenciasElse = ctx.If_sentencia().Accept(tV).(compilador.CAbstractExpr)
+	}
+
+	return noterm.NewNT_If(condicion, sentencias, sentenciasElse)
+}
+
+// SWITCH ==============================================================
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Switch.
+func (tV *Visitor) VisitSwitch(ctx *TswiftGen.SwitchContext) interface{} {
+	//Se obtiene la expresion
+	expr := ctx.E().Accept(tV).(compilador.CAbstractExpr)
+
+	//se crea un default
+	var cdef compilador.CAbstractExpr = nil
+
+	//Se obtiene la lista de casos
+	cases := ctx.AllLcasos()
+
+	if ctx.Cdefault() != nil {
+		cdef = ctx.Cdefault().Accept(tV).(compilador.CAbstractExpr)
+	}
+
+	//Se crea un arreglo de casos
+	listaCasos := make([]compilador.CAbstractExpr, 0)
+
+	//Se recorre la lista de casos
+	for _, c := range cases {
+		listaCasos = append(listaCasos, c.Accept(tV).(compilador.CAbstractExpr))
+	}
+
+	return noterm.NewNT_Switch(expr, listaCasos, cdef)
+
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Case.
+func (tV *Visitor) VisitCase(ctx *TswiftGen.CaseContext) interface{} {
+	expr := ctx.E().Accept(tV).(compilador.CAbstractExpr)
+	sentencias := ctx.L_sentencias().Accept(tV).(compilador.CAbstractExpr)
+
+	return noterm.NewNT_Case(expr, sentencias)
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Default.
+func (tV *Visitor) VisitDefault(ctx *TswiftGen.DefaultContext) interface{} {
+	return ctx.L_sentencias().Accept(tV).(compilador.CAbstractExpr)
 }
 
 // CONDICIONES ========================================================

@@ -27,11 +27,27 @@ func (v *BaseTswift_GrammarNVisitor) VisitS_If(ctx *S_IfContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseTswift_GrammarNVisitor) VisitS_Switch(ctx *S_SwitchContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseTswift_GrammarNVisitor) VisitPrint(ctx *PrintContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
 func (v *BaseTswift_GrammarNVisitor) VisitIf(ctx *IfContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitSwitch(ctx *SwitchContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitCase(ctx *CaseContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitDefault(ctx *DefaultContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

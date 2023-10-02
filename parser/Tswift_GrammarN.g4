@@ -16,6 +16,7 @@ sentencia
     :print_sentencia PTCOMA? #S_Print
     |condicion PTCOMA? #S_Condicion
     |if_sentencia #S_If
+    |switch_sentencia #S_Switch
     ;
 
 //Sentencia print---------------------------------------------------------------
@@ -27,6 +28,20 @@ print_sentencia:
 if_sentencia:
     IF condicion LLAVEIZQ l_sentencias LLAVEDER (ELSE (if_sentencia | LLAVEIZQ l_sentencias LLAVEDER))? #If
     ;
+
+//Sentencia Switch---------------------------------------------------------------
+switch_sentencia:
+    SWITCH e LLAVEIZQ lcasos* cdefault? LLAVEDER #Switch
+    ;
+
+lcasos:
+    CASE e DOSPT l_sentencias #Case
+    ;
+
+cdefault:
+    DEFAULT DOSPT l_sentencias #Default
+    ;
+
 
 //Condiciones--------------------------------------------------------------------
 

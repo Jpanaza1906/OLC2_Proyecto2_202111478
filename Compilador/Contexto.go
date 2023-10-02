@@ -6,20 +6,25 @@ import (
 )
 
 type Contexto struct {
-	tmp     int
-	lb      int
-	Errores []string
+	tmp           int
+	lb            int
+	Consola       string
+	DisplaySwitch []string
+	Errores       []string
 }
 
 func NewContexto() *Contexto {
 	return &Contexto{
-		tmp:     0,
-		lb:      0,
-		Errores: make([]string, 0),
+		tmp:           0,
+		lb:            0,
+		Consola:       "",
+		DisplaySwitch: make([]string, 0),
+		Errores:       make([]string, 0),
 	}
 }
 
 func (ctx *Contexto) Gen(out string) {
+	ctx.Consola += out + "\n"
 	fmt.Println(out)
 }
 
@@ -44,6 +49,34 @@ func (ctx *Contexto) Unir(etq1 []string, etq2 []string) []string {
 	return etiquetas
 }
 
+//Errores
+
 func (ctx *Contexto) AddError(err string) {
 	ctx.Errores = append(ctx.Errores, err)
+}
+
+// DisplaySwitch
+func (ctx *Contexto) PushDisplaySwitch() string {
+	nuevaEtq := ctx.NewEtq()
+	ctx.DisplaySwitch = append(ctx.DisplaySwitch, nuevaEtq)
+	return nuevaEtq
+}
+
+func (ctx *Contexto) PeekDisplaySwitch() string {
+	if len(ctx.DisplaySwitch) > 0 {
+		return ctx.DisplaySwitch[len(ctx.DisplaySwitch)-1]
+	} else {
+		ctx.AddError("Error al hacer peek en el DisplaySwitch vacio")
+		return ""
+	}
+}
+
+func (ctx *Contexto) PopDisplaySwitch() string {
+	etiqueta := ctx.PeekDisplaySwitch()
+	if len(ctx.DisplaySwitch) > 0 {
+		ctx.DisplaySwitch = ctx.DisplaySwitch[:len(ctx.DisplaySwitch)-1]
+	} else {
+		ctx.AddError("Error al hacer pop en el DisplaySwitch vacio")
+	}
+	return etiqueta
 }

@@ -22,11 +22,23 @@ type Tswift_GrammarNVisitor interface {
 	// Visit a parse tree produced by Tswift_GrammarNParser#S_If.
 	VisitS_If(ctx *S_IfContext) interface{}
 
+	// Visit a parse tree produced by Tswift_GrammarNParser#S_Switch.
+	VisitS_Switch(ctx *S_SwitchContext) interface{}
+
 	// Visit a parse tree produced by Tswift_GrammarNParser#Print.
 	VisitPrint(ctx *PrintContext) interface{}
 
 	// Visit a parse tree produced by Tswift_GrammarNParser#If.
 	VisitIf(ctx *IfContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Switch.
+	VisitSwitch(ctx *SwitchContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Case.
+	VisitCase(ctx *CaseContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Default.
+	VisitDefault(ctx *DefaultContext) interface{}
 
 	// Visit a parse tree produced by Tswift_GrammarNParser#Cond_Par.
 	VisitCond_Par(ctx *Cond_ParContext) interface{}

@@ -22,11 +22,23 @@ type Tswift_GrammarNListener interface {
 	// EnterS_If is called when entering the S_If production.
 	EnterS_If(c *S_IfContext)
 
+	// EnterS_Switch is called when entering the S_Switch production.
+	EnterS_Switch(c *S_SwitchContext)
+
 	// EnterPrint is called when entering the Print production.
 	EnterPrint(c *PrintContext)
 
 	// EnterIf is called when entering the If production.
 	EnterIf(c *IfContext)
+
+	// EnterSwitch is called when entering the Switch production.
+	EnterSwitch(c *SwitchContext)
+
+	// EnterCase is called when entering the Case production.
+	EnterCase(c *CaseContext)
+
+	// EnterDefault is called when entering the Default production.
+	EnterDefault(c *DefaultContext)
 
 	// EnterCond_Par is called when entering the Cond_Par production.
 	EnterCond_Par(c *Cond_ParContext)
@@ -79,11 +91,23 @@ type Tswift_GrammarNListener interface {
 	// ExitS_If is called when exiting the S_If production.
 	ExitS_If(c *S_IfContext)
 
+	// ExitS_Switch is called when exiting the S_Switch production.
+	ExitS_Switch(c *S_SwitchContext)
+
 	// ExitPrint is called when exiting the Print production.
 	ExitPrint(c *PrintContext)
 
 	// ExitIf is called when exiting the If production.
 	ExitIf(c *IfContext)
+
+	// ExitSwitch is called when exiting the Switch production.
+	ExitSwitch(c *SwitchContext)
+
+	// ExitCase is called when exiting the Case production.
+	ExitCase(c *CaseContext)
+
+	// ExitDefault is called when exiting the Default production.
+	ExitDefault(c *DefaultContext)
 
 	// ExitCond_Par is called when exiting the Cond_Par production.
 	ExitCond_Par(c *Cond_ParContext)

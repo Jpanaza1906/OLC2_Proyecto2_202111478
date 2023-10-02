@@ -57,7 +57,7 @@ Semestre: 2do Semestre 2023
         </ul>
         <form class="d-flex ms-auto" role="action">
           <button type="button" class="btn btn-dark  me-md-3"><i class="fa-solid fa-file"></i>&nbsp;Reporte</button>
-          <button type="button" class="btn btn-success  me-md-3"><i class="fa-solid fa-play"></i>&nbsp;Compilar</button>
+          <button type="button" class="btn btn-success  me-md-3" (click)="onCompileCode()"><i class="fa-solid fa-play"></i>&nbsp;Compilar</button>
           <button type="button" class="btn btn-outline-dark  me-md-3"><i
               class="fa-solid fa-bomb"></i>&nbsp;Optimizar</button>
         </form>
@@ -70,12 +70,12 @@ Semestre: 2do Semestre 2023
       <label><i class="fa-brands fa-swift"></i>Tswift</label>
       <div class="editor">
         <div class="line-numbers"></div>
-        <textarea appLineNumbers id="tswift-code" #tswiftCodeTextArea ></textarea>
+        <textarea appLineNumbers id="tswift-code" #tswiftCodeTextArea (keydown)="onKeyDown($event)"></textarea>
       </div>
     </div>
     <div class="right">
       <label><i class="fa-solid fa-play"></i>Output 3D</label>
-      <iframe id="output-3d"></iframe>
+      <textarea id="output-3d" #tswiftCodeOutput readonly></textarea>
     </div>
   </div>
   <!-- Tab panel-->
@@ -95,16 +95,16 @@ Semestre: 2do Semestre 2023
 
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="nav-consola" role="tabpanel" aria-labelledby="nav-consola-tab">
-        <textarea id="consola-text"></textarea>
+        <textarea id="consola-text" readonly></textarea>
       </div>
       <div class="tab-pane fade" id="nav-simbolos" role="tabpanel" aria-labelledby="nav-simbolos-tab">
-        <textarea id="simbolos-text"></textarea>
+        <textarea id="simbolos-text" readonly></textarea>
       </div>
       <div class="tab-pane fade" id="nav-errores" role="tabpanel" aria-labelledby="nav-errores-tab">
-        <textarea id="errores-text"></textarea>
+        <textarea id="errores-text" readonly></textarea>
       </div>
       <div class="tab-pane fade" id="nav-funciones" role="tabpanel" aria-labelledby="nav-funciones-tab">
-        <textarea id="funciones-text"></textarea>
+        <textarea id="funciones-text" readonly></textarea>
       </div>
     </div>
   </div>

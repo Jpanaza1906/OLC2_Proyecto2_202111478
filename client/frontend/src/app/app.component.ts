@@ -1,5 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import {FileDialogService} from './file-dialog.service'
+import { FileDialogService } from './file-dialog.service'
+import { TextService } from './text.service';
+import { Entrada, Salida } from './data-model';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +11,11 @@ import {FileDialogService} from './file-dialog.service'
 export class AppComponent {
   title = 'frontend';
   @ViewChild('tswiftCodeTextArea') tswiftCodeTextArea!: ElementRef<HTMLTextAreaElement>;
-  constructor(private fileDialogService: FileDialogService) { }
+  @ViewChild('tswiftCodeOutput') tswiftCodeOutput!: ElementRef<HTMLTextAreaElement>;
+  constructor(
+    private fileDialogService: FileDialogService,
+    private textService: TextService
+  ) { }
 
   onOpenFile() {
     this.fileDialogService.openFile().then((content) => {
@@ -34,5 +40,44 @@ export class AppComponent {
     //focus on text area
     this.tswiftCodeTextArea.nativeElement.focus();
   }
+
+  // Mandar entrada al backend
+  
+  onCompileCode() {
+    const content = this.tswiftCodeTextArea.nativeElement.value;
+    if (content.trim() !== ''){
+      const entrada:Entrada = {entrada: content};
+      this.textService.compileCode(entrada).subscribe(
+        (response: Salida) => {
+          this.tswiftCodeOutput.nativeElement.value = response.salida;
+        },
+        (error) => {
+          console.log('Error compiling code ',error);
+        }
+      );
+    }else{
+      console.error('No content to compile.');
+    }
+  }
+
+  // tabs
+  onKeyDown(event: KeyboardEvent) {
+    // Handle the tab key press
+    if (event.key === 'Tab') {
+      event.preventDefault(); // Prevent the default behavior
+
+      // Insert a tab at the current caret position
+      const textarea = this.tswiftCodeTextArea.nativeElement;
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+
+      // Set textarea value to: text before caret + tab + text after caret
+      textarea.value = textarea.value.substring(0, start) + '\t' + textarea.value.substring(end);
+
+      // Put caret at right position (add one for the tab)
+      textarea.selectionStart = textarea.selectionEnd = start + 1;
+    }
+  }
+
 
 }

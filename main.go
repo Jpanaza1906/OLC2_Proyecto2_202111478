@@ -1,20 +1,11 @@
 package main
 
 import (
-	compilador "OLC2_Proyecto2_202111478/Compilador"
-	"OLC2_Proyecto2_202111478/TswiftG"
-	"OLC2_Proyecto2_202111478/TswiftGen"
-	"bufio"
-	"fmt"
-	"log"
-	"os"
+	"OLC2_Proyecto2_202111478/api"
+	"net/http"
 
-	"github.com/antlr4-go/antlr/v4"
+	"github.com/rs/cors"
 )
-
-type Listener struct {
-	*TswiftG.BaseTswift_GrammarListener
-}
 
 /*
 	ESQUEMA DE TRADUCCION
@@ -36,8 +27,23 @@ type Listener struct {
 		antlr.ParseTreeWalkerDefault.Walk(&listen, tree)
 
 }
+
+	func leerEntrada(name string) string {
+		file, err := os.Open(name)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer file.Close()
+		fileScanner := bufio.NewScanner(file)
+		var text string
+		for fileScanner.Scan() {
+			text += fileScanner.Text() + "\n"
+		}
+		return text
+	}
 */
-func analizarNodos(input string) {
+/*
+func analizarNodos(input string) string {
 	//Se hace un stream
 	stream := antlr.NewInputStream(input)
 	//Se hace un lexer
@@ -57,24 +63,18 @@ func analizarNodos(input string) {
 	// se hace un visit
 	raiz.Compilar(ctx)
 
-}
+	return ctx.Consola
 
-func leerEntrada(name string) string {
-	file, err := os.Open(name)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer file.Close()
-	fileScanner := bufio.NewScanner(file)
-	var text string
-	for fileScanner.Scan() {
-		text += fileScanner.Text() + "\n"
-	}
-	return text
 }
-
+*/
 func main() {
-	input := leerEntrada("entrada.txt")
-	fmt.Println("SALIDA Nodos:==============")
-	analizarNodos(input)
+	srv := api.NewServer()
+
+	corsHandler := cors.New(cors.Options{
+		AllowedOrigins:   []string{"http://localhost:3000"},
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowCredentials: true,
+	})
+
+	http.ListenAndServe(":8080", corsHandler.Handler(srv))
 }
