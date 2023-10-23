@@ -1,0 +1,1 @@
+errorMessage := fmt.Sprintf("Error gramatical (%d,%d) : %s", line, column, msg)

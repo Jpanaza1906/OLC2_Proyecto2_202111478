@@ -1,24 +1,24 @@
 package noterm
 
-import compilador "OLC2_Proyecto2_202111478/Compilador"
+import (
+	compilador "OLC2_Proyecto2_202111478/Compilador"
+)
 
 type NT_Guard struct {
-	Condicion      compilador.CAbstractExpr
-	Sentencias     compilador.CAbstractExpr
-	TransSentencia compilador.CAbstractExpr
-	Linea          int
-	Columna        int
+	Condicion  compilador.CAbstractExpr
+	Sentencias compilador.CAbstractExpr
+	Linea      int
+	Columna    int
 }
 
 // Constructor ================================================================================
 
-func NewNT_Guard(condicion compilador.CAbstractExpr, sentencias compilador.CAbstractExpr, transSentencia compilador.CAbstractExpr, linea int, columna int) *NT_Guard {
+func NewNT_Guard(condicion compilador.CAbstractExpr, sentencias compilador.CAbstractExpr, linea int, columna int) *NT_Guard {
 	return &NT_Guard{
-		Condicion:      condicion,
-		Sentencias:     sentencias,
-		TransSentencia: transSentencia,
-		Linea:          linea,
-		Columna:        columna,
+		Condicion:  condicion,
+		Sentencias: sentencias,
+		Linea:      linea,
+		Columna:    columna,
 	}
 }
 

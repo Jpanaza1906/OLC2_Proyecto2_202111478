@@ -10,8 +10,20 @@ import { Entrada, Salida } from './data-model';
 })
 export class AppComponent {
   title = 'frontend';
+  //entrada
   @ViewChild('tswiftCodeTextArea') tswiftCodeTextArea!: ElementRef<HTMLTextAreaElement>;
+  //salida
   @ViewChild('tswiftCodeOutput') tswiftCodeOutput!: ElementRef<HTMLTextAreaElement>;
+  //errores
+  @ViewChild('tswiftErroresOutput') tswiftErroresOutput!: ElementRef<HTMLTextAreaElement>;
+  //simbolos
+  @ViewChild('tswiftSimbolosOutput') tswiftSimbolosOutput!: ElementRef<HTMLTextAreaElement>;
+  //funciones
+  @ViewChild('tswiftFuncionesOutput') tswiftFuncionesOutput!: ElementRef<HTMLTextAreaElement>;
+  //consola
+  @ViewChild('tswiftConsolaOutput') tswiftConsolaOutput!: ElementRef<HTMLTextAreaElement>;
+
+
   constructor(
     private fileDialogService: FileDialogService,
     private textService: TextService
@@ -50,6 +62,10 @@ export class AppComponent {
       this.textService.compileCode(entrada).subscribe(
         (response: Salida) => {
           this.tswiftCodeOutput.nativeElement.value = response.salida;
+          this.tswiftErroresOutput.nativeElement.value = response.errores;
+          this.tswiftSimbolosOutput.nativeElement.value = response.simbolos;
+          this.tswiftFuncionesOutput.nativeElement.value = response.funciones;
+          this.tswiftConsolaOutput.nativeElement.value = response.consola;
         },
         (error) => {
           console.log('Error compiling code ',error);

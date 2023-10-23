@@ -64,7 +64,7 @@ while_sentencia:
 
 //Sentencia For------------------------------------------------------------------
 for_sentencia:
-    FOR ID IN (rango_p|e) LLAVEIZQ l_sentencias LLAVEDER #For
+    FOR id=ID IN (rango_p|e) LLAVEIZQ l_sentencias LLAVEDER #For
     ;
 rango_p:
     e RANGO e #Rango

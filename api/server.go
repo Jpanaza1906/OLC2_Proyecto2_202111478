@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"strings"
 
 	"github.com/antlr4-go/antlr/v4"
 	"github.com/gorilla/mux"
@@ -16,10 +17,24 @@ type Entrada struct {
 }
 
 type Salida struct {
-	Salida string `json:"salida"`
+	Salida    string `json:"salida"`
+	Consola   string `json:"consola"`
+	Simbolos  string `json:"simbolos"`
+	Errores   string `json:"errores"`
+	Funciones string `json:"funciones"`
 }
 
-func analizarNodos(input string) string {
+type CustomErrorListener struct {
+	*antlr.DefaultErrorListener
+	Errors []string
+}
+
+func (el *CustomErrorListener) SyntaxError(recognizer antlr.Recognizer, offendingSymbol interface{}, line, column int, msg string, e antlr.RecognitionException) {
+	errorMessage := fmt.Sprintf("Error gramatical (%d,%d) : %s", line, column, msg)
+	el.Errors = append(el.Errors, errorMessage)
+}
+
+func analizarNodos(input string) (string, string, string, string, string) {
 	//Se hace un stream
 	stream := antlr.NewInputStream(input)
 	//Se hace un lexer
@@ -28,6 +43,14 @@ func analizarNodos(input string) string {
 	tokenStream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
 	// se hace un parser
 	parser := TswiftGen.NewTswift_GrammarNParser(tokenStream)
+
+	// Agrega tu manejador de errores personalizado
+	errorListener := &CustomErrorListener{}
+	lexer.RemoveErrorListeners()
+	lexer.AddErrorListener(errorListener)
+	parser.RemoveErrorListeners()
+	parser.AddErrorListener(errorListener)
+
 	// se hace un arbol
 	tree := parser.S()
 	// se hace un visitor
@@ -40,7 +63,21 @@ func analizarNodos(input string) string {
 	// se hace un visit
 	raiz.Compilar(ctx)
 
-	return ctx.Consola
+	// Captura los errores generados por ANTLR
+	antlrErrors := errorListener.Errors
+	errorString := strings.Join(antlrErrors, "\n")
+
+	ctx.Errores += errorString
+	fmt.Print(ctx.Errores)
+
+	console := "Compilacion Exitosa"
+	//si hay errores que devuelva consola vacia
+	if ctx.Errores != "" {
+		ctx.Consola = ""
+		console = "Compilacion sin exito, ver consola de errores"
+	}
+
+	return ctx.Consola, ctx.Errores, ctx.Simbolos, ctx.Funciones, console
 }
 
 type Server struct {
@@ -67,9 +104,13 @@ func (s *Server) compile() http.HandlerFunc {
 			return
 		}
 		entry := input.Entrada
-		consola := analizarNodos(entry)
+		consola, errores, simbolos, funciones, consoleout := analizarNodos(entry)
 		var salida Salida
 		salida.Salida = consola
+		salida.Errores = errores
+		salida.Simbolos = simbolos
+		salida.Funciones = funciones
+		salida.Consola = consoleout
 
 		w.Header().Set("Content-Type", "application/json")
 

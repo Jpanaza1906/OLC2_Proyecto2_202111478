@@ -973,14 +973,15 @@ public class Tswift_GrammarNParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ForContext extends For_sentenciaContext {
+		public Token id;
 		public TerminalNode FOR() { return getToken(Tswift_GrammarNParser.FOR, 0); }
-		public TerminalNode ID() { return getToken(Tswift_GrammarNParser.ID, 0); }
 		public TerminalNode IN() { return getToken(Tswift_GrammarNParser.IN, 0); }
 		public TerminalNode LLAVEIZQ() { return getToken(Tswift_GrammarNParser.LLAVEIZQ, 0); }
 		public L_sentenciasContext l_sentencias() {
 			return getRuleContext(L_sentenciasContext.class,0);
 		}
 		public TerminalNode LLAVEDER() { return getToken(Tswift_GrammarNParser.LLAVEDER, 0); }
+		public TerminalNode ID() { return getToken(Tswift_GrammarNParser.ID, 0); }
 		public Rango_pContext rango_p() {
 			return getRuleContext(Rango_pContext.class,0);
 		}
@@ -1000,7 +1001,7 @@ public class Tswift_GrammarNParser extends Parser {
 			setState(125);
 			match(FOR);
 			setState(126);
-			match(ID);
+			((ForContext)_localctx).id = match(ID);
 			setState(127);
 			match(IN);
 			setState(130);

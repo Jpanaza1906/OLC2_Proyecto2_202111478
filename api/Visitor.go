@@ -169,10 +169,7 @@ func (tV *Visitor) VisitGuard(ctx *TswiftGen.GuardContext) interface{} {
 	//se obtiene la lista de sentencias
 	sentencias := ctx.L_sentencias().Accept(tV).(compilador.CAbstractExpr)
 
-	//se obtiene la transicion
-	transicion := ctx.Trans_sentencia().Accept(tV).(compilador.CAbstractExpr)
-
-	return noterm.NewNT_Guard(condicion, sentencias, transicion, ctx.Condicion().GetStart().GetLine(), ctx.Condicion().GetStart().GetColumn())
+	return noterm.NewNT_Guard(condicion, sentencias, ctx.Condicion().GetStart().GetLine(), ctx.Condicion().GetStart().GetColumn())
 }
 
 // SWITCH ==============================================================

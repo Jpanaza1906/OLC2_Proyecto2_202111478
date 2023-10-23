@@ -9,8 +9,10 @@ type Contexto struct {
 	tmp           int
 	lb            int
 	Consola       string
+	Errores       string
+	Simbolos      string
+	Funciones     string
 	DisplaySwitch []string
-	Errores       []string
 }
 
 func NewContexto() *Contexto {
@@ -18,8 +20,10 @@ func NewContexto() *Contexto {
 		tmp:           0,
 		lb:            0,
 		Consola:       "",
+		Errores:       "",
+		Simbolos:      "",
+		Funciones:     "",
 		DisplaySwitch: make([]string, 0),
-		Errores:       make([]string, 0),
 	}
 }
 
@@ -52,7 +56,7 @@ func (ctx *Contexto) Unir(etq1 []string, etq2 []string) []string {
 //Errores
 
 func (ctx *Contexto) AddError(err string) {
-	ctx.Errores = append(ctx.Errores, err)
+	ctx.Errores += err + "\n"
 }
 
 // DisplaySwitch

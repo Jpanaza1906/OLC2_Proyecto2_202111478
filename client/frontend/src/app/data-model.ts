@@ -4,4 +4,8 @@ export interface Entrada {
   
   export interface Salida {
     salida: string;
+    consola: string;
+    errores: string;
+    simbolos: string;
+    funciones: string;
   }

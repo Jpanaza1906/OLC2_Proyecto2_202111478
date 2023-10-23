@@ -3048,6 +3048,7 @@ func (s *For_sentenciaContext) ToStringTree(ruleNames []string, recog antlr.Reco
 
 type ForContext struct {
 	For_sentenciaContext
+	id antlr.Token
 }
 
 func NewForContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ForContext {
@@ -3060,16 +3061,16 @@ func NewForContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ForContext
 	return p
 }
 
+func (s *ForContext) GetId() antlr.Token { return s.id }
+
+func (s *ForContext) SetId(v antlr.Token) { s.id = v }
+
 func (s *ForContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
 func (s *ForContext) FOR() antlr.TerminalNode {
 	return s.GetToken(Tswift_GrammarNParserFOR, 0)
-}
-
-func (s *ForContext) ID() antlr.TerminalNode {
-	return s.GetToken(Tswift_GrammarNParserID, 0)
 }
 
 func (s *ForContext) IN() antlr.TerminalNode {
@@ -3098,6 +3099,10 @@ func (s *ForContext) L_sentencias() IL_sentenciasContext {
 
 func (s *ForContext) LLAVEDER() antlr.TerminalNode {
 	return s.GetToken(Tswift_GrammarNParserLLAVEDER, 0)
+}
+
+func (s *ForContext) ID() antlr.TerminalNode {
+	return s.GetToken(Tswift_GrammarNParserID, 0)
 }
 
 func (s *ForContext) Rango_p() IRango_pContext {
@@ -3169,7 +3174,10 @@ func (p *Tswift_GrammarNParser) For_sentencia() (localctx IFor_sentenciaContext)
 	}
 	{
 		p.SetState(126)
-		p.Match(Tswift_GrammarNParserID)
+
+		var _m = p.Match(Tswift_GrammarNParserID)
+
+		localctx.(*ForContext).id = _m
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit

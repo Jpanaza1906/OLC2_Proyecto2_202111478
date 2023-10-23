@@ -79,6 +79,78 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 */
 	void exitS_Guard(Tswift_GrammarNParser.S_GuardContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code S_Trans}
+	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterS_Trans(Tswift_GrammarNParser.S_TransContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code S_Trans}
+	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitS_Trans(Tswift_GrammarNParser.S_TransContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code S_While}
+	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterS_While(Tswift_GrammarNParser.S_WhileContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code S_While}
+	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitS_While(Tswift_GrammarNParser.S_WhileContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code S_For}
+	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterS_For(Tswift_GrammarNParser.S_ForContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code S_For}
+	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitS_For(Tswift_GrammarNParser.S_ForContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Break}
+	 * labeled alternative in {@link Tswift_GrammarNParser#trans_sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterBreak(Tswift_GrammarNParser.BreakContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Break}
+	 * labeled alternative in {@link Tswift_GrammarNParser#trans_sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitBreak(Tswift_GrammarNParser.BreakContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Continue}
+	 * labeled alternative in {@link Tswift_GrammarNParser#trans_sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterContinue(Tswift_GrammarNParser.ContinueContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Continue}
+	 * labeled alternative in {@link Tswift_GrammarNParser#trans_sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitContinue(Tswift_GrammarNParser.ContinueContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Return}
+	 * labeled alternative in {@link Tswift_GrammarNParser#trans_sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterReturn(Tswift_GrammarNParser.ReturnContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Return}
+	 * labeled alternative in {@link Tswift_GrammarNParser#trans_sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitReturn(Tswift_GrammarNParser.ReturnContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code Print}
 	 * labeled alternative in {@link Tswift_GrammarNParser#print_sentencia}.
 	 * @param ctx the parse tree
@@ -150,6 +222,42 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDefault(Tswift_GrammarNParser.DefaultContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code While}
+	 * labeled alternative in {@link Tswift_GrammarNParser#while_sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterWhile(Tswift_GrammarNParser.WhileContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code While}
+	 * labeled alternative in {@link Tswift_GrammarNParser#while_sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitWhile(Tswift_GrammarNParser.WhileContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code For}
+	 * labeled alternative in {@link Tswift_GrammarNParser#for_sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterFor(Tswift_GrammarNParser.ForContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code For}
+	 * labeled alternative in {@link Tswift_GrammarNParser#for_sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitFor(Tswift_GrammarNParser.ForContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Rango}
+	 * labeled alternative in {@link Tswift_GrammarNParser#rango_p}.
+	 * @param ctx the parse tree
+	 */
+	void enterRango(Tswift_GrammarNParser.RangoContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Rango}
+	 * labeled alternative in {@link Tswift_GrammarNParser#rango_p}.
+	 * @param ctx the parse tree
+	 */
+	void exitRango(Tswift_GrammarNParser.RangoContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Cond_Par}
 	 * labeled alternative in {@link Tswift_GrammarNParser#condicion}.
