@@ -8,15 +8,19 @@ type NT_OpAritmeticas struct {
 	ExprIzq compilador.CAbstractExpr
 	ExprDer compilador.CAbstractExpr
 	Op      string
+	Linea   int
+	Columna int
 }
 
 // Constructor ================================================================================
 
-func NewNT_OpAritmeticas(exprIzq compilador.CAbstractExpr, exprDer compilador.CAbstractExpr, op string) *NT_OpAritmeticas {
+func NewNT_OpAritmeticas(exprIzq compilador.CAbstractExpr, exprDer compilador.CAbstractExpr, op string, linea int, columna int) *NT_OpAritmeticas {
 	return &NT_OpAritmeticas{
 		ExprIzq: exprIzq,
 		ExprDer: exprDer,
 		Op:      op,
+		Linea:   linea,
+		Columna: columna,
 	}
 }
 
@@ -36,14 +40,18 @@ func (Nmd *NT_OpAritmeticas) Compilar(ctx *compilador.Contexto) *compilador.Atri
 // NT_Negativo ====================================================================================
 
 type NT_Negativo struct {
-	Expr compilador.CAbstractExpr
+	Expr    compilador.CAbstractExpr
+	Linea   int
+	Columna int
 }
 
 // Constructor ================================================================================
 
-func NewNT_Negativo(expr compilador.CAbstractExpr) *NT_Negativo {
+func NewNT_Negativo(expr compilador.CAbstractExpr, linea int, columna int) *NT_Negativo {
 	return &NT_Negativo{
-		Expr: expr,
+		Expr:    expr,
+		Linea:   linea,
+		Columna: columna,
 	}
 }
 
@@ -65,14 +73,18 @@ func (Nmd *NT_Negativo) Compilar(ctx *compilador.Contexto) *compilador.Atributos
 type NT_Mod struct {
 	ExprIzq compilador.CAbstractExpr
 	ExprDer compilador.CAbstractExpr
+	Linea   int
+	Columna int
 }
 
 // Constructor ================================================================================
 
-func NewNT_Mod(exprIzq compilador.CAbstractExpr, exprDer compilador.CAbstractExpr) *NT_Mod {
+func NewNT_Mod(exprIzq compilador.CAbstractExpr, exprDer compilador.CAbstractExpr, linea int, columna int) *NT_Mod {
 	return &NT_Mod{
 		ExprIzq: exprIzq,
 		ExprDer: exprDer,
+		Linea:   linea,
+		Columna: columna,
 	}
 }
 

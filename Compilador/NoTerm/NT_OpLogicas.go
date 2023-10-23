@@ -7,14 +7,18 @@ import compilador "OLC2_Proyecto2_202111478/Compilador"
 type NT_Or struct {
 	CondIzq compilador.CAbstractExpr
 	CondDer compilador.CAbstractExpr
+	Linea   int
+	Columna int
 }
 
 // Constructor ================================================================================
 
-func NewNT_Or(condIzq compilador.CAbstractExpr, condDer compilador.CAbstractExpr) *NT_Or {
+func NewNT_Or(condIzq compilador.CAbstractExpr, condDer compilador.CAbstractExpr, linea int, columna int) *NT_Or {
 	return &NT_Or{
 		CondIzq: condIzq,
 		CondDer: condDer,
+		Linea:   linea,
+		Columna: columna,
 	}
 }
 
@@ -35,13 +39,17 @@ func (NtOr *NT_Or) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
 type NT_And struct {
 	CondIzq compilador.CAbstractExpr
 	CondDer compilador.CAbstractExpr
+	Linea   int
+	Columna int
 }
 
 // Constructor ================================================================================
-func NewNT_And(condIzq compilador.CAbstractExpr, condDer compilador.CAbstractExpr) *NT_And {
+func NewNT_And(condIzq compilador.CAbstractExpr, condDer compilador.CAbstractExpr, linea int, columna int) *NT_And {
 	return &NT_And{
 		CondIzq: condIzq,
 		CondDer: condDer,
+		Linea:   linea,
+		Columna: columna,
 	}
 }
 
@@ -60,14 +68,18 @@ func (NtAnd *NT_And) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
 // NT_Not ====================================================================================
 
 type NT_Not struct {
-	Cond compilador.CAbstractExpr
+	Cond    compilador.CAbstractExpr
+	Linea   int
+	Columna int
 }
 
 // Constructor ================================================================================
 
-func NewNT_Not(cond compilador.CAbstractExpr) *NT_Not {
+func NewNT_Not(cond compilador.CAbstractExpr, linea int, columna int) *NT_Not {
 	return &NT_Not{
-		Cond: cond,
+		Cond:    cond,
+		Linea:   linea,
+		Columna: columna,
 	}
 }
 

@@ -19,10 +19,6 @@ func (v *BaseTswift_GrammarNVisitor) VisitS_Print(ctx *S_PrintContext) interface
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseTswift_GrammarNVisitor) VisitS_Condicion(ctx *S_CondicionContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BaseTswift_GrammarNVisitor) VisitS_If(ctx *S_IfContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -31,11 +27,43 @@ func (v *BaseTswift_GrammarNVisitor) VisitS_Switch(ctx *S_SwitchContext) interfa
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseTswift_GrammarNVisitor) VisitS_Guard(ctx *S_GuardContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitS_Trans(ctx *S_TransContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitS_While(ctx *S_WhileContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitS_For(ctx *S_ForContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitBreak(ctx *BreakContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitContinue(ctx *ContinueContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitReturn(ctx *ReturnContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseTswift_GrammarNVisitor) VisitPrint(ctx *PrintContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
 func (v *BaseTswift_GrammarNVisitor) VisitIf(ctx *IfContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitGuard(ctx *GuardContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -48,6 +76,18 @@ func (v *BaseTswift_GrammarNVisitor) VisitCase(ctx *CaseContext) interface{} {
 }
 
 func (v *BaseTswift_GrammarNVisitor) VisitDefault(ctx *DefaultContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitWhile(ctx *WhileContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitFor(ctx *ForContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitRango(ctx *RangoContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

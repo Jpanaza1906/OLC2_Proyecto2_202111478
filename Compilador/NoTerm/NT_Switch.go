@@ -6,15 +6,19 @@ type NT_Switch struct {
 	Expr    compilador.CAbstractExpr
 	Cases   []compilador.CAbstractExpr
 	Default compilador.CAbstractExpr
+	Linea   int
+	Columna int
 }
 
 // Constructor ================================================================================
 
-func NewNT_Switch(expr compilador.CAbstractExpr, cases []compilador.CAbstractExpr, def compilador.CAbstractExpr) *NT_Switch {
+func NewNT_Switch(expr compilador.CAbstractExpr, cases []compilador.CAbstractExpr, def compilador.CAbstractExpr, linea int, columna int) *NT_Switch {
 	return &NT_Switch{
 		Expr:    expr,
 		Cases:   cases,
 		Default: def,
+		Linea:   linea,
+		Columna: columna,
 	}
 }
 
@@ -23,7 +27,7 @@ func NewNT_Switch(expr compilador.CAbstractExpr, cases []compilador.CAbstractExp
 func (NtSwitch *NT_Switch) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
 	expr := NtSwitch.Expr.Compilar(ctx)
 	Lprueba := ctx.NewEtq()
-	ctx.Gen("// switch------------------------------------")
+	ctx.Gen("// Switch>>>")
 	ctx.Gen("goto " + Lprueba + " //Lprueba")
 
 	ctx.PushDisplaySwitch() //Lsalida

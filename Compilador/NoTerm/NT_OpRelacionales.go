@@ -6,15 +6,19 @@ type NT_OpRelacionales struct {
 	ExprIzq compilador.CAbstractExpr
 	ExprDer compilador.CAbstractExpr
 	Op      string
+	Linea   int
+	Columna int
 }
 
 // Constructor ================================================================================
 
-func NewNT_OpRelacionales(exprIzq compilador.CAbstractExpr, exprDer compilador.CAbstractExpr, op string) *NT_OpRelacionales {
+func NewNT_OpRelacionales(exprIzq compilador.CAbstractExpr, exprDer compilador.CAbstractExpr, op string, linea int, columna int) *NT_OpRelacionales {
 	return &NT_OpRelacionales{
 		ExprIzq: exprIzq,
 		ExprDer: exprDer,
 		Op:      op,
+		Linea:   linea,
+		Columna: columna,
 	}
 }
 

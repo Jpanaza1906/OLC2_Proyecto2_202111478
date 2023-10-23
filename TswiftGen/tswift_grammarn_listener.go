@@ -16,20 +16,41 @@ type Tswift_GrammarNListener interface {
 	// EnterS_Print is called when entering the S_Print production.
 	EnterS_Print(c *S_PrintContext)
 
-	// EnterS_Condicion is called when entering the S_Condicion production.
-	EnterS_Condicion(c *S_CondicionContext)
-
 	// EnterS_If is called when entering the S_If production.
 	EnterS_If(c *S_IfContext)
 
 	// EnterS_Switch is called when entering the S_Switch production.
 	EnterS_Switch(c *S_SwitchContext)
 
+	// EnterS_Guard is called when entering the S_Guard production.
+	EnterS_Guard(c *S_GuardContext)
+
+	// EnterS_Trans is called when entering the S_Trans production.
+	EnterS_Trans(c *S_TransContext)
+
+	// EnterS_While is called when entering the S_While production.
+	EnterS_While(c *S_WhileContext)
+
+	// EnterS_For is called when entering the S_For production.
+	EnterS_For(c *S_ForContext)
+
+	// EnterBreak is called when entering the Break production.
+	EnterBreak(c *BreakContext)
+
+	// EnterContinue is called when entering the Continue production.
+	EnterContinue(c *ContinueContext)
+
+	// EnterReturn is called when entering the Return production.
+	EnterReturn(c *ReturnContext)
+
 	// EnterPrint is called when entering the Print production.
 	EnterPrint(c *PrintContext)
 
 	// EnterIf is called when entering the If production.
 	EnterIf(c *IfContext)
+
+	// EnterGuard is called when entering the Guard production.
+	EnterGuard(c *GuardContext)
 
 	// EnterSwitch is called when entering the Switch production.
 	EnterSwitch(c *SwitchContext)
@@ -39,6 +60,15 @@ type Tswift_GrammarNListener interface {
 
 	// EnterDefault is called when entering the Default production.
 	EnterDefault(c *DefaultContext)
+
+	// EnterWhile is called when entering the While production.
+	EnterWhile(c *WhileContext)
+
+	// EnterFor is called when entering the For production.
+	EnterFor(c *ForContext)
+
+	// EnterRango is called when entering the Rango production.
+	EnterRango(c *RangoContext)
 
 	// EnterCond_Par is called when entering the Cond_Par production.
 	EnterCond_Par(c *Cond_ParContext)
@@ -85,20 +115,41 @@ type Tswift_GrammarNListener interface {
 	// ExitS_Print is called when exiting the S_Print production.
 	ExitS_Print(c *S_PrintContext)
 
-	// ExitS_Condicion is called when exiting the S_Condicion production.
-	ExitS_Condicion(c *S_CondicionContext)
-
 	// ExitS_If is called when exiting the S_If production.
 	ExitS_If(c *S_IfContext)
 
 	// ExitS_Switch is called when exiting the S_Switch production.
 	ExitS_Switch(c *S_SwitchContext)
 
+	// ExitS_Guard is called when exiting the S_Guard production.
+	ExitS_Guard(c *S_GuardContext)
+
+	// ExitS_Trans is called when exiting the S_Trans production.
+	ExitS_Trans(c *S_TransContext)
+
+	// ExitS_While is called when exiting the S_While production.
+	ExitS_While(c *S_WhileContext)
+
+	// ExitS_For is called when exiting the S_For production.
+	ExitS_For(c *S_ForContext)
+
+	// ExitBreak is called when exiting the Break production.
+	ExitBreak(c *BreakContext)
+
+	// ExitContinue is called when exiting the Continue production.
+	ExitContinue(c *ContinueContext)
+
+	// ExitReturn is called when exiting the Return production.
+	ExitReturn(c *ReturnContext)
+
 	// ExitPrint is called when exiting the Print production.
 	ExitPrint(c *PrintContext)
 
 	// ExitIf is called when exiting the If production.
 	ExitIf(c *IfContext)
+
+	// ExitGuard is called when exiting the Guard production.
+	ExitGuard(c *GuardContext)
 
 	// ExitSwitch is called when exiting the Switch production.
 	ExitSwitch(c *SwitchContext)
@@ -108,6 +159,15 @@ type Tswift_GrammarNListener interface {
 
 	// ExitDefault is called when exiting the Default production.
 	ExitDefault(c *DefaultContext)
+
+	// ExitWhile is called when exiting the While production.
+	ExitWhile(c *WhileContext)
+
+	// ExitFor is called when exiting the For production.
+	ExitFor(c *ForContext)
+
+	// ExitRango is called when exiting the Rango production.
+	ExitRango(c *RangoContext)
 
 	// ExitCond_Par is called when exiting the Cond_Par production.
 	ExitCond_Par(c *Cond_ParContext)

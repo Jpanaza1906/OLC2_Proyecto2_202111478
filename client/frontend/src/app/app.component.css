@@ -31,12 +31,20 @@ body{
     pointer-events: none;
     background-color: #1f1f1f;
     color: gray;
-    min-width: 3ch; /* Adjust this based on your maximum expected line count */
+    min-width: 3ch; /* Ajusta esto en función de la cantidad máxima de líneas esperadas */
     overflow-y: scroll;
-    height: 100%; /* Make line numbers match the textarea height */
-    /*remove scrollbar*/
-    scrollbar-width: none;
+    height: 100%; /* Hace que los números de línea coincidan con la altura del área de texto */
 }
+
+/* Estilo de barra de desplazamiento y pulgar (WebKit) */
+.line-numbers::-webkit-scrollbar {
+    width: 0;
+}
+
+.line-numbers::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
   
 textarea{
     width: 100%;

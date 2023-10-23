@@ -14,9 +14,19 @@ l_sentencias:
 //Sentencias---------------------------------------------------------------------
 sentencia
     :print_sentencia PTCOMA? #S_Print
-    |condicion PTCOMA? #S_Condicion
     |if_sentencia #S_If
     |switch_sentencia #S_Switch
+    |guard_sentencia #S_Guard
+    |trans_sentencia PTCOMA? #S_Trans
+    |while_sentencia #S_While
+    |for_sentencia #S_For
+    ;
+
+//Sentencias de transferencias---------------------------------------------------
+trans_sentencia:
+    BREAK #Break
+    |CONTINUE  #Continue
+    |RETURN (e)? #Return
     ;
 
 //Sentencia print---------------------------------------------------------------
@@ -27,6 +37,11 @@ print_sentencia:
 //Sentencia if-------------------------------------------------------------------
 if_sentencia:
     IF condicion LLAVEIZQ l_sentencias LLAVEDER (ELSE (if_sentencia | LLAVEIZQ l_sentencias LLAVEDER))? #If
+    ;
+
+//Sentencia Guard----------------------------------------------------------------
+guard_sentencia:
+    GUARD condicion ELSE LLAVEIZQ l_sentencias trans_sentencia LLAVEDER #Guard
     ;
 
 //Sentencia Switch---------------------------------------------------------------
@@ -42,6 +57,18 @@ cdefault:
     DEFAULT DOSPT l_sentencias #Default
     ;
 
+//Sentencia While----------------------------------------------------------------
+while_sentencia:
+    WHILE condicion LLAVEIZQ l_sentencias LLAVEDER #While
+    ;
+
+//Sentencia For------------------------------------------------------------------
+for_sentencia:
+    FOR ID IN (rango_p|e) LLAVEIZQ l_sentencias LLAVEDER #For
+    ;
+rango_p:
+    e RANGO e #Rango
+;
 
 //Condiciones--------------------------------------------------------------------
 
