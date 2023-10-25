@@ -244,25 +244,25 @@ public class Tswift_GrammarNBaseListener implements Tswift_GrammarNListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFor(Tswift_GrammarNParser.ForContext ctx) { }
+	@Override public void enterForInt(Tswift_GrammarNParser.ForIntContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFor(Tswift_GrammarNParser.ForContext ctx) { }
+	@Override public void exitForInt(Tswift_GrammarNParser.ForIntContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRango(Tswift_GrammarNParser.RangoContext ctx) { }
+	@Override public void enterForList(Tswift_GrammarNParser.ForListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitRango(Tswift_GrammarNParser.RangoContext ctx) { }
+	@Override public void exitForList(Tswift_GrammarNParser.ForListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

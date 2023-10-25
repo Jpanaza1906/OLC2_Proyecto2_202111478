@@ -14,6 +14,7 @@ l_sentencias:
 //Sentencias---------------------------------------------------------------------
 sentencia
     :print_sentencia PTCOMA? #S_Print
+    |declaracion_sentencia PTCOMA? #S_Declaracion
     |if_sentencia #S_If
     |switch_sentencia #S_Switch
     |guard_sentencia #S_Guard
@@ -32,6 +33,23 @@ trans_sentencia:
 //Sentencia print---------------------------------------------------------------
 print_sentencia:
     PRINT PARIZQ e (COMA e)* PARDER #Print
+    ;
+
+//Declaración de variables-------------------------------------------------------
+declaracion_sentencia:
+    tip=(VAR | LET) ID DOSPT tipo IGUAL e #Declaracion_Tipo_Val
+    | tip=(VAR | LET) ID IGUAL e #Declaracion_Val
+    | tip=(VAR | LET) ID DOSPT tipo INTERROGACION #Declaracion_Tipo_noVal
+    ;
+
+tipo:
+    INT #Tipo_Int
+    |FLOAT #Tipo_Float
+    |STRING #Tipo_String
+    |BOOL #Tipo_Bool
+    |CHAR #Tipo_Character
+    | ID #Tipo_Struct
+    |CORCHETEIZQ tipo CORCHETEDER #Tipo_Vector
     ;
 
 //Sentencia if-------------------------------------------------------------------
@@ -64,11 +82,9 @@ while_sentencia:
 
 //Sentencia For------------------------------------------------------------------
 for_sentencia:
-    FOR id=ID IN (rango_p|e) LLAVEIZQ l_sentencias LLAVEDER #For
+    FOR ID IN left=e RANGO right=e LLAVEIZQ l_sentencias LLAVEDER #ForInt
+    | FOR ID IN e LLAVEIZQ l_sentencias LLAVEDER #ForList
     ;
-rango_p:
-    e RANGO e #Rango
-;
 
 //Condiciones--------------------------------------------------------------------
 
@@ -86,7 +102,12 @@ e
     | e1=e op=(POR | DIV) e2=e    # Expr_MulDiv
     | e1=e op=(MAS | MENOS) e2=e  # Expr_SumRes
     | e1=e op=MOD e2=e           # Expr_Mod
+    | n=(TRUE | FALSE)    # Expr_Booleano
+    | n=NIL              # Expr_Nil
     | id=ID                # Expr_Id
     | n=ENTERO            # Expr_Entero
+    | n=DECIMAL           # Expr_Decimal
+    | n=CADENA            # Expr_Cadena
+    | n=CARACTER          # Expr_Caracter
     | PARIZQ e1=e PARDER   # Expr_Par
     ;

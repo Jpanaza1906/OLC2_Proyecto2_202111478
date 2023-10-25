@@ -27,8 +27,9 @@ func NewNT_Switch(expr compilador.CAbstractExpr, cases []compilador.CAbstractExp
 func (NtSwitch *NT_Switch) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
 	expr := NtSwitch.Expr.Compilar(ctx)
 	Lprueba := ctx.NewEtq()
-	ctx.Gen("// Switch>>>")
-	ctx.Gen("goto " + Lprueba + " //Lprueba")
+	ctx.GenComentario("Switch>>>")
+	ctx.GenComentario("Lprueba")
+	ctx.Gen("goto " + Lprueba)
 
 	ctx.PushDisplaySwitch() //Lsalida
 
@@ -36,29 +37,42 @@ func (NtSwitch *NT_Switch) Compilar(ctx *compilador.Contexto) *compilador.Atribu
 	listaEtq := make([]string, 0)
 
 	for _, c := range NtSwitch.Cases {
+		//Se agrega un ambito
+		ctx.PushAmbito()
+
 		//Se castea la expresion
 		listaExpr = append(listaExpr, c.(*NT_Case).Expr)
 
 		//Se generan las etiquetas
 		etq := ctx.NewEtq()
-		ctx.Gen("// case ------------------------------------")
-		ctx.Gen(etq + ": //etq case")
+		ctx.GenComentario("case ------------------------------------")
+		ctx.GenLabel(etq + ": //etq case")
 		listaEtq = append(listaEtq, etq)
 		c.Compilar(ctx)
+
+		//Se elimina el ambito
+		ctx.PopAmbito()
 	}
 
 	var Ln string
 	// Se verifica si hay default
 	if NtSwitch.Default != nil {
+		//Se agrega un ambito
+		ctx.PushAmbito()
+
 		Ln = ctx.NewEtq()
-		ctx.Gen("// default ------------------------------------")
+		ctx.GenComentario("default ------------------------------------")
 		NtSwitch.Default.Compilar(ctx)
-		ctx.Gen(Ln + ": //Ln")
-		ctx.Gen("goto " + ctx.PeekDisplaySwitch() + " //Lsalida")
+		ctx.GenLabel(Ln + ": //Ln")
+		ctx.GenComentario("Lsalida")
+		ctx.Gen("goto " + ctx.PeekDisplaySwitch())
+
+		//Se elimina el ambito
+		ctx.PopAmbito()
 	}
 
 	// Se ven las pruebas
-	ctx.Gen(Lprueba + ": //Lprueba")
+	ctx.GenLabel(Lprueba + ": //Lprueba")
 	for i, e := range listaExpr {
 		//Se debe manejar los tipos
 		atributos := e.Compilar(ctx)
@@ -69,6 +83,7 @@ func (NtSwitch *NT_Switch) Compilar(ctx *compilador.Contexto) *compilador.Atribu
 		ctx.Gen("goto " + Ln)
 	}
 	//se agrega la etiqueta y se saca
-	ctx.Gen(ctx.PopDisplaySwitch() + ": //Lsalida")
+	ctx.GenLabel(ctx.PopDisplaySwitch() + ": //Lsalida")
+
 	return compilador.NewNill()
 }

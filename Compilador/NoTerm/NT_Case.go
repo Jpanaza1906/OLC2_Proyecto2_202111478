@@ -23,10 +23,10 @@ func (NtCase *NT_Case) Compilar(ctx *compilador.Contexto) *compilador.Atributos 
 		<cod sentencias 3d>
 		<goto Lsalida>
 	*/
-	ctx.Gen("// Case >>>")
+	ctx.GenComentario("Case >>>")
 	NtCase.Sentencias.Compilar(ctx)
 	Lsalida := ctx.PeekDisplaySwitch()
-	ctx.Gen("//goto Lsalida case ")
+	ctx.GenComentario("goto Lsalida case ")
 	ctx.Gen("goto " + Lsalida)
 	return compilador.NewNill()
 }

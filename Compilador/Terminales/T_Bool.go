@@ -6,8 +6,7 @@ type T_Bool struct {
 	Valor string
 }
 
-// Constructor ================================================================================
-
+// Constructor ================================================================================\
 func NewT_Bool(valor string) *T_Bool {
 	return &T_Bool{
 		Valor: valor,
@@ -17,21 +16,10 @@ func NewT_Bool(valor string) *T_Bool {
 // Implementacion =============================================================================
 
 func (Tb *T_Bool) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
-	EV := ctx.NewEtq()
-	EF := ctx.NewEtq()
-
 	if Tb.Valor == "true" {
-		ctx.Gen("goto " + EV)
-	} else {
-		ctx.Gen("goto " + EF)
+		return compilador.NewBool(1)
+	} else if Tb.Valor == "false" {
+		return compilador.NewBool(0)
 	}
-
-	//Se concatenand las etiquetas verdaders y falsas
-	EVs := make([]string, 0)
-	EVs = append(EVs, EV)
-
-	EFs := make([]string, 0)
-	EFs = append(EFs, EF)
-
-	return compilador.NewAtributo(EVs, EFs, "", "")
+	return compilador.NewNill()
 }

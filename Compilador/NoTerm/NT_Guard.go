@@ -28,20 +28,26 @@ func (NtGuard *NT_Guard) Compilar(ctx *compilador.Contexto) *compilador.Atributo
 	//Etiquetas
 	Lsalida := ctx.NewEtq()
 
-	ctx.Gen("// Guard >>>")
-	ctx.Gen("// codigo Condicion ------------------------------------")
+	ctx.GenComentario("Guard >>>")
+	ctx.GenComentario("codigo Condicion ------------------------------------")
 	condicion := NtGuard.Condicion.Compilar(ctx) //Se genera codigo de la condicion
 
-	ctx.Gen("// EV Cond ------------------------------------")
+	ctx.GenComentario("EV Cond ------------------------------------")
 	ctx.ImprimirEtq(condicion.EV) //Se imprime la etiqueta verdadera
 	ctx.Gen("goto " + Lsalida)    //Se genera el goto para la salida
 
-	ctx.Gen("// EF Cond ------------------------------------")
+	ctx.GenComentario("EF Cond ------------------------------------")
 	ctx.ImprimirEtq(condicion.EF) //Se imprime la etiqueta falsa
 
-	ctx.Gen("// codigo sentencias ------------------------------------")
+	//Se agrega un ambito
+	ctx.PushAmbito()
+
+	ctx.GenComentario("codigo sentencias ------------------------------------")
 
 	NtGuard.Sentencias.Compilar(ctx) //Se genera codigo de las sentencias
+
+	//Se elimina el ambito
+	ctx.PopAmbito()
 
 	ctx.Gen("goto " + Lsalida) //Se genera el goto para la salida
 

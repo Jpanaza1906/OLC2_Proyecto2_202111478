@@ -16,6 +16,9 @@ type Tswift_GrammarNVisitor interface {
 	// Visit a parse tree produced by Tswift_GrammarNParser#S_Print.
 	VisitS_Print(ctx *S_PrintContext) interface{}
 
+	// Visit a parse tree produced by Tswift_GrammarNParser#S_Declaracion.
+	VisitS_Declaracion(ctx *S_DeclaracionContext) interface{}
+
 	// Visit a parse tree produced by Tswift_GrammarNParser#S_If.
 	VisitS_If(ctx *S_IfContext) interface{}
 
@@ -46,6 +49,36 @@ type Tswift_GrammarNVisitor interface {
 	// Visit a parse tree produced by Tswift_GrammarNParser#Print.
 	VisitPrint(ctx *PrintContext) interface{}
 
+	// Visit a parse tree produced by Tswift_GrammarNParser#Declaracion_Tipo_Val.
+	VisitDeclaracion_Tipo_Val(ctx *Declaracion_Tipo_ValContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Declaracion_Val.
+	VisitDeclaracion_Val(ctx *Declaracion_ValContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Declaracion_Tipo_noVal.
+	VisitDeclaracion_Tipo_noVal(ctx *Declaracion_Tipo_noValContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Tipo_Int.
+	VisitTipo_Int(ctx *Tipo_IntContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Tipo_Float.
+	VisitTipo_Float(ctx *Tipo_FloatContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Tipo_String.
+	VisitTipo_String(ctx *Tipo_StringContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Tipo_Bool.
+	VisitTipo_Bool(ctx *Tipo_BoolContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Tipo_Character.
+	VisitTipo_Character(ctx *Tipo_CharacterContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Tipo_Struct.
+	VisitTipo_Struct(ctx *Tipo_StructContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Tipo_Vector.
+	VisitTipo_Vector(ctx *Tipo_VectorContext) interface{}
+
 	// Visit a parse tree produced by Tswift_GrammarNParser#If.
 	VisitIf(ctx *IfContext) interface{}
 
@@ -64,11 +97,11 @@ type Tswift_GrammarNVisitor interface {
 	// Visit a parse tree produced by Tswift_GrammarNParser#While.
 	VisitWhile(ctx *WhileContext) interface{}
 
-	// Visit a parse tree produced by Tswift_GrammarNParser#For.
-	VisitFor(ctx *ForContext) interface{}
+	// Visit a parse tree produced by Tswift_GrammarNParser#ForInt.
+	VisitForInt(ctx *ForIntContext) interface{}
 
-	// Visit a parse tree produced by Tswift_GrammarNParser#Rango.
-	VisitRango(ctx *RangoContext) interface{}
+	// Visit a parse tree produced by Tswift_GrammarNParser#ForList.
+	VisitForList(ctx *ForListContext) interface{}
 
 	// Visit a parse tree produced by Tswift_GrammarNParser#Cond_Par.
 	VisitCond_Par(ctx *Cond_ParContext) interface{}
@@ -85,6 +118,12 @@ type Tswift_GrammarNVisitor interface {
 	// Visit a parse tree produced by Tswift_GrammarNParser#Cond_Logica.
 	VisitCond_Logica(ctx *Cond_LogicaContext) interface{}
 
+	// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Decimal.
+	VisitExpr_Decimal(ctx *Expr_DecimalContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Caracter.
+	VisitExpr_Caracter(ctx *Expr_CaracterContext) interface{}
+
 	// Visit a parse tree produced by Tswift_GrammarNParser#Expr_SumRes.
 	VisitExpr_SumRes(ctx *Expr_SumResContext) interface{}
 
@@ -100,9 +139,18 @@ type Tswift_GrammarNVisitor interface {
 	// Visit a parse tree produced by Tswift_GrammarNParser#Expr_MulDiv.
 	VisitExpr_MulDiv(ctx *Expr_MulDivContext) interface{}
 
+	// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Nil.
+	VisitExpr_Nil(ctx *Expr_NilContext) interface{}
+
 	// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Par.
 	VisitExpr_Par(ctx *Expr_ParContext) interface{}
 
+	// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Booleano.
+	VisitExpr_Booleano(ctx *Expr_BooleanoContext) interface{}
+
 	// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Entero.
 	VisitExpr_Entero(ctx *Expr_EnteroContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Cadena.
+	VisitExpr_Cadena(ctx *Expr_CadenaContext) interface{}
 }

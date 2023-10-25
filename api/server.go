@@ -59,6 +59,10 @@ func analizarNodos(input string) (string, string, string, string, string) {
 	raiz := visitor.Visit(tree).(compilador.CAbstractExpr)
 	// se hace un contexto
 	ctx := compilador.NewContexto()
+
+	//agregar ambito global
+	ctx.PushAmbito()
+
 	fmt.Println("Compilando---------------------------------------------------------")
 	// se hace un visit
 	raiz.Compilar(ctx)
@@ -69,6 +73,40 @@ func analizarNodos(input string) (string, string, string, string, string) {
 
 	ctx.Errores += errorString
 	fmt.Print(ctx.Errores)
+
+	var inicio string
+
+	inicio = "#include <stdio.h>\n"
+	inicio += "float stack[10000];\n"
+	inicio += "float heap[10000];\n"
+	inicio += "//Declaracion de variables\n"
+	inicio += "float P;\n"
+	inicio += "float H;\n"
+
+	//se obtienen los temporales
+	arraytemp := ctx.GetTemplist()
+	if len(arraytemp) > 0 {
+		inicio += "//Declaracion de temporales\n"
+		inicio += "float "
+		for _, t := range arraytemp {
+			//se es el ultimo se agrega el ; en lugar de la ,
+			if t == arraytemp[len(arraytemp)-1] {
+				inicio += t + ";\n"
+			} else {
+				inicio += t + ", "
+			}
+		}
+	}
+
+	//funcion main
+	inicio += "\nint main(){\n"
+	//inicializan punteros P y H
+	inicio += "\t//Inicializacion de punteros\n"
+	inicio += "\tP = 0;\n"
+	inicio += "\tH = 0;\n\n"
+
+	fin := "\treturn 0;\n}"
+	ctx.Consola = inicio + ctx.Consola + fin
 
 	console := "Compilacion Exitosa"
 	//si hay errores que devuelva consola vacia

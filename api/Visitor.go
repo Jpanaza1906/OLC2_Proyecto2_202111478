@@ -74,6 +74,11 @@ func (tV *Visitor) VisitS_Print(ctx *TswiftGen.S_PrintContext) interface{} {
 	panic("not implemented") // TODO: Implement
 }
 
+// Visit a parse tree produced by Tswift_GrammarNParser#S_Declaracion.
+func (tV *Visitor) VisitS_Declaracion(ctx *TswiftGen.S_DeclaracionContext) interface{} {
+	return ctx.Declaracion_sentencia().Accept(tV).(compilador.CAbstractExpr)
+}
+
 // Visit a parse tree produced by Tswift_GrammarNParser#S_If.
 func (tV *Visitor) VisitS_If(ctx *TswiftGen.S_IfContext) interface{} {
 	return ctx.If_sentencia().Accept(tV).(compilador.CAbstractExpr)
@@ -130,6 +135,81 @@ func (tV *Visitor) VisitReturn(ctx *TswiftGen.ReturnContext) interface{} {
 // Visit a parse tree produced by Tswift_GrammarNParser#Print.
 func (tV *Visitor) VisitPrint(ctx *TswiftGen.PrintContext) interface{} {
 	panic("not implemented") // TODO: Implement
+}
+
+// DECLARACION VARIABLES Y CONSTANTES ===================================
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Declaracion_Tipo_Val.
+func (tV *Visitor) VisitDeclaracion_Tipo_Val(ctx *TswiftGen.Declaracion_Tipo_ValContext) interface{} {
+	// get tipvar
+	tipodec := ctx.GetTip().GetText()
+
+	//si es let, mutable es false
+	mutable := false
+
+	if tipodec == "let" {
+		mutable = false
+	} else {
+		mutable = true
+	}
+
+	//tipo de variable
+	tipo := ctx.Tipo().Accept(tV).(string)
+
+	//id
+	id := ctx.ID().GetText()
+
+	//expresion
+	expresion := ctx.E().Accept(tV).(compilador.CAbstractExpr)
+
+	return noterm.NewNT_Declaracion(id, tipo, mutable, expresion, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Declaracion_Val.
+func (tV *Visitor) VisitDeclaracion_Val(ctx *TswiftGen.Declaracion_ValContext) interface{} {
+	// get tipvar
+	tipodec := ctx.GetTip().GetText()
+
+	//si es let, mutable es false
+	mutable := false
+
+	if tipodec == "let" {
+		mutable = false
+	} else {
+		mutable = true
+	}
+
+	//id
+	id := ctx.ID().GetText()
+
+	//expresion
+	expresion := ctx.E().Accept(tV).(compilador.CAbstractExpr)
+
+	return noterm.NewNT_Declaracion(id, "", mutable, expresion, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Declaracion_Tipo_noVal.
+func (tV *Visitor) VisitDeclaracion_Tipo_noVal(ctx *TswiftGen.Declaracion_Tipo_noValContext) interface{} {
+	// get tipvar
+	tipodec := ctx.GetTip().GetText()
+
+	//si es let, mutable es false
+	mutable := false
+
+	if tipodec == "let" {
+		mutable = false
+	} else {
+		mutable = true
+	}
+
+	//tipo de variable
+	tipo := ctx.Tipo().Accept(tV).(string)
+
+	//id
+	id := ctx.ID().GetText()
+
+	return noterm.NewNT_Declaracion(id, tipo, mutable, nil, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
 }
 
 // IF ==================================================================
@@ -218,18 +298,24 @@ func (tV *Visitor) VisitDefault(ctx *TswiftGen.DefaultContext) interface{} {
 
 // Visit a parse tree produced by Tswift_GrammarNParser#While.
 func (tV *Visitor) VisitWhile(ctx *TswiftGen.WhileContext) interface{} {
-	panic("not implemented") // TODO: Implement
+	//Se obtiene la condicion
+	condicion := ctx.Condicion().Accept(tV).(compilador.CAbstractExpr)
+
+	//Se obtiene la lista de sentencias
+	sentencias := ctx.L_sentencias().Accept(tV).(compilador.CAbstractExpr)
+
+	return noterm.NewNT_While(condicion, sentencias, ctx.Condicion().GetStart().GetLine(), ctx.Condicion().GetStart().GetColumn())
 }
 
 // FOR =================================================================
 
-// Visit a parse tree produced by Tswift_GrammarNParser#For.
-func (tV *Visitor) VisitFor(ctx *TswiftGen.ForContext) interface{} {
+// Visit a parse tree produced by Tswift_GrammarNParser#ForInt.
+func (tV *Visitor) VisitForInt(ctx *TswiftGen.ForIntContext) interface{} {
 	panic("not implemented") // TODO: Implement
 }
 
-// Visit a parse tree produced by Tswift_GrammarNParser#Rango.
-func (tV *Visitor) VisitRango(ctx *TswiftGen.RangoContext) interface{} {
+// Visit a parse tree produced by Tswift_GrammarNParser#ForList.
+func (tV *Visitor) VisitForList(ctx *TswiftGen.ForListContext) interface{} {
 	panic("not implemented") // TODO: Implement
 }
 
@@ -256,7 +342,7 @@ func (tV *Visitor) VisitCond_Rel(ctx *TswiftGen.Cond_RelContext) interface{} {
 
 // Visit a parse tree produced by Tswift_GrammarNParser#Cond_Booleano.
 func (tV *Visitor) VisitCond_Booleano(ctx *TswiftGen.Cond_BooleanoContext) interface{} {
-	return terminales.NewT_Bool(ctx.GetOp().GetText())
+	return terminales.NewT_BoolCond(ctx.GetOp().GetText())
 }
 
 // Visit a parse tree produced by Tswift_GrammarNParser#Cond_Logica.
@@ -269,6 +355,43 @@ func (tV *Visitor) VisitCond_Logica(ctx *TswiftGen.Cond_LogicaContext) interface
 		return noterm.NewNT_And(condIzq, condDer, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
 	}
 	return noterm.NewNT_Or(condIzq, condDer, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+}
+
+// TIPOS ===============================================================
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Tipo_Int.
+func (tV *Visitor) VisitTipo_Int(ctx *TswiftGen.Tipo_IntContext) interface{} {
+	return ctx.INT().GetText()
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Tipo_Float.
+func (tV *Visitor) VisitTipo_Float(ctx *TswiftGen.Tipo_FloatContext) interface{} {
+	return ctx.FLOAT().GetText()
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Tipo_String.
+func (tV *Visitor) VisitTipo_String(ctx *TswiftGen.Tipo_StringContext) interface{} {
+	return ctx.STRING().GetText()
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Tipo_Bool.
+func (tV *Visitor) VisitTipo_Bool(ctx *TswiftGen.Tipo_BoolContext) interface{} {
+	return ctx.BOOL().GetText()
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Tipo_Character.
+func (tV *Visitor) VisitTipo_Character(ctx *TswiftGen.Tipo_CharacterContext) interface{} {
+	return ctx.CHAR().GetText()
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Tipo_Struct.
+func (tV *Visitor) VisitTipo_Struct(ctx *TswiftGen.Tipo_StructContext) interface{} {
+	return "Struct"
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Tipo_Vector.
+func (tV *Visitor) VisitTipo_Vector(ctx *TswiftGen.Tipo_VectorContext) interface{} {
+	return "Vector"
 }
 
 // EXPRESIONES ========================================================
@@ -316,4 +439,34 @@ func (tV *Visitor) VisitExpr_Par(ctx *TswiftGen.Expr_ParContext) interface{} {
 // Visit a parse tree produced by Tswift_GrammarNParser#Expr_Entero.
 func (tV *Visitor) VisitExpr_Entero(ctx *TswiftGen.Expr_EnteroContext) interface{} {
 	return terminales.NewT_Num(ctx.GetN().GetText())
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Decimal.
+func (tV *Visitor) VisitExpr_Decimal(ctx *TswiftGen.Expr_DecimalContext) interface{} {
+	return terminales.NewT_Float(ctx.GetN().GetText())
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Caracter.
+func (tV *Visitor) VisitExpr_Caracter(ctx *TswiftGen.Expr_CaracterContext) interface{} {
+	return terminales.NewT_Char(ctx.GetN().GetText())
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Nil.
+func (tV *Visitor) VisitExpr_Nil(ctx *TswiftGen.Expr_NilContext) interface{} {
+	return terminales.NewT_Nil()
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Booleano.
+func (tV *Visitor) VisitExpr_Booleano(ctx *TswiftGen.Expr_BooleanoContext) interface{} {
+	return terminales.NewT_Bool(ctx.GetN().GetText())
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Cadena.
+func (tV *Visitor) VisitExpr_Cadena(ctx *TswiftGen.Expr_CadenaContext) interface{} {
+	//Se obtiene el texto de la cadena
+	cadena := ctx.GetN().GetText()
+
+	//eliminar las comillas
+	cadena = cadena[1 : len(cadena)-1]
+	return terminales.NewT_Cad(cadena)
 }

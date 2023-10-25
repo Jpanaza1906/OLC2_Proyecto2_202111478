@@ -1,6 +1,9 @@
 package terminales
 
-import compilador "OLC2_Proyecto2_202111478/Compilador"
+import (
+	compilador "OLC2_Proyecto2_202111478/Compilador"
+	"strconv"
+)
 
 type T_Num struct {
 	Num string
@@ -17,9 +20,10 @@ func NewT_Num(num string) *T_Num {
 // Implementacion =============================================================================
 
 func (Tn *T_Num) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
-	return &compilador.Atributos{
-		EV:  make([]string, 0),
-		EF:  make([]string, 0),
-		Dir: Tn.Num,
+	num, err := strconv.Atoi(Tn.Num)
+	if err != nil {
+		ctx.AddError("Error Semantico: No se pudo convertir el numero")
+		return compilador.NewNill()
 	}
+	return compilador.NewInt(num)
 }

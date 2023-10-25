@@ -75,7 +75,7 @@ SELF : 'self';
 INT: 'Int';
 FLOAT: 'Float';
 BOOL: 'Bool';
-CHARACTER: 'Character';
+CHAR: 'Char';
 STRING: 'String';
 
 
@@ -88,7 +88,7 @@ fragment DIG: [0-9];
 //tipos de datos
 ENTERO: (DIG)+ ;
 DECIMAL: DIG+ '.' DIG+ ;
-CARACTER: '"' ( ~('\'' | '\\') | '\\' . ) '"' ;
+CARACTER: '\'' ( ~('\'' | '\\') | '\\' . ) '\'' ;
 CADENA: '"' ( ~('"' | '\\') | '\\' . )* '"' ;
 
 ID

@@ -18,6 +18,23 @@ func NewNT_Break(linea int, columna int) *NT_Break {
 
 // Implementacion =============================================================================
 func (NtBreak *NT_Break) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
+	//Se pregunta si hay un switch
+	if len(ctx.DisplaySwitch) > 0 {
+		//se obtiene la etiqueta de salida
+		return compilador.NewNill()
+	}
+
+	//se valida en el display de transferencia que haya un while o for
+	if ctx.PtrTrans > 0 {
+		//se obtiene la etiqueta de salida
+		Lsalida := ctx.PeekBreak()
+		ctx.GenComentario("Lsalida break")
+		ctx.Gen("goto " + Lsalida)
+	} else {
+		//se genera error
+		ctx.AddErrorLine("Semantico", "No se puede utilizar break fuera de un ciclo", NtBreak.Linea, NtBreak.Columna)
+	}
+
 	return compilador.NewNill()
 }
 
@@ -40,6 +57,17 @@ func NewNT_Continue(linea int, columna int) *NT_Continue {
 // Implementacion =============================================================================
 
 func (NtContinue *NT_Continue) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
+	//se valida en el display de transferencia que haya un while o for
+
+	if ctx.PtrTrans > 0 {
+		//se obtiene la etiqueta de salida
+		Lwhile := ctx.PeekContinue()
+		ctx.GenComentario("Lwhile continue")
+		ctx.Gen("goto " + Lwhile)
+	} else {
+		//se genera error
+		ctx.AddErrorLine("Semantico", "No se puede utilizar continue fuera de un ciclo", NtContinue.Linea, NtContinue.Columna)
+	}
 	return compilador.NewNill()
 }
 

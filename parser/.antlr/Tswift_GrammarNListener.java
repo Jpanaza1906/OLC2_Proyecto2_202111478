@@ -235,29 +235,29 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 */
 	void exitWhile(Tswift_GrammarNParser.WhileContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code For}
+	 * Enter a parse tree produced by the {@code ForInt}
 	 * labeled alternative in {@link Tswift_GrammarNParser#for_sentencia}.
 	 * @param ctx the parse tree
 	 */
-	void enterFor(Tswift_GrammarNParser.ForContext ctx);
+	void enterForInt(Tswift_GrammarNParser.ForIntContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code For}
+	 * Exit a parse tree produced by the {@code ForInt}
 	 * labeled alternative in {@link Tswift_GrammarNParser#for_sentencia}.
 	 * @param ctx the parse tree
 	 */
-	void exitFor(Tswift_GrammarNParser.ForContext ctx);
+	void exitForInt(Tswift_GrammarNParser.ForIntContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code Rango}
-	 * labeled alternative in {@link Tswift_GrammarNParser#rango_p}.
+	 * Enter a parse tree produced by the {@code ForList}
+	 * labeled alternative in {@link Tswift_GrammarNParser#for_sentencia}.
 	 * @param ctx the parse tree
 	 */
-	void enterRango(Tswift_GrammarNParser.RangoContext ctx);
+	void enterForList(Tswift_GrammarNParser.ForListContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code Rango}
-	 * labeled alternative in {@link Tswift_GrammarNParser#rango_p}.
+	 * Exit a parse tree produced by the {@code ForList}
+	 * labeled alternative in {@link Tswift_GrammarNParser#for_sentencia}.
 	 * @param ctx the parse tree
 	 */
-	void exitRango(Tswift_GrammarNParser.RangoContext ctx);
+	void exitForList(Tswift_GrammarNParser.ForListContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Cond_Par}
 	 * labeled alternative in {@link Tswift_GrammarNParser#condicion}.
