@@ -35,7 +35,7 @@ func (NtDeclaracion *NT_Declaracion) Compilar(ctx *compilador.Contexto) *compila
 
 	//si el simbolo ya existe
 	if idsimbolo.Id != "" {
-		ctx.AddErrorLine("Semantico", "La variable "+NtDeclaracion.Id+" ya existe en el ambito "+strconv.Itoa(ctx.PeekAmbito()-1), NtDeclaracion.Linea, NtDeclaracion.Columna)
+		ctx.AddErrorLine("Semantico", "La variable "+NtDeclaracion.Id+" ya existe en el ambito "+strconv.Itoa(ctx.PeekAmbito()), NtDeclaracion.Linea, NtDeclaracion.Columna)
 
 		return compilador.NewNill()
 	}

@@ -59,9 +59,6 @@ func (NtIf *NT_If) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
 	}
 	ctx.GenLabel(Lsalida + ":") //Se imprime la etiqueta de salida
 
-	//Se elimina el ambito
-	ctx.PopAmbito()
-
 	return compilador.NewNill()
 
 }

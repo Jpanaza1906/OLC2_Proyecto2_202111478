@@ -115,6 +115,8 @@ func analizarNodos(input string) (string, string, string, string, string) {
 		console = "Compilacion sin exito, ver consola de errores"
 	}
 
+	ctx.GetSimbolosCadena()
+
 	return ctx.Consola, ctx.Errores, ctx.Simbolos, ctx.Funciones, console
 }
 

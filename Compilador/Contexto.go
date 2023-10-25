@@ -204,10 +204,20 @@ func (ctx *Contexto) GetSimbolo(id string) Tsimbolos {
 }
 
 func (ctx *Contexto) RemoveSimbolosAmbito(ambito int) {
+	//quitar cada ambito que tenga el mismo numero de ambito
 	for i := len(ctx.TablaSimbolos) - 1; i >= 0; i-- {
 		if ctx.TablaSimbolos[i].Ambiente == ambito {
 			ctx.TablaSimbolos = append(ctx.TablaSimbolos[:i], ctx.TablaSimbolos[i+1:]...)
 		}
+	}
+}
+
+func (ctx *Contexto) GetSimbolosCadena() {
+	ctx.Simbolos = "--------------------------TABLA DE SIMBOLOS-------------------------------\n"
+	ctx.Simbolos += "Id | TipoId | Tipo | Ambiente | Size | Referencia | Mutable\n"
+	ctx.Simbolos += "------------------------------------------------------------------------------------------\n"
+	for _, s := range ctx.TablaSimbolos {
+		ctx.Simbolos += fmt.Sprintf("%s | %s | %s | %d | %d | %t | %t\n", s.Id, s.TipoId, s.Tipo, s.Ambiente, s.Size, s.Referencia, s.Mutable)
 	}
 }
 
