@@ -30,11 +30,50 @@ func (Nmd *NT_OpAritmeticas) Compilar(ctx *compilador.Contexto) *compilador.Atri
 	exprIzq := Nmd.ExprIzq.Compilar(ctx)
 	exprDer := Nmd.ExprDer.Compilar(ctx)
 
-	tmp := ctx.NewTemp()
+	if exprIzq.Tipo != exprDer.Tipo {
+		if exprIzq.Tipo > exprDer.Tipo {
+			exprDer = ctx.Conversor.Ampliar(exprDer, exprIzq.Tipo)
+		} else {
+			exprIzq = ctx.Conversor.Ampliar(exprIzq, exprDer.Tipo)
+		}
+	}
 
-	ctx.Gen(tmp + " = " + exprIzq.Dir + " " + Nmd.Op + " " + exprDer.Dir)
+	if exprIzq.Tipo == compilador.Nil {
+		compilador.NewContexto().AddErrorLine("Semantico", "No se puede operar aritmeticamente con tipos nil", Nmd.Linea, Nmd.Columna)
+		return compilador.NewNill()
+	}
 
-	return compilador.NewDirAtributo(tmp)
+	conversionIzq := ""
+	conversionDer := ""
+	tmp := ""
+
+	switch exprIzq.Tipo {
+	case compilador.Bool:
+		compilador.NewContexto().AddErrorLine("Semantico", "No se puede operar aritmeticamente con tipos bool", Nmd.Linea, Nmd.Columna)
+		return compilador.NewNill()
+	case compilador.Integer:
+		conversionIzq = "(float) "
+		conversionDer = "(float) "
+		tmp = ctx.NewTemp()
+		ctx.Gen(tmp + " = " + conversionIzq + exprIzq.Dir + " " + Nmd.Op + " " + conversionDer + exprDer.Dir)
+	case compilador.Float:
+		conversionIzq = ""
+		conversionDer = ""
+		tmp = ctx.NewTemp()
+		ctx.Gen(tmp + " = " + conversionIzq + exprIzq.Dir + " " + Nmd.Op + " " + conversionDer + exprDer.Dir)
+	case compilador.String:
+		//se buscan en el heap los valores de las cadenas
+		//si es suma se concatenan
+		if Nmd.Op == "+" {
+			//hacer una lista de temporales para concatenar
+			tmp = exprIzq.Dir
+			ctx.Nat_ConcatString(exprIzq.Dir, exprDer.Dir) //se llama a la funcion nativa para concatenar
+		} else {
+			compilador.NewContexto().AddErrorLine("Semantico", "No se puede operar aritmeticamente con tipos string", Nmd.Linea, Nmd.Columna)
+			return compilador.NewNill()
+		}
+	}
+	return compilador.NewAtributo(nil, nil, tmp, "", exprIzq.Tipo)
 }
 
 // NT_Negativo ====================================================================================

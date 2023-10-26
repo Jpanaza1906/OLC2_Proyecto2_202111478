@@ -33,5 +33,5 @@ func (Tb *T_BoolCond) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
 	EFs := make([]string, 0)
 	EFs = append(EFs, EF)
 
-	return compilador.NewAtributo(EVs, EFs, "", "")
+	return compilador.NewAtributo(EVs, EFs, "", "", compilador.Bool)
 }

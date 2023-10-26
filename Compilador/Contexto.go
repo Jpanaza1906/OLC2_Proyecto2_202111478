@@ -14,6 +14,8 @@ type Contexto struct {
 	Errores   string
 	Simbolos  string
 	Funciones string
+	Nativas   string
+	Fnativas  map[string]string
 	//displays
 	DisplaySwitch []string
 	DisplayTrans  []DisplayTrans
@@ -21,26 +23,35 @@ type Contexto struct {
 	//tabla de simbolos
 	TablaSimbolos []Tsimbolos
 	PosSt         int
+	PointerGuard  []int
 	//ambito
 	Ambito  int
 	tmpList []string
+	//conversor de tipos
+	Conversor *Conversor
 }
 
 func NewContexto() *Contexto {
-	return &Contexto{
+	c := &Contexto{
 		tmp:           0,
 		lb:            0,
 		Consola:       "",
 		Errores:       "",
 		Simbolos:      "",
 		Funciones:     "",
+		Nativas:       "",
+		Fnativas:      make(map[string]string),
 		DisplaySwitch: make([]string, 0),
 		DisplayTrans:  make([]DisplayTrans, 15),
 		PtrTrans:      0,
 		TablaSimbolos: make([]Tsimbolos, 0),
 		PosSt:         0,
+		PointerGuard:  make([]int, 0),
 		Ambito:        0,
+		Conversor:     nil,
 	}
+	c.Conversor = NewConversor(c)
+	return c
 }
 
 // Simbolos--------------------------------------------------------------------------------------
@@ -83,6 +94,13 @@ func (ctx *Contexto) ImprimirEtq(etiquetas []string) {
 func (ctx *Contexto) Unir(etq1 []string, etq2 []string) []string {
 	etiquetas := append(etq1, etq2...)
 	return etiquetas
+}
+
+func (ctx *Contexto) AddNativas(llave string, fun string) {
+	//si no se ha agregado la funcion
+	ctx.Fnativas[llave] = fun
+	ctx.Nativas += fun + "\n"
+
 }
 
 //Errores---------------------------------------------------------------------------------------
@@ -240,6 +258,7 @@ func (ctx *Contexto) GetTipoE(tipo string) TipoE {
 // Ambito----------------------------------------------------------------------------------------
 
 func (ctx *Contexto) PushAmbito() {
+	ctx.PointerGuard = append(ctx.PointerGuard, ctx.PosSt)
 	ctx.Ambito++
 }
 
@@ -254,6 +273,10 @@ func (ctx *Contexto) PeekAmbito() int {
 
 func (ctx *Contexto) PopAmbito() {
 	if ctx.Ambito > 0 {
+		//se regresa el stack pointer a la posicion anterior
+		ctx.PosSt = ctx.PointerGuard[len(ctx.PointerGuard)-1]
+		ctx.PointerGuard = ctx.PointerGuard[:len(ctx.PointerGuard)-1]
+
 		//se eliminan los simbolos del ambito
 		ctx.RemoveSimbolosAmbito(ctx.Ambito)
 		ctx.Ambito--

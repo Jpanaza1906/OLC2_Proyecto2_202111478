@@ -84,12 +84,13 @@ func NewOpAtributo(op string) *Atributos {
 	}
 }
 
-func NewAtributo(EV []string, EF []string, dir string, op string) *Atributos {
+func NewAtributo(EV []string, EF []string, dir string, op string, tipo TipoE) *Atributos {
 	return &Atributos{
-		EV:  EV,
-		EF:  EF,
-		Dir: dir,
-		Op:  op,
+		EV:   EV,
+		EF:   EF,
+		Dir:  dir,
+		Op:   op,
+		Tipo: tipo,
 	}
 }
 

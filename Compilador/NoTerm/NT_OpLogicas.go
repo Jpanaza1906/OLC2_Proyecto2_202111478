@@ -30,7 +30,7 @@ func (NtOr *NT_Or) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
 	ctx.ImprimirEtq(condIzq.EF)
 	condDer := NtOr.CondDer.Compilar(ctx)
 
-	return compilador.NewAtributo(ctx.Unir(condIzq.EV, condDer.EV), condDer.EF, "", "")
+	return compilador.NewAtributo(ctx.Unir(condIzq.EV, condDer.EV), condDer.EF, "", "", compilador.Bool)
 
 }
 
@@ -61,7 +61,7 @@ func (NtAnd *NT_And) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
 	ctx.ImprimirEtq(condIzq.EV)
 	condDer := NtAnd.CondDer.Compilar(ctx)
 
-	return compilador.NewAtributo(condDer.EV, ctx.Unir(condIzq.EF, condDer.EF), "", "")
+	return compilador.NewAtributo(condDer.EV, ctx.Unir(condIzq.EF, condDer.EF), "", "", compilador.Bool)
 
 }
 
@@ -88,6 +88,6 @@ func NewNT_Not(cond compilador.CAbstractExpr, linea int, columna int) *NT_Not {
 func (NtNot *NT_Not) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
 	cond := NtNot.Cond.Compilar(ctx)
 
-	return compilador.NewAtributo(cond.EF, cond.EV, "", "")
+	return compilador.NewAtributo(cond.EF, cond.EV, "", "", compilador.Bool)
 
 }

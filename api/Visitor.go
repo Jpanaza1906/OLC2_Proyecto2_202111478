@@ -448,7 +448,10 @@ func (tV *Visitor) VisitExpr_Decimal(ctx *TswiftGen.Expr_DecimalContext) interfa
 
 // Visit a parse tree produced by Tswift_GrammarNParser#Expr_Caracter.
 func (tV *Visitor) VisitExpr_Caracter(ctx *TswiftGen.Expr_CaracterContext) interface{} {
-	return terminales.NewT_Char(ctx.GetN().GetText())
+	cadena := ctx.GetN().GetText()
+	//eliminar las comillas
+	cadena = cadena[1 : len(cadena)-1]
+	return terminales.NewT_Char(cadena)
 }
 
 // Visit a parse tree produced by Tswift_GrammarNParser#Expr_Nil.

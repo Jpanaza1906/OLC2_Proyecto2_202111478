@@ -97,7 +97,7 @@ func analizarNodos(input string) (string, string, string, string, string) {
 			}
 		}
 	}
-
+	inicio += ctx.Nativas
 	//funcion main
 	inicio += "\nint main(){\n"
 	//inicializan punteros P y H

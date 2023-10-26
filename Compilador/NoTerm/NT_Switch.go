@@ -76,7 +76,7 @@ func (NtSwitch *NT_Switch) Compilar(ctx *compilador.Contexto) *compilador.Atribu
 	for i, e := range listaExpr {
 		//Se debe manejar los tipos
 		atributos := e.Compilar(ctx)
-		ctx.Gen("If " + expr.Dir + " == " + atributos.Dir + " goto " + listaEtq[i])
+		ctx.Gen("if (" + expr.Dir + " == " + atributos.Dir + ") goto " + listaEtq[i])
 
 	}
 	if NtSwitch.Default != nil {

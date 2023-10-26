@@ -34,11 +34,14 @@ func (Tc *T_Cad) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
 	//se genera el codigo 3d para agregar el valor al heap
 	t1 := ctx.NewTemp()
 
+	ctx.GenComentario("cadena -> " + cadena)
+
 	ctx.Gen(t1 + " = H")
 	//obtener el tamaño de la cadena
 	for i := 0; i < len(cadena); i++ {
 		//obtener el ascii del caracter
 		ascii := int(cadena[i])
+		ctx.GenComentario("letra -> " + string(cadena[i]))
 		ctx.Gen("heap[(int) H] = " + strconv.Itoa(ascii))
 		ctx.Gen("H = H + 1")
 	}
