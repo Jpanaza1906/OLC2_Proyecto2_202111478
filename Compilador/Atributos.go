@@ -100,7 +100,7 @@ func NewNill() *Atributos {
 	return &Atributos{
 		EV:   []string{},
 		EF:   []string{},
-		Dir:  "",
+		Dir:  "-202111478",
 		Op:   "",
 		Tipo: Nil,
 	}

@@ -52,6 +52,18 @@ public class Tswift_GrammarNBaseListener implements Tswift_GrammarNListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterS_Declaracion(Tswift_GrammarNParser.S_DeclaracionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitS_Declaracion(Tswift_GrammarNParser.S_DeclaracionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterS_If(Tswift_GrammarNParser.S_IfContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -167,6 +179,126 @@ public class Tswift_GrammarNBaseListener implements Tswift_GrammarNListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitPrint(Tswift_GrammarNParser.PrintContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclaracion_Tipo_Val(Tswift_GrammarNParser.Declaracion_Tipo_ValContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclaracion_Tipo_Val(Tswift_GrammarNParser.Declaracion_Tipo_ValContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclaracion_Val(Tswift_GrammarNParser.Declaracion_ValContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclaracion_Val(Tswift_GrammarNParser.Declaracion_ValContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclaracion_Tipo_noVal(Tswift_GrammarNParser.Declaracion_Tipo_noValContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclaracion_Tipo_noVal(Tswift_GrammarNParser.Declaracion_Tipo_noValContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTipo_Int(Tswift_GrammarNParser.Tipo_IntContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTipo_Int(Tswift_GrammarNParser.Tipo_IntContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTipo_Float(Tswift_GrammarNParser.Tipo_FloatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTipo_Float(Tswift_GrammarNParser.Tipo_FloatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTipo_String(Tswift_GrammarNParser.Tipo_StringContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTipo_String(Tswift_GrammarNParser.Tipo_StringContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTipo_Bool(Tswift_GrammarNParser.Tipo_BoolContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTipo_Bool(Tswift_GrammarNParser.Tipo_BoolContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTipo_Character(Tswift_GrammarNParser.Tipo_CharacterContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTipo_Character(Tswift_GrammarNParser.Tipo_CharacterContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTipo_Struct(Tswift_GrammarNParser.Tipo_StructContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTipo_Struct(Tswift_GrammarNParser.Tipo_StructContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTipo_Vector(Tswift_GrammarNParser.Tipo_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTipo_Vector(Tswift_GrammarNParser.Tipo_VectorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -328,6 +460,30 @@ public class Tswift_GrammarNBaseListener implements Tswift_GrammarNListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterExpr_Decimal(Tswift_GrammarNParser.Expr_DecimalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExpr_Decimal(Tswift_GrammarNParser.Expr_DecimalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExpr_Caracter(Tswift_GrammarNParser.Expr_CaracterContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExpr_Caracter(Tswift_GrammarNParser.Expr_CaracterContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterExpr_SumRes(Tswift_GrammarNParser.Expr_SumResContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -388,6 +544,18 @@ public class Tswift_GrammarNBaseListener implements Tswift_GrammarNListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterExpr_Nil(Tswift_GrammarNParser.Expr_NilContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExpr_Nil(Tswift_GrammarNParser.Expr_NilContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterExpr_Par(Tswift_GrammarNParser.Expr_ParContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -400,6 +568,18 @@ public class Tswift_GrammarNBaseListener implements Tswift_GrammarNListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterExpr_Booleano(Tswift_GrammarNParser.Expr_BooleanoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExpr_Booleano(Tswift_GrammarNParser.Expr_BooleanoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterExpr_Entero(Tswift_GrammarNParser.Expr_EnteroContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -407,6 +587,18 @@ public class Tswift_GrammarNBaseListener implements Tswift_GrammarNListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitExpr_Entero(Tswift_GrammarNParser.Expr_EnteroContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExpr_Cadena(Tswift_GrammarNParser.Expr_CadenaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExpr_Cadena(Tswift_GrammarNParser.Expr_CadenaContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

@@ -15,6 +15,7 @@ l_sentencias:
 sentencia
     :print_sentencia PTCOMA? #S_Print
     |declaracion_sentencia PTCOMA? #S_Declaracion
+    |asignacion_sentencia PTCOMA? #S_Asignacion
     |if_sentencia #S_If
     |switch_sentencia #S_Switch
     |guard_sentencia #S_Guard
@@ -42,6 +43,13 @@ declaracion_sentencia:
     | tip=(VAR | LET) ID DOSPT tipo INTERROGACION #Declaracion_Tipo_noVal
     ;
 
+//Asignación de variables--------------------------------------------------------
+asignacion_sentencia:
+    ID IGUAL e #Asignacion
+    | ID op=(MASIGUAL|MENOSIGUAL) e #Asignacion_SumaResta
+    ;
+
+//Tipos de variables-------------------------------------------------------------
 tipo:
     INT #Tipo_Int
     |FLOAT #Tipo_Float
@@ -51,6 +59,8 @@ tipo:
     | ID #Tipo_Struct
     |CORCHETEIZQ tipo CORCHETEDER #Tipo_Vector
     ;
+
+
 
 //Sentencia if-------------------------------------------------------------------
 if_sentencia:

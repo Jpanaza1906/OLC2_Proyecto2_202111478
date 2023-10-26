@@ -19,6 +19,9 @@ type Tswift_GrammarNListener interface {
 	// EnterS_Declaracion is called when entering the S_Declaracion production.
 	EnterS_Declaracion(c *S_DeclaracionContext)
 
+	// EnterS_Asignacion is called when entering the S_Asignacion production.
+	EnterS_Asignacion(c *S_AsignacionContext)
+
 	// EnterS_If is called when entering the S_If production.
 	EnterS_If(c *S_IfContext)
 
@@ -57,6 +60,12 @@ type Tswift_GrammarNListener interface {
 
 	// EnterDeclaracion_Tipo_noVal is called when entering the Declaracion_Tipo_noVal production.
 	EnterDeclaracion_Tipo_noVal(c *Declaracion_Tipo_noValContext)
+
+	// EnterAsignacion is called when entering the Asignacion production.
+	EnterAsignacion(c *AsignacionContext)
+
+	// EnterAsignacion_SumaResta is called when entering the Asignacion_SumaResta production.
+	EnterAsignacion_SumaResta(c *Asignacion_SumaRestaContext)
 
 	// EnterTipo_Int is called when entering the Tipo_Int production.
 	EnterTipo_Int(c *Tipo_IntContext)
@@ -166,6 +175,9 @@ type Tswift_GrammarNListener interface {
 	// ExitS_Declaracion is called when exiting the S_Declaracion production.
 	ExitS_Declaracion(c *S_DeclaracionContext)
 
+	// ExitS_Asignacion is called when exiting the S_Asignacion production.
+	ExitS_Asignacion(c *S_AsignacionContext)
+
 	// ExitS_If is called when exiting the S_If production.
 	ExitS_If(c *S_IfContext)
 
@@ -204,6 +216,12 @@ type Tswift_GrammarNListener interface {
 
 	// ExitDeclaracion_Tipo_noVal is called when exiting the Declaracion_Tipo_noVal production.
 	ExitDeclaracion_Tipo_noVal(c *Declaracion_Tipo_noValContext)
+
+	// ExitAsignacion is called when exiting the Asignacion production.
+	ExitAsignacion(c *AsignacionContext)
+
+	// ExitAsignacion_SumaResta is called when exiting the Asignacion_SumaResta production.
+	ExitAsignacion_SumaResta(c *Asignacion_SumaRestaContext)
 
 	// ExitTipo_Int is called when exiting the Tipo_Int production.
 	ExitTipo_Int(c *Tipo_IntContext)

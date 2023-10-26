@@ -19,6 +19,9 @@ type Tswift_GrammarNVisitor interface {
 	// Visit a parse tree produced by Tswift_GrammarNParser#S_Declaracion.
 	VisitS_Declaracion(ctx *S_DeclaracionContext) interface{}
 
+	// Visit a parse tree produced by Tswift_GrammarNParser#S_Asignacion.
+	VisitS_Asignacion(ctx *S_AsignacionContext) interface{}
+
 	// Visit a parse tree produced by Tswift_GrammarNParser#S_If.
 	VisitS_If(ctx *S_IfContext) interface{}
 
@@ -57,6 +60,12 @@ type Tswift_GrammarNVisitor interface {
 
 	// Visit a parse tree produced by Tswift_GrammarNParser#Declaracion_Tipo_noVal.
 	VisitDeclaracion_Tipo_noVal(ctx *Declaracion_Tipo_noValContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Asignacion.
+	VisitAsignacion(ctx *AsignacionContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Asignacion_SumaResta.
+	VisitAsignacion_SumaResta(ctx *Asignacion_SumaRestaContext) interface{}
 
 	// Visit a parse tree produced by Tswift_GrammarNParser#Tipo_Int.
 	VisitTipo_Int(ctx *Tipo_IntContext) interface{}

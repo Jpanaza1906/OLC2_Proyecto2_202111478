@@ -44,6 +44,12 @@ func (s *BaseTswift_GrammarNListener) EnterS_Declaracion(ctx *S_DeclaracionConte
 // ExitS_Declaracion is called when production S_Declaracion is exited.
 func (s *BaseTswift_GrammarNListener) ExitS_Declaracion(ctx *S_DeclaracionContext) {}
 
+// EnterS_Asignacion is called when production S_Asignacion is entered.
+func (s *BaseTswift_GrammarNListener) EnterS_Asignacion(ctx *S_AsignacionContext) {}
+
+// ExitS_Asignacion is called when production S_Asignacion is exited.
+func (s *BaseTswift_GrammarNListener) ExitS_Asignacion(ctx *S_AsignacionContext) {}
+
 // EnterS_If is called when production S_If is entered.
 func (s *BaseTswift_GrammarNListener) EnterS_If(ctx *S_IfContext) {}
 
@@ -123,6 +129,18 @@ func (s *BaseTswift_GrammarNListener) EnterDeclaracion_Tipo_noVal(ctx *Declaraci
 // ExitDeclaracion_Tipo_noVal is called when production Declaracion_Tipo_noVal is exited.
 func (s *BaseTswift_GrammarNListener) ExitDeclaracion_Tipo_noVal(ctx *Declaracion_Tipo_noValContext) {
 }
+
+// EnterAsignacion is called when production Asignacion is entered.
+func (s *BaseTswift_GrammarNListener) EnterAsignacion(ctx *AsignacionContext) {}
+
+// ExitAsignacion is called when production Asignacion is exited.
+func (s *BaseTswift_GrammarNListener) ExitAsignacion(ctx *AsignacionContext) {}
+
+// EnterAsignacion_SumaResta is called when production Asignacion_SumaResta is entered.
+func (s *BaseTswift_GrammarNListener) EnterAsignacion_SumaResta(ctx *Asignacion_SumaRestaContext) {}
+
+// ExitAsignacion_SumaResta is called when production Asignacion_SumaResta is exited.
+func (s *BaseTswift_GrammarNListener) ExitAsignacion_SumaResta(ctx *Asignacion_SumaRestaContext) {}
 
 // EnterTipo_Int is called when production Tipo_Int is entered.
 func (s *BaseTswift_GrammarNListener) EnterTipo_Int(ctx *Tipo_IntContext) {}

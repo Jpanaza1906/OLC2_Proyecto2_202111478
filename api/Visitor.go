@@ -79,6 +79,11 @@ func (tV *Visitor) VisitS_Declaracion(ctx *TswiftGen.S_DeclaracionContext) inter
 	return ctx.Declaracion_sentencia().Accept(tV).(compilador.CAbstractExpr)
 }
 
+// Visit a parse tree produced by Tswift_GrammarNParser#S_Asignacion.
+func (tV *Visitor) VisitS_Asignacion(ctx *TswiftGen.S_AsignacionContext) interface{} {
+	return ctx.Asignacion_sentencia().Accept(tV).(compilador.CAbstractExpr)
+}
+
 // Visit a parse tree produced by Tswift_GrammarNParser#S_If.
 func (tV *Visitor) VisitS_If(ctx *TswiftGen.S_IfContext) interface{} {
 	return ctx.If_sentencia().Accept(tV).(compilador.CAbstractExpr)
@@ -210,6 +215,35 @@ func (tV *Visitor) VisitDeclaracion_Tipo_noVal(ctx *TswiftGen.Declaracion_Tipo_n
 	id := ctx.ID().GetText()
 
 	return noterm.NewNT_Declaracion(id, tipo, mutable, nil, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+}
+
+// ASIGNACION ==========================================================
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Asignacion.
+func (tV *Visitor) VisitAsignacion(ctx *TswiftGen.AsignacionContext) interface{} {
+	id := ctx.ID().GetText()
+	expresion := ctx.E().Accept(tV).(compilador.CAbstractExpr)
+
+	return noterm.NewNT_Asignacion(id, expresion, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Asignacion_SumaResta.
+func (tV *Visitor) VisitAsignacion_SumaResta(ctx *TswiftGen.Asignacion_SumaRestaContext) interface{} {
+	id := ctx.ID().GetText()
+	oper := ctx.GetOp().GetText()
+	//declarar una expresion
+	var expresion compilador.CAbstractExpr
+
+	if oper == "+=" {
+		oper = "+"
+		expresion = noterm.NewNT_OpAritmeticas(terminales.NewT_Identificador(id, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn()), ctx.E().Accept(tV).(compilador.CAbstractExpr), oper, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+
+	} else {
+		oper = "-"
+		expresion = noterm.NewNT_OpAritmeticas(terminales.NewT_Identificador(id, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn()), ctx.E().Accept(tV).(compilador.CAbstractExpr), oper, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+	}
+	return noterm.NewNT_Asignacion(id, expresion, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+
 }
 
 // IF ==================================================================
@@ -406,7 +440,7 @@ func (tV *Visitor) VisitExpr_SumRes(ctx *TswiftGen.Expr_SumResContext) interface
 
 // Visit a parse tree produced by Tswift_GrammarNParser#Expr_Id.
 func (tV *Visitor) VisitExpr_Id(ctx *TswiftGen.Expr_IdContext) interface{} {
-	panic("not implemented") // TODO: Implement
+	return terminales.NewT_Identificador(ctx.ID().GetText(), ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
 }
 
 // Visit a parse tree produced by Tswift_GrammarNParser#Expr_Mod.

@@ -218,7 +218,9 @@ func (ctx *Contexto) GetSimbolo(id string) Tsimbolos {
 			}
 		}
 	}
-	return Tsimbolos{}
+	return Tsimbolos{
+		Tipo: 0,
+	}
 }
 
 func (ctx *Contexto) RemoveSimbolosAmbito(ambito int) {

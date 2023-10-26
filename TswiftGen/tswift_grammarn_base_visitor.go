@@ -23,6 +23,10 @@ func (v *BaseTswift_GrammarNVisitor) VisitS_Declaracion(ctx *S_DeclaracionContex
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseTswift_GrammarNVisitor) VisitS_Asignacion(ctx *S_AsignacionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseTswift_GrammarNVisitor) VisitS_If(ctx *S_IfContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -72,6 +76,14 @@ func (v *BaseTswift_GrammarNVisitor) VisitDeclaracion_Val(ctx *Declaracion_ValCo
 }
 
 func (v *BaseTswift_GrammarNVisitor) VisitDeclaracion_Tipo_noVal(ctx *Declaracion_Tipo_noValContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitAsignacion(ctx *AsignacionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitAsignacion_SumaResta(ctx *Asignacion_SumaRestaContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

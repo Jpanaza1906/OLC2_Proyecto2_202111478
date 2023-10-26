@@ -62,6 +62,7 @@ func (NtDeclaracion *NT_Declaracion) Compilar(ctx *compilador.Contexto) *compila
 	//se genera el codigo 3d para asignar el valor a la variable
 	t1 := ctx.NewTemp()
 	ctx.Gen(t1 + " = P + " + strconv.Itoa(ctx.PosSt)) //la tabla de simbolos me dira el desplazamiento
+	ctx.GenComentario("Valor nulo, ya que no hay expresion")
 	ctx.Gen("stack[(int)" + t1 + "] = -202111478")
 
 	//si la expresion es nula el simbolo
