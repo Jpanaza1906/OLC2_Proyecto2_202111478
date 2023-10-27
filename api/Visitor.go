@@ -71,7 +71,7 @@ func (tV *Visitor) VisitL_Sentencia(ctx *TswiftGen.L_SentenciaContext) interface
 
 // Visit a parse tree produced by Tswift_GrammarNParser#S_Print.
 func (tV *Visitor) VisitS_Print(ctx *TswiftGen.S_PrintContext) interface{} {
-	panic("not implemented") // TODO: Implement
+	return ctx.Print_sentencia().Accept(tV).(compilador.CAbstractExpr)
 }
 
 // Visit a parse tree produced by Tswift_GrammarNParser#S_Declaracion.
@@ -139,7 +139,17 @@ func (tV *Visitor) VisitReturn(ctx *TswiftGen.ReturnContext) interface{} {
 
 // Visit a parse tree produced by Tswift_GrammarNParser#Print.
 func (tV *Visitor) VisitPrint(ctx *TswiftGen.PrintContext) interface{} {
-	panic("not implemented") // TODO: Implement
+	lExpresiones := ctx.AllE()
+
+	//se crea un arreglo de expresiones
+	expresiones := make([]compilador.CAbstractExpr, 0)
+
+	//se recorre la lista de expresiones
+	for _, e := range lExpresiones {
+		expresiones = append(expresiones, e.Accept(tV).(compilador.CAbstractExpr))
+	}
+
+	return noterm.NewNT_Print(expresiones, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
 }
 
 // DECLARACION VARIABLES Y CONSTANTES ===================================
@@ -345,12 +355,26 @@ func (tV *Visitor) VisitWhile(ctx *TswiftGen.WhileContext) interface{} {
 
 // Visit a parse tree produced by Tswift_GrammarNParser#ForInt.
 func (tV *Visitor) VisitForInt(ctx *TswiftGen.ForIntContext) interface{} {
-	panic("not implemented") // TODO: Implement
+	id := ctx.ID().GetText()
+	expIzq := ctx.E(0).Accept(tV).(compilador.CAbstractExpr)
+	expDer := ctx.E(1).Accept(tV).(compilador.CAbstractExpr)
+
+	//Se obtiene la lista de sentencias
+	sentencias := ctx.L_sentencias().Accept(tV).(compilador.CAbstractExpr)
+
+	return noterm.NewNT_ForInt(id, expIzq, expDer, sentencias, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+
 }
 
 // Visit a parse tree produced by Tswift_GrammarNParser#ForList.
 func (tV *Visitor) VisitForList(ctx *TswiftGen.ForListContext) interface{} {
-	panic("not implemented") // TODO: Implement
+	id := ctx.ID().GetText()
+	exp := ctx.E().Accept(tV).(compilador.CAbstractExpr)
+
+	//Se obtiene la lista de sentencias
+	sentencias := ctx.L_sentencias().Accept(tV).(compilador.CAbstractExpr)
+
+	return noterm.NewNT_ForList(id, exp, sentencias, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
 }
 
 // CONDICIONES ========================================================

@@ -64,6 +64,18 @@ public class Tswift_GrammarNBaseListener implements Tswift_GrammarNListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterS_Asignacion(Tswift_GrammarNParser.S_AsignacionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitS_Asignacion(Tswift_GrammarNParser.S_AsignacionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterS_If(Tswift_GrammarNParser.S_IfContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -215,6 +227,30 @@ public class Tswift_GrammarNBaseListener implements Tswift_GrammarNListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDeclaracion_Tipo_noVal(Tswift_GrammarNParser.Declaracion_Tipo_noValContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAsignacion(Tswift_GrammarNParser.AsignacionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAsignacion(Tswift_GrammarNParser.AsignacionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAsignacion_SumaResta(Tswift_GrammarNParser.Asignacion_SumaRestaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAsignacion_SumaResta(Tswift_GrammarNParser.Asignacion_SumaRestaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

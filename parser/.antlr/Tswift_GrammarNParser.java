@@ -141,6 +141,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(L_sentenciasContext.class,0);
 		}
 		public SLSentenciasContext(SContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterSLSentencias(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitSLSentencias(this);
+		}
 	}
 
 	public final SContext s() throws RecognitionException {
@@ -186,6 +194,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(SentenciaContext.class,i);
 		}
 		public L_SentenciaContext(L_sentenciasContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterL_Sentencia(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitL_Sentencia(this);
+		}
 	}
 
 	public final L_sentenciasContext l_sentencias() throws RecognitionException {
@@ -243,6 +259,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(For_sentenciaContext.class,0);
 		}
 		public S_ForContext(SentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterS_For(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitS_For(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class S_SwitchContext extends SentenciaContext {
@@ -250,6 +274,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(Switch_sentenciaContext.class,0);
 		}
 		public S_SwitchContext(SentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterS_Switch(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitS_Switch(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class S_AsignacionContext extends SentenciaContext {
@@ -258,6 +290,14 @@ public class Tswift_GrammarNParser extends Parser {
 		}
 		public TerminalNode PTCOMA() { return getToken(Tswift_GrammarNParser.PTCOMA, 0); }
 		public S_AsignacionContext(SentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterS_Asignacion(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitS_Asignacion(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class S_GuardContext extends SentenciaContext {
@@ -265,6 +305,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(Guard_sentenciaContext.class,0);
 		}
 		public S_GuardContext(SentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterS_Guard(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitS_Guard(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class S_WhileContext extends SentenciaContext {
@@ -272,6 +320,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(While_sentenciaContext.class,0);
 		}
 		public S_WhileContext(SentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterS_While(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitS_While(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class S_TransContext extends SentenciaContext {
@@ -280,6 +336,14 @@ public class Tswift_GrammarNParser extends Parser {
 		}
 		public TerminalNode PTCOMA() { return getToken(Tswift_GrammarNParser.PTCOMA, 0); }
 		public S_TransContext(SentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterS_Trans(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitS_Trans(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class S_IfContext extends SentenciaContext {
@@ -287,6 +351,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(If_sentenciaContext.class,0);
 		}
 		public S_IfContext(SentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterS_If(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitS_If(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class S_PrintContext extends SentenciaContext {
@@ -295,6 +367,14 @@ public class Tswift_GrammarNParser extends Parser {
 		}
 		public TerminalNode PTCOMA() { return getToken(Tswift_GrammarNParser.PTCOMA, 0); }
 		public S_PrintContext(SentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterS_Print(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitS_Print(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class S_DeclaracionContext extends SentenciaContext {
@@ -303,6 +383,14 @@ public class Tswift_GrammarNParser extends Parser {
 		}
 		public TerminalNode PTCOMA() { return getToken(Tswift_GrammarNParser.PTCOMA, 0); }
 		public S_DeclaracionContext(SentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterS_Declaracion(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitS_Declaracion(this);
+		}
 	}
 
 	public final SentenciaContext sentencia() throws RecognitionException {
@@ -462,16 +550,40 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(EContext.class,0);
 		}
 		public ReturnContext(Trans_sentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterReturn(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitReturn(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class BreakContext extends Trans_sentenciaContext {
 		public TerminalNode BREAK() { return getToken(Tswift_GrammarNParser.BREAK, 0); }
 		public BreakContext(Trans_sentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterBreak(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitBreak(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ContinueContext extends Trans_sentenciaContext {
 		public TerminalNode CONTINUE() { return getToken(Tswift_GrammarNParser.CONTINUE, 0); }
 		public ContinueContext(Trans_sentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterContinue(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitContinue(this);
+		}
 	}
 
 	public final Trans_sentenciaContext trans_sentencia() throws RecognitionException {
@@ -558,6 +670,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getToken(Tswift_GrammarNParser.COMA, i);
 		}
 		public PrintContext(Print_sentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterPrint(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitPrint(this);
+		}
 	}
 
 	public final Print_sentenciaContext print_sentencia() throws RecognitionException {
@@ -632,6 +752,14 @@ public class Tswift_GrammarNParser extends Parser {
 		public TerminalNode VAR() { return getToken(Tswift_GrammarNParser.VAR, 0); }
 		public TerminalNode LET() { return getToken(Tswift_GrammarNParser.LET, 0); }
 		public Declaracion_Tipo_ValContext(Declaracion_sentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterDeclaracion_Tipo_Val(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitDeclaracion_Tipo_Val(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Declaracion_Tipo_noValContext extends Declaracion_sentenciaContext {
@@ -645,6 +773,14 @@ public class Tswift_GrammarNParser extends Parser {
 		public TerminalNode VAR() { return getToken(Tswift_GrammarNParser.VAR, 0); }
 		public TerminalNode LET() { return getToken(Tswift_GrammarNParser.LET, 0); }
 		public Declaracion_Tipo_noValContext(Declaracion_sentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterDeclaracion_Tipo_noVal(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitDeclaracion_Tipo_noVal(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Declaracion_ValContext extends Declaracion_sentenciaContext {
@@ -657,6 +793,14 @@ public class Tswift_GrammarNParser extends Parser {
 		public TerminalNode VAR() { return getToken(Tswift_GrammarNParser.VAR, 0); }
 		public TerminalNode LET() { return getToken(Tswift_GrammarNParser.LET, 0); }
 		public Declaracion_ValContext(Declaracion_sentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterDeclaracion_Val(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitDeclaracion_Val(this);
+		}
 	}
 
 	public final Declaracion_sentenciaContext declaracion_sentencia() throws RecognitionException {
@@ -775,6 +919,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(EContext.class,0);
 		}
 		public AsignacionContext(Asignacion_sentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterAsignacion(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitAsignacion(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Asignacion_SumaRestaContext extends Asignacion_sentenciaContext {
@@ -786,6 +938,14 @@ public class Tswift_GrammarNParser extends Parser {
 		public TerminalNode MASIGUAL() { return getToken(Tswift_GrammarNParser.MASIGUAL, 0); }
 		public TerminalNode MENOSIGUAL() { return getToken(Tswift_GrammarNParser.MENOSIGUAL, 0); }
 		public Asignacion_SumaRestaContext(Asignacion_sentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterAsignacion_SumaResta(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitAsignacion_SumaResta(this);
+		}
 	}
 
 	public final Asignacion_sentenciaContext asignacion_sentencia() throws RecognitionException {
@@ -862,36 +1022,92 @@ public class Tswift_GrammarNParser extends Parser {
 		}
 		public TerminalNode CORCHETEDER() { return getToken(Tswift_GrammarNParser.CORCHETEDER, 0); }
 		public Tipo_VectorContext(TipoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterTipo_Vector(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitTipo_Vector(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Tipo_StructContext extends TipoContext {
 		public TerminalNode ID() { return getToken(Tswift_GrammarNParser.ID, 0); }
 		public Tipo_StructContext(TipoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterTipo_Struct(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitTipo_Struct(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Tipo_FloatContext extends TipoContext {
 		public TerminalNode FLOAT() { return getToken(Tswift_GrammarNParser.FLOAT, 0); }
 		public Tipo_FloatContext(TipoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterTipo_Float(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitTipo_Float(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Tipo_CharacterContext extends TipoContext {
 		public TerminalNode CHAR() { return getToken(Tswift_GrammarNParser.CHAR, 0); }
 		public Tipo_CharacterContext(TipoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterTipo_Character(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitTipo_Character(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Tipo_StringContext extends TipoContext {
 		public TerminalNode STRING() { return getToken(Tswift_GrammarNParser.STRING, 0); }
 		public Tipo_StringContext(TipoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterTipo_String(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitTipo_String(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Tipo_BoolContext extends TipoContext {
 		public TerminalNode BOOL() { return getToken(Tswift_GrammarNParser.BOOL, 0); }
 		public Tipo_BoolContext(TipoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterTipo_Bool(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitTipo_Bool(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Tipo_IntContext extends TipoContext {
 		public TerminalNode INT() { return getToken(Tswift_GrammarNParser.INT, 0); }
 		public Tipo_IntContext(TipoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterTipo_Int(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitTipo_Int(this);
+		}
 	}
 
 	public final TipoContext tipo() throws RecognitionException {
@@ -1013,6 +1229,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(If_sentenciaContext.class,0);
 		}
 		public IfContext(If_sentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterIf(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitIf(this);
+		}
 	}
 
 	public final If_sentenciaContext if_sentencia() throws RecognitionException {
@@ -1106,6 +1330,14 @@ public class Tswift_GrammarNParser extends Parser {
 		}
 		public TerminalNode LLAVEDER() { return getToken(Tswift_GrammarNParser.LLAVEDER, 0); }
 		public GuardContext(Guard_sentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterGuard(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitGuard(this);
+		}
 	}
 
 	public final Guard_sentenciaContext guard_sentencia() throws RecognitionException {
@@ -1172,6 +1404,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(CdefaultContext.class,0);
 		}
 		public SwitchContext(Switch_sentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterSwitch(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitSwitch(this);
+		}
 	}
 
 	public final Switch_sentenciaContext switch_sentencia() throws RecognitionException {
@@ -1250,6 +1490,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(L_sentenciasContext.class,0);
 		}
 		public CaseContext(LcasosContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterCase(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitCase(this);
+		}
 	}
 
 	public final LcasosContext lcasos() throws RecognitionException {
@@ -1300,6 +1548,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(L_sentenciasContext.class,0);
 		}
 		public DefaultContext(CdefaultContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterDefault(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitDefault(this);
+		}
 	}
 
 	public final CdefaultContext cdefault() throws RecognitionException {
@@ -1352,6 +1608,14 @@ public class Tswift_GrammarNParser extends Parser {
 		}
 		public TerminalNode LLAVEDER() { return getToken(Tswift_GrammarNParser.LLAVEDER, 0); }
 		public WhileContext(While_sentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterWhile(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitWhile(this);
+		}
 	}
 
 	public final While_sentenciaContext while_sentencia() throws RecognitionException {
@@ -1398,24 +1662,30 @@ public class Tswift_GrammarNParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ForIntContext extends For_sentenciaContext {
-		public EContext left;
-		public EContext right;
 		public TerminalNode FOR() { return getToken(Tswift_GrammarNParser.FOR, 0); }
 		public TerminalNode ID() { return getToken(Tswift_GrammarNParser.ID, 0); }
 		public TerminalNode IN() { return getToken(Tswift_GrammarNParser.IN, 0); }
-		public TerminalNode RANGO() { return getToken(Tswift_GrammarNParser.RANGO, 0); }
-		public TerminalNode LLAVEIZQ() { return getToken(Tswift_GrammarNParser.LLAVEIZQ, 0); }
-		public L_sentenciasContext l_sentencias() {
-			return getRuleContext(L_sentenciasContext.class,0);
-		}
-		public TerminalNode LLAVEDER() { return getToken(Tswift_GrammarNParser.LLAVEDER, 0); }
 		public List<EContext> e() {
 			return getRuleContexts(EContext.class);
 		}
 		public EContext e(int i) {
 			return getRuleContext(EContext.class,i);
 		}
+		public TerminalNode RANGO() { return getToken(Tswift_GrammarNParser.RANGO, 0); }
+		public TerminalNode LLAVEIZQ() { return getToken(Tswift_GrammarNParser.LLAVEIZQ, 0); }
+		public L_sentenciasContext l_sentencias() {
+			return getRuleContext(L_sentenciasContext.class,0);
+		}
+		public TerminalNode LLAVEDER() { return getToken(Tswift_GrammarNParser.LLAVEDER, 0); }
 		public ForIntContext(For_sentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterForInt(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitForInt(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ForListContext extends For_sentenciaContext {
@@ -1431,6 +1701,14 @@ public class Tswift_GrammarNParser extends Parser {
 		}
 		public TerminalNode LLAVEDER() { return getToken(Tswift_GrammarNParser.LLAVEDER, 0); }
 		public ForListContext(For_sentenciaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterForList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitForList(this);
+		}
 	}
 
 	public final For_sentenciaContext for_sentencia() throws RecognitionException {
@@ -1451,11 +1729,11 @@ public class Tswift_GrammarNParser extends Parser {
 				setState(178);
 				match(IN);
 				setState(179);
-				((ForIntContext)_localctx).left = e(0);
+				e(0);
 				setState(180);
 				match(RANGO);
 				setState(181);
-				((ForIntContext)_localctx).right = e(0);
+				e(0);
 				setState(182);
 				match(LLAVEIZQ);
 				setState(183);
@@ -1518,6 +1796,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(CondicionContext.class,0);
 		}
 		public Cond_ParContext(CondicionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterCond_Par(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitCond_Par(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Cond_NegContext extends CondicionContext {
@@ -1528,6 +1814,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(CondicionContext.class,0);
 		}
 		public Cond_NegContext(CondicionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterCond_Neg(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitCond_Neg(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Cond_RelContext extends CondicionContext {
@@ -1547,6 +1841,14 @@ public class Tswift_GrammarNParser extends Parser {
 		public TerminalNode MENORIGUAL() { return getToken(Tswift_GrammarNParser.MENORIGUAL, 0); }
 		public TerminalNode MENOR() { return getToken(Tswift_GrammarNParser.MENOR, 0); }
 		public Cond_RelContext(CondicionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterCond_Rel(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitCond_Rel(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Cond_BooleanoContext extends CondicionContext {
@@ -1554,6 +1856,14 @@ public class Tswift_GrammarNParser extends Parser {
 		public TerminalNode TRUE() { return getToken(Tswift_GrammarNParser.TRUE, 0); }
 		public TerminalNode FALSE() { return getToken(Tswift_GrammarNParser.FALSE, 0); }
 		public Cond_BooleanoContext(CondicionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterCond_Booleano(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitCond_Booleano(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Cond_LogicaContext extends CondicionContext {
@@ -1569,6 +1879,14 @@ public class Tswift_GrammarNParser extends Parser {
 		public TerminalNode AND() { return getToken(Tswift_GrammarNParser.AND, 0); }
 		public TerminalNode OR() { return getToken(Tswift_GrammarNParser.OR, 0); }
 		public Cond_LogicaContext(CondicionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterCond_Logica(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitCond_Logica(this);
+		}
 	}
 
 	public final CondicionContext condicion() throws RecognitionException {
@@ -1721,12 +2039,28 @@ public class Tswift_GrammarNParser extends Parser {
 		public Token n;
 		public TerminalNode DECIMAL() { return getToken(Tswift_GrammarNParser.DECIMAL, 0); }
 		public Expr_DecimalContext(EContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterExpr_Decimal(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitExpr_Decimal(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Expr_CaracterContext extends EContext {
 		public Token n;
 		public TerminalNode CARACTER() { return getToken(Tswift_GrammarNParser.CARACTER, 0); }
 		public Expr_CaracterContext(EContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterExpr_Caracter(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitExpr_Caracter(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Expr_SumResContext extends EContext {
@@ -1742,12 +2076,28 @@ public class Tswift_GrammarNParser extends Parser {
 		public TerminalNode MAS() { return getToken(Tswift_GrammarNParser.MAS, 0); }
 		public TerminalNode MENOS() { return getToken(Tswift_GrammarNParser.MENOS, 0); }
 		public Expr_SumResContext(EContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterExpr_SumRes(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitExpr_SumRes(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Expr_IdContext extends EContext {
 		public Token id;
 		public TerminalNode ID() { return getToken(Tswift_GrammarNParser.ID, 0); }
 		public Expr_IdContext(EContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterExpr_Id(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitExpr_Id(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Expr_ModContext extends EContext {
@@ -1762,6 +2112,14 @@ public class Tswift_GrammarNParser extends Parser {
 		}
 		public TerminalNode MOD() { return getToken(Tswift_GrammarNParser.MOD, 0); }
 		public Expr_ModContext(EContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterExpr_Mod(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitExpr_Mod(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Expr_NegContext extends EContext {
@@ -1772,6 +2130,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(EContext.class,0);
 		}
 		public Expr_NegContext(EContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterExpr_Neg(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitExpr_Neg(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Expr_MulDivContext extends EContext {
@@ -1787,12 +2153,28 @@ public class Tswift_GrammarNParser extends Parser {
 		public TerminalNode POR() { return getToken(Tswift_GrammarNParser.POR, 0); }
 		public TerminalNode DIV() { return getToken(Tswift_GrammarNParser.DIV, 0); }
 		public Expr_MulDivContext(EContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterExpr_MulDiv(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitExpr_MulDiv(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Expr_NilContext extends EContext {
 		public Token n;
 		public TerminalNode NIL() { return getToken(Tswift_GrammarNParser.NIL, 0); }
 		public Expr_NilContext(EContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterExpr_Nil(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitExpr_Nil(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Expr_ParContext extends EContext {
@@ -1803,6 +2185,14 @@ public class Tswift_GrammarNParser extends Parser {
 			return getRuleContext(EContext.class,0);
 		}
 		public Expr_ParContext(EContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterExpr_Par(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitExpr_Par(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Expr_BooleanoContext extends EContext {
@@ -1810,18 +2200,42 @@ public class Tswift_GrammarNParser extends Parser {
 		public TerminalNode TRUE() { return getToken(Tswift_GrammarNParser.TRUE, 0); }
 		public TerminalNode FALSE() { return getToken(Tswift_GrammarNParser.FALSE, 0); }
 		public Expr_BooleanoContext(EContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterExpr_Booleano(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitExpr_Booleano(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Expr_EnteroContext extends EContext {
 		public Token n;
 		public TerminalNode ENTERO() { return getToken(Tswift_GrammarNParser.ENTERO, 0); }
 		public Expr_EnteroContext(EContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterExpr_Entero(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitExpr_Entero(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Expr_CadenaContext extends EContext {
 		public Token n;
 		public TerminalNode CADENA() { return getToken(Tswift_GrammarNParser.CADENA, 0); }
 		public Expr_CadenaContext(EContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).enterExpr_Cadena(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Tswift_GrammarNListener ) ((Tswift_GrammarNListener)listener).exitExpr_Cadena(this);
+		}
 	}
 
 	public final EContext e() throws RecognitionException {

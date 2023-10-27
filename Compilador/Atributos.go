@@ -10,8 +10,8 @@ const (
 	Bool    TipoE = 1
 	Integer TipoE = 2
 	Float   TipoE = 3
-	String  TipoE = 4
-	Char    TipoE = 5
+	Char    TipoE = 4
+	String  TipoE = 5
 	Vector  TipoE = 6
 	StructT TipoE = 7
 )

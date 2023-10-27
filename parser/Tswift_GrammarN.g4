@@ -92,7 +92,7 @@ while_sentencia:
 
 //Sentencia For------------------------------------------------------------------
 for_sentencia:
-    FOR ID IN left=e RANGO right=e LLAVEIZQ l_sentencias LLAVEDER #ForInt
+    FOR ID IN e RANGO e LLAVEIZQ l_sentencias LLAVEDER #ForInt
     | FOR ID IN e LLAVEIZQ l_sentencias LLAVEDER #ForList
     ;
 

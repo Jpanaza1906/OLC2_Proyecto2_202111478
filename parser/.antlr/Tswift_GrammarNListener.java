@@ -55,6 +55,18 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 */
 	void exitS_Declaracion(Tswift_GrammarNParser.S_DeclaracionContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code S_Asignacion}
+	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterS_Asignacion(Tswift_GrammarNParser.S_AsignacionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code S_Asignacion}
+	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitS_Asignacion(Tswift_GrammarNParser.S_AsignacionContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code S_If}
 	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
 	 * @param ctx the parse tree
@@ -210,6 +222,30 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDeclaracion_Tipo_noVal(Tswift_GrammarNParser.Declaracion_Tipo_noValContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Asignacion}
+	 * labeled alternative in {@link Tswift_GrammarNParser#asignacion_sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterAsignacion(Tswift_GrammarNParser.AsignacionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Asignacion}
+	 * labeled alternative in {@link Tswift_GrammarNParser#asignacion_sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitAsignacion(Tswift_GrammarNParser.AsignacionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Asignacion_SumaResta}
+	 * labeled alternative in {@link Tswift_GrammarNParser#asignacion_sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterAsignacion_SumaResta(Tswift_GrammarNParser.Asignacion_SumaRestaContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Asignacion_SumaResta}
+	 * labeled alternative in {@link Tswift_GrammarNParser#asignacion_sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitAsignacion_SumaResta(Tswift_GrammarNParser.Asignacion_SumaRestaContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Tipo_Int}
 	 * labeled alternative in {@link Tswift_GrammarNParser#tipo}.

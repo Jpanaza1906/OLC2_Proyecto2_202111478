@@ -4518,8 +4518,6 @@ func (s *For_sentenciaContext) ToStringTree(ruleNames []string, recog antlr.Reco
 
 type ForIntContext struct {
 	For_sentenciaContext
-	left  IEContext
-	right IEContext
 }
 
 func NewForIntContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ForIntContext {
@@ -4531,14 +4529,6 @@ func NewForIntContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ForIntC
 
 	return p
 }
-
-func (s *ForIntContext) GetLeft() IEContext { return s.left }
-
-func (s *ForIntContext) GetRight() IEContext { return s.right }
-
-func (s *ForIntContext) SetLeft(v IEContext) { s.left = v }
-
-func (s *ForIntContext) SetRight(v IEContext) { s.right = v }
 
 func (s *ForIntContext) GetRuleContext() antlr.RuleContext {
 	return s
@@ -4554,34 +4544,6 @@ func (s *ForIntContext) ID() antlr.TerminalNode {
 
 func (s *ForIntContext) IN() antlr.TerminalNode {
 	return s.GetToken(Tswift_GrammarNParserIN, 0)
-}
-
-func (s *ForIntContext) RANGO() antlr.TerminalNode {
-	return s.GetToken(Tswift_GrammarNParserRANGO, 0)
-}
-
-func (s *ForIntContext) LLAVEIZQ() antlr.TerminalNode {
-	return s.GetToken(Tswift_GrammarNParserLLAVEIZQ, 0)
-}
-
-func (s *ForIntContext) L_sentencias() IL_sentenciasContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IL_sentenciasContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IL_sentenciasContext)
-}
-
-func (s *ForIntContext) LLAVEDER() antlr.TerminalNode {
-	return s.GetToken(Tswift_GrammarNParserLLAVEDER, 0)
 }
 
 func (s *ForIntContext) AllE() []IEContext {
@@ -4623,6 +4585,34 @@ func (s *ForIntContext) E(i int) IEContext {
 	}
 
 	return t.(IEContext)
+}
+
+func (s *ForIntContext) RANGO() antlr.TerminalNode {
+	return s.GetToken(Tswift_GrammarNParserRANGO, 0)
+}
+
+func (s *ForIntContext) LLAVEIZQ() antlr.TerminalNode {
+	return s.GetToken(Tswift_GrammarNParserLLAVEIZQ, 0)
+}
+
+func (s *ForIntContext) L_sentencias() IL_sentenciasContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IL_sentenciasContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IL_sentenciasContext)
+}
+
+func (s *ForIntContext) LLAVEDER() antlr.TerminalNode {
+	return s.GetToken(Tswift_GrammarNParserLLAVEDER, 0)
 }
 
 func (s *ForIntContext) EnterRule(listener antlr.ParseTreeListener) {
@@ -4778,10 +4768,7 @@ func (p *Tswift_GrammarNParser) For_sentencia() (localctx IFor_sentenciaContext)
 		}
 		{
 			p.SetState(179)
-
-			var _x = p.e(0)
-
-			localctx.(*ForIntContext).left = _x
+			p.e(0)
 		}
 		{
 			p.SetState(180)
@@ -4793,10 +4780,7 @@ func (p *Tswift_GrammarNParser) For_sentencia() (localctx IFor_sentenciaContext)
 		}
 		{
 			p.SetState(181)
-
-			var _x = p.e(0)
-
-			localctx.(*ForIntContext).right = _x
+			p.e(0)
 		}
 		{
 			p.SetState(182)

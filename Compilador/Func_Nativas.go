@@ -5,13 +5,27 @@ import "fmt"
 //Llamada funciones nativas======================================================
 
 // Print String
-func (ctx *Contexto) Nat_PrintString() {
-	ctx.Gen("_printString")
+func (ctx *Contexto) Nat_PrintString(temp string) {
+	llamada := fmt.Sprintf("_printString(%s)", temp)
+	ctx.Gen(llamada)
+
+	//se verifica si ya existe una funcion en el contexto
+	//si no existe, se agrega
+	if _, ok := ctx.Fnativas["printString"]; !ok {
+		ctx.PrintString3d()
+	}
 }
 
 // Print Bool
-func (ctx *Contexto) Nat_PrintBool() {
-	ctx.Gen("_printBool")
+func (ctx *Contexto) Nat_PrintBool(temp string) {
+	llamada := fmt.Sprintf("_printBool(%s)", temp)
+	ctx.Gen(llamada)
+
+	//se verifica si ya existe una funcion en el contexto
+	//si no existe, se agrega
+	if _, ok := ctx.Fnativas["printBool"]; !ok {
+		ctx.PrintBool3d()
+	}
 }
 
 // Equal String
@@ -133,4 +147,74 @@ func (ctx *Contexto) EqualString3d() {
 	nativa += "}"
 
 	ctx.AddNativas("equalString", nativa)
+}
+
+// Print String
+func (ctx *Contexto) PrintString3d() {
+	//parametro 1 -> direccion de inicio de la cadena
+
+	nativa := ""
+
+	nativa = "\n// Funcion print string\n"
+	nativa += "void _printString(int temp){\n"
+
+	//temp -> direccion de inicio de la cadena
+
+	t1 := ctx.NewTemp()
+	t2 := ctx.NewTemp()
+
+	L1 := ctx.NewEtq()
+	L2 := ctx.NewEtq()
+
+	nativa += "\t" + t1 + " = temp;\n"
+	nativa += "\t" + L1 + ":\n"
+	nativa += "\t" + t2 + " = heap[(int) " + t1 + "];\n"
+	nativa += "\tif((int) " + t2 + " == 0) goto " + L2 + ";\n"
+	nativa += "\tprintf(\"%c\", (int) " + t2 + ");\n"
+	nativa += "\t" + t1 + " = " + t1 + " + 1;\n"
+	nativa += "\tgoto " + L1 + ";\n"
+	nativa += "\t" + L2 + ":\n"
+	nativa += "\t return;\n"
+	nativa += "}"
+
+	ctx.AddNativas("printString", nativa)
+
+}
+
+// Print Bool
+func (ctx *Contexto) PrintBool3d() {
+	//parametro 1 -> numero 1 o 0
+
+	nativa := ""
+
+	nativa = "\n// Funcion print bool\n"
+	nativa += "void _printBool(int temp){\n"
+
+	//temp -> numero 1 o 0
+
+	t1 := ctx.NewTemp()
+
+	L1 := ctx.NewEtq()
+	L2 := ctx.NewEtq()
+
+	nativa += "\t" + t1 + " = temp;\n"
+	nativa += "\tif((int) " + t1 + " == 1) goto " + L1 + ";\n"
+	//imprimir false caracter por caracter
+	nativa += "\tprintf(\"%c\", (int) 102);\n"
+	nativa += "\tprintf(\"%c\", (int) 97);\n"
+	nativa += "\tprintf(\"%c\", (int) 108);\n"
+	nativa += "\tprintf(\"%c\", (int) 115);\n"
+	nativa += "\tprintf(\"%c\", (int) 101);\n"
+	nativa += "\tgoto " + L2 + ";\n"
+	nativa += "\t" + L1 + ":\n"
+	//imprimir true caracter por caracter
+	nativa += "\tprintf(\"%c\", (int) 116);\n"
+	nativa += "\tprintf(\"%c\", (int) 114);\n"
+	nativa += "\tprintf(\"%c\", (int) 117);\n"
+	nativa += "\tprintf(\"%c\", (int) 101);\n"
+	nativa += "\t" + L2 + ":\n"
+	nativa += "\t return;\n"
+	nativa += "}"
+
+	ctx.AddNativas("printBool", nativa)
 }
