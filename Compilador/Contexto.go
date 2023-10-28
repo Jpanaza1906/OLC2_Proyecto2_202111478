@@ -15,15 +15,15 @@ type Contexto struct {
 	Simbolos  string
 	Funciones string
 	Nativas   string
-	Fnativas  map[string]string
+	Fnativas  map[string]string //funciones nativas
 	//displays
-	DisplaySwitch []string
-	DisplayTrans  []DisplayTrans
+	DisplaySwitch []string       //maneja el switch
+	DisplayTrans  []DisplayTrans //maneja el break y continue
 	PtrTrans      int
 	//tabla de simbolos
 	TablaSimbolos []Tsimbolos
-	PosSt         int
-	PointerGuard  []int
+	PosSt         int   //posicion del stack
+	PointerGuard  []int ///guarda el stack pointer de cada ambito
 	//ambito
 	Ambito  int
 	tmpList []string
@@ -146,10 +146,12 @@ func (ctx *Contexto) PopDisplaySwitch() string {
 }
 
 // DisplayTrans----------------------------------------------------------------------------------
-func (ctx *Contexto) PushDisplayTrans(lbreak string, lwhile string) {
+func (ctx *Contexto) PushDisplayTrans(lbreak string, lwhile string, tipo string, id string) {
 	ctx.DisplayTrans[ctx.PtrTrans] = DisplayTrans{
 		Break:    lbreak,
 		Continue: lwhile,
+		Tipo:     tipo,
+		Id:       id,
 	}
 	ctx.PtrTrans++
 }

@@ -5,7 +5,7 @@ type Tsimbolos struct {
 	TipoId     string
 	Tipo       TipoE
 	Ambiente   int
-	Size       int
+	Size       int //me da posicion relativa en la pila
 	Valores    []Rangos
 	Referencia bool
 	Mutable    bool

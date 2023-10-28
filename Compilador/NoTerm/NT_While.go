@@ -32,7 +32,7 @@ func (NtWhile *NT_While) Compilar(ctx *compilador.Contexto) *compilador.Atributo
 	Lsalida := ctx.NewEtq() //Se crea una nueva etiqueta para la salida
 
 	//se agrega el display de transiciones para un break o continue
-	ctx.PushDisplayTrans(Lsalida, Linicio)
+	ctx.PushDisplayTrans(Lsalida, Linicio, "", "")
 
 	ctx.GenLabel(Linicio + ":") //Se imprime la etiqueta de inicio
 

@@ -39,7 +39,7 @@ func (NtForInt *NT_ForInt) Compilar(ctx *compilador.Contexto) *compilador.Atribu
 	Lsalida := ctx.NewEtq()
 
 	//se agrega el display de transiciones para un break o continue
-	ctx.PushDisplayTrans(Lsalida, Linicio)
+	ctx.PushDisplayTrans(Lsalida, Linicio, "for", NtForInt.Id)
 
 	//Se genera codigo de la asignacion
 	ctx.GenComentario("codigo Asignacion ------------------------------------")
@@ -66,14 +66,15 @@ func (NtForInt *NT_ForInt) Compilar(ctx *compilador.Contexto) *compilador.Atribu
 	ctx.Gen(t2 + " = stack[(int) " + t1 + "]")
 	//se genera el codigo para la condicion
 	ctx.Gen("if (" + t2 + " > " + segundaExp.Dir + ") goto " + Lsalida)
-	//se genera el codigo para aumentar la variable
+	ctx.GenComentario("codigo sentencias ------------------------------------")
+	NtForInt.Sentencias.Compilar(ctx)
+
 	//se genera el codigo para aumentar la variable
 	ctx.GenComentario("codigo aumento ------------------------------------")
 	t3 := ctx.NewTemp()
 	ctx.Gen(t3 + " = " + t2 + " + 1")
 	ctx.Gen("stack[(int) " + t1 + "] = " + t3)
-	ctx.GenComentario("codigo sentencias ------------------------------------")
-	NtForInt.Sentencias.Compilar(ctx)
+
 	//se regresa al inicio
 	ctx.Gen("goto " + Linicio)
 	//Se imprime la etiqueta falsa
@@ -117,7 +118,7 @@ func (NtForList *NT_ForList) Compilar(ctx *compilador.Contexto) *compilador.Atri
 	Lsalida := ctx.NewEtq()
 
 	//se agrega el display de transiciones para un break o continue
-	ctx.PushDisplayTrans(Lsalida, Linicio)
+	ctx.PushDisplayTrans(Lsalida, Linicio, "for", NtForList.Id)
 
 	//se compila la expresion
 	ctx.GenComentario("codigo expresion ------------------------------------")

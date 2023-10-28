@@ -1,6 +1,9 @@
 package noterm
 
-import compilador "OLC2_Proyecto2_202111478/Compilador"
+import (
+	compilador "OLC2_Proyecto2_202111478/Compilador"
+	"strconv"
+)
 
 type NT_Break struct {
 	Linea   int
@@ -62,7 +65,24 @@ func (NtContinue *NT_Continue) Compilar(ctx *compilador.Contexto) *compilador.At
 	if ctx.PtrTrans > 0 {
 		//se obtiene la etiqueta de salida
 		Lwhile := ctx.PeekContinue()
-		ctx.GenComentario("Lwhile continue")
+		ctx.GenComentario("Label continue")
+
+		if ctx.DisplayTrans[ctx.PtrTrans-1].Tipo == "for" {
+			ctx.GenComentario("Incremento for")
+			//se realiza el incremento
+			id := ctx.DisplayTrans[ctx.PtrTrans-1].Id
+			simbolo := ctx.GetSimbolo(id)
+
+			//se incrementa el valor
+			t1 := ctx.NewTemp()
+			ctx.Gen(t1 + " = " + "P + " + strconv.Itoa(simbolo.Size))
+			t2 := ctx.NewTemp()
+			ctx.Gen(t2 + " = stack[(int) " + t1 + "]")
+			t3 := ctx.NewTemp()
+			ctx.Gen(t3 + " = " + t2 + " + 1")
+			ctx.Gen("stack[(int) " + t1 + "] = " + t3)
+		}
+
 		ctx.Gen("goto " + Lwhile)
 	} else {
 		//se genera error

@@ -4,4 +4,6 @@ package compilador
 type DisplayTrans struct {
 	Break    string
 	Continue string
+	Tipo     string
+	Id       string
 }
