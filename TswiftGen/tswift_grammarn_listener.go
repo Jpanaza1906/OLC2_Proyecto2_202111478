@@ -46,9 +46,6 @@ type Tswift_GrammarNListener interface {
 	// EnterS_Funcion_Vector is called when entering the S_Funcion_Vector production.
 	EnterS_Funcion_Vector(c *S_Funcion_VectorContext)
 
-	// EnterS_Asignacion_Vector is called when entering the S_Asignacion_Vector production.
-	EnterS_Asignacion_Vector(c *S_Asignacion_VectorContext)
-
 	// EnterBreak is called when entering the Break production.
 	EnterBreak(c *BreakContext)
 
@@ -136,15 +133,6 @@ type Tswift_GrammarNListener interface {
 	// EnterDef_Vector_Id is called when entering the Def_Vector_Id production.
 	EnterDef_Vector_Id(c *Def_Vector_IdContext)
 
-	// EnterAsig_Vector is called when entering the Asig_Vector production.
-	EnterAsig_Vector(c *Asig_VectorContext)
-
-	// EnterSumAsg_Vector is called when entering the SumAsg_Vector production.
-	EnterSumAsg_Vector(c *SumAsg_VectorContext)
-
-	// EnterResAsg_Vector is called when entering the ResAsg_Vector production.
-	EnterResAsg_Vector(c *ResAsg_VectorContext)
-
 	// EnterFunc_Vector_Append is called when entering the Func_Vector_Append production.
 	EnterFunc_Vector_Append(c *Func_Vector_AppendContext)
 
@@ -214,6 +202,9 @@ type Tswift_GrammarNListener interface {
 	// EnterExpr_Booleano is called when entering the Expr_Booleano production.
 	EnterExpr_Booleano(c *Expr_BooleanoContext)
 
+	// EnterExpr_Vector is called when entering the Expr_Vector production.
+	EnterExpr_Vector(c *Expr_VectorContext)
+
 	// EnterExpr_Entero is called when entering the Expr_Entero production.
 	EnterExpr_Entero(c *Expr_EnteroContext)
 
@@ -255,9 +246,6 @@ type Tswift_GrammarNListener interface {
 
 	// ExitS_Funcion_Vector is called when exiting the S_Funcion_Vector production.
 	ExitS_Funcion_Vector(c *S_Funcion_VectorContext)
-
-	// ExitS_Asignacion_Vector is called when exiting the S_Asignacion_Vector production.
-	ExitS_Asignacion_Vector(c *S_Asignacion_VectorContext)
 
 	// ExitBreak is called when exiting the Break production.
 	ExitBreak(c *BreakContext)
@@ -346,15 +334,6 @@ type Tswift_GrammarNListener interface {
 	// ExitDef_Vector_Id is called when exiting the Def_Vector_Id production.
 	ExitDef_Vector_Id(c *Def_Vector_IdContext)
 
-	// ExitAsig_Vector is called when exiting the Asig_Vector production.
-	ExitAsig_Vector(c *Asig_VectorContext)
-
-	// ExitSumAsg_Vector is called when exiting the SumAsg_Vector production.
-	ExitSumAsg_Vector(c *SumAsg_VectorContext)
-
-	// ExitResAsg_Vector is called when exiting the ResAsg_Vector production.
-	ExitResAsg_Vector(c *ResAsg_VectorContext)
-
 	// ExitFunc_Vector_Append is called when exiting the Func_Vector_Append production.
 	ExitFunc_Vector_Append(c *Func_Vector_AppendContext)
 
@@ -423,6 +402,9 @@ type Tswift_GrammarNListener interface {
 
 	// ExitExpr_Booleano is called when exiting the Expr_Booleano production.
 	ExitExpr_Booleano(c *Expr_BooleanoContext)
+
+	// ExitExpr_Vector is called when exiting the Expr_Vector production.
+	ExitExpr_Vector(c *Expr_VectorContext)
 
 	// ExitExpr_Entero is called when exiting the Expr_Entero production.
 	ExitExpr_Entero(c *Expr_EnteroContext)

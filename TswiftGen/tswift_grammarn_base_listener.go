@@ -98,12 +98,6 @@ func (s *BaseTswift_GrammarNListener) EnterS_Funcion_Vector(ctx *S_Funcion_Vecto
 // ExitS_Funcion_Vector is called when production S_Funcion_Vector is exited.
 func (s *BaseTswift_GrammarNListener) ExitS_Funcion_Vector(ctx *S_Funcion_VectorContext) {}
 
-// EnterS_Asignacion_Vector is called when production S_Asignacion_Vector is entered.
-func (s *BaseTswift_GrammarNListener) EnterS_Asignacion_Vector(ctx *S_Asignacion_VectorContext) {}
-
-// ExitS_Asignacion_Vector is called when production S_Asignacion_Vector is exited.
-func (s *BaseTswift_GrammarNListener) ExitS_Asignacion_Vector(ctx *S_Asignacion_VectorContext) {}
-
 // EnterBreak is called when production Break is entered.
 func (s *BaseTswift_GrammarNListener) EnterBreak(ctx *BreakContext) {}
 
@@ -280,24 +274,6 @@ func (s *BaseTswift_GrammarNListener) EnterDef_Vector_Id(ctx *Def_Vector_IdConte
 // ExitDef_Vector_Id is called when production Def_Vector_Id is exited.
 func (s *BaseTswift_GrammarNListener) ExitDef_Vector_Id(ctx *Def_Vector_IdContext) {}
 
-// EnterAsig_Vector is called when production Asig_Vector is entered.
-func (s *BaseTswift_GrammarNListener) EnterAsig_Vector(ctx *Asig_VectorContext) {}
-
-// ExitAsig_Vector is called when production Asig_Vector is exited.
-func (s *BaseTswift_GrammarNListener) ExitAsig_Vector(ctx *Asig_VectorContext) {}
-
-// EnterSumAsg_Vector is called when production SumAsg_Vector is entered.
-func (s *BaseTswift_GrammarNListener) EnterSumAsg_Vector(ctx *SumAsg_VectorContext) {}
-
-// ExitSumAsg_Vector is called when production SumAsg_Vector is exited.
-func (s *BaseTswift_GrammarNListener) ExitSumAsg_Vector(ctx *SumAsg_VectorContext) {}
-
-// EnterResAsg_Vector is called when production ResAsg_Vector is entered.
-func (s *BaseTswift_GrammarNListener) EnterResAsg_Vector(ctx *ResAsg_VectorContext) {}
-
-// ExitResAsg_Vector is called when production ResAsg_Vector is exited.
-func (s *BaseTswift_GrammarNListener) ExitResAsg_Vector(ctx *ResAsg_VectorContext) {}
-
 // EnterFunc_Vector_Append is called when production Func_Vector_Append is entered.
 func (s *BaseTswift_GrammarNListener) EnterFunc_Vector_Append(ctx *Func_Vector_AppendContext) {}
 
@@ -437,6 +413,12 @@ func (s *BaseTswift_GrammarNListener) EnterExpr_Booleano(ctx *Expr_BooleanoConte
 
 // ExitExpr_Booleano is called when production Expr_Booleano is exited.
 func (s *BaseTswift_GrammarNListener) ExitExpr_Booleano(ctx *Expr_BooleanoContext) {}
+
+// EnterExpr_Vector is called when production Expr_Vector is entered.
+func (s *BaseTswift_GrammarNListener) EnterExpr_Vector(ctx *Expr_VectorContext) {}
+
+// ExitExpr_Vector is called when production Expr_Vector is exited.
+func (s *BaseTswift_GrammarNListener) ExitExpr_Vector(ctx *Expr_VectorContext) {}
 
 // EnterExpr_Entero is called when production Expr_Entero is entered.
 func (s *BaseTswift_GrammarNListener) EnterExpr_Entero(ctx *Expr_EnteroContext) {}

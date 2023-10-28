@@ -83,6 +83,18 @@ func (ctx *Contexto) Nat_RemoveVector(inicioVec string, dirItem string) {
 	}
 }
 
+// vector pos
+func (ctx *Contexto) Nat_VectorPos(temp string, inicioVec string, dirItem string) {
+	llamada := fmt.Sprintf("%s = _vectorPos(%s, %s)", temp, inicioVec, dirItem)
+	ctx.Gen(llamada)
+
+	//se verifica si ya existe una funcion en el contexto
+	//si no existe, se agrega
+	if _, ok := ctx.Fnativas["vectorPos"]; !ok {
+		ctx.VectorPos3d()
+	}
+}
+
 // count vector
 func (ctx *Contexto) Nat_CountVector(temp string, inicioVec string) {
 	llamada := fmt.Sprintf("%s = _countVector(%s)", temp, inicioVec)
@@ -481,4 +493,45 @@ func (ctx *Contexto) EmptyVector3d() {
 	nativa += "}"
 
 	ctx.AddNativas("emptyVector", nativa)
+}
+
+// Vector Pos
+
+func (ctx *Contexto) VectorPos3d() {
+	//parametro 1 -> inicio del vector en el heap
+	//parametro 2 -> direccion del item a obtener
+
+	nativa := ""
+
+	nativa = "\n// Funcion vector pos\n"
+
+	nativa += "int _vectorPos(int tempIzq, int tempDer){\n"
+
+	//tempIzq -> inicio del vector en el heap
+
+	t1 := ctx.NewTemp()
+	t2 := ctx.NewTemp()
+	t3 := ctx.NewTemp()
+	t4 := ctx.NewTemp()
+	cont := ctx.NewTemp()
+
+	L1 := ctx.NewEtq()
+	L2 := ctx.NewEtq()
+
+	nativa += "\t" + t1 + " = tempIzq;\n"
+	nativa += "\t" + cont + " = 0;\n"
+	nativa += "\t" + L1 + ":\n"
+	nativa += "\t" + t2 + " = heap[(int) " + t1 + "];\n" //el item
+	nativa += "\t" + t3 + " = " + t1 + "+ 1;\n"          //se obtiene la direccion del siguiente item
+	nativa += "\t" + t4 + " = heap[(int) " + t3 + "];\n" //direccion del heap del siguiente item
+	nativa += "\tif((int) " + cont + " == tempDer) goto " + L2 + ";\n"
+	nativa += "\t" + t1 + " = " + t4 + ";\n"
+	nativa += "\t" + cont + " = " + cont + " + 1;\n"
+	nativa += "\tgoto " + L1 + ";\n"
+	nativa += "\t" + L2 + ":\n"
+	nativa += "\t return " + t2 + ";\n"
+
+	nativa += "}"
+
+	ctx.AddNativas("vectorPos", nativa)
 }

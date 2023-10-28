@@ -46,9 +46,6 @@ type Tswift_GrammarNVisitor interface {
 	// Visit a parse tree produced by Tswift_GrammarNParser#S_Funcion_Vector.
 	VisitS_Funcion_Vector(ctx *S_Funcion_VectorContext) interface{}
 
-	// Visit a parse tree produced by Tswift_GrammarNParser#S_Asignacion_Vector.
-	VisitS_Asignacion_Vector(ctx *S_Asignacion_VectorContext) interface{}
-
 	// Visit a parse tree produced by Tswift_GrammarNParser#Break.
 	VisitBreak(ctx *BreakContext) interface{}
 
@@ -136,15 +133,6 @@ type Tswift_GrammarNVisitor interface {
 	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Vector_Id.
 	VisitDef_Vector_Id(ctx *Def_Vector_IdContext) interface{}
 
-	// Visit a parse tree produced by Tswift_GrammarNParser#Asig_Vector.
-	VisitAsig_Vector(ctx *Asig_VectorContext) interface{}
-
-	// Visit a parse tree produced by Tswift_GrammarNParser#SumAsg_Vector.
-	VisitSumAsg_Vector(ctx *SumAsg_VectorContext) interface{}
-
-	// Visit a parse tree produced by Tswift_GrammarNParser#ResAsg_Vector.
-	VisitResAsg_Vector(ctx *ResAsg_VectorContext) interface{}
-
 	// Visit a parse tree produced by Tswift_GrammarNParser#Func_Vector_Append.
 	VisitFunc_Vector_Append(ctx *Func_Vector_AppendContext) interface{}
 
@@ -213,6 +201,9 @@ type Tswift_GrammarNVisitor interface {
 
 	// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Booleano.
 	VisitExpr_Booleano(ctx *Expr_BooleanoContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Vector.
+	VisitExpr_Vector(ctx *Expr_VectorContext) interface{}
 
 	// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Entero.
 	VisitExpr_Entero(ctx *Expr_EnteroContext) interface{}

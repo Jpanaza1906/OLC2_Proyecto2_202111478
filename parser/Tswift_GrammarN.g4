@@ -24,7 +24,6 @@ sentencia
     |for_sentencia #S_For
     |dec_vector PTCOMA?#S_Declaracion_Vector
     |func_vector PTCOMA?#S_Funcion_Vector
-    |asig_vector PTCOMA?#S_Asignacion_Vector
     ;
 
 //Sentencias de transferencias---------------------------------------------------
@@ -110,11 +109,6 @@ def_vector:
     |CORCHETEIZQ CORCHETEDER #Def_Vector_Vacio
     |ID #Def_Vector_Id
     ;
-asig_vector:
-    ID CORCHETEIZQ e CORCHETEDER IGUAL e #Asig_Vector
-    |ID CORCHETEIZQ e CORCHETEDER MASIGUAL e #SumAsg_Vector
-    |ID CORCHETEIZQ e CORCHETEDER MENOSIGUAL e #ResAsg_Vector
-    ;
 
 func_vector:
     ID PUNTO APPEND PARIZQ e PARDER #Func_Vector_Append
@@ -142,6 +136,7 @@ e
     | e op=(AND | OR) e     # Expr_Logica
     | n=(TRUE | FALSE)    # Expr_Booleano
     | n=NIL              # Expr_Nil
+    | ID CORCHETEIZQ e CORCHETEDER # Expr_Vector
     | ID PUNTO ISEMPTY  # Expr_IsEmpty
     | ID PUNTO COUNT    # Expr_Count
     | id=ID                # Expr_Id

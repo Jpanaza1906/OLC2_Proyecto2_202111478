@@ -124,11 +124,6 @@ func (tV *Visitor) VisitS_Funcion_Vector(ctx *TswiftGen.S_Funcion_VectorContext)
 	return ctx.Func_vector().Accept(tV).(compilador.CAbstractExpr)
 }
 
-// Visit a parse tree produced by Tswift_GrammarNParser#S_Asignacion_Vector.
-func (tV *Visitor) VisitS_Asignacion_Vector(ctx *TswiftGen.S_Asignacion_VectorContext) interface{} {
-	return ctx.Asig_vector().Accept(tV).(compilador.CAbstractExpr)
-}
-
 // SENTENCIAS DE TRANSFERENCIA =========================================
 
 // Visit a parse tree produced by Tswift_GrammarNParser#Break.
@@ -463,21 +458,6 @@ func (tV *Visitor) VisitDef_Vector_Id(ctx *TswiftGen.Def_Vector_IdContext) inter
 	return noterm.NewNT_DefVector(id, nil, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
 }
 
-// Visit a parse tree produced by Tswift_GrammarNParser#Asig_Vector.
-func (tV *Visitor) VisitAsig_Vector(ctx *TswiftGen.Asig_VectorContext) interface{} {
-	panic("not implemented") // TODO: Implement
-}
-
-// Visit a parse tree produced by Tswift_GrammarNParser#SumAsg_Vector.
-func (tV *Visitor) VisitSumAsg_Vector(ctx *TswiftGen.SumAsg_VectorContext) interface{} {
-	panic("not implemented") // TODO: Implement
-}
-
-// Visit a parse tree produced by Tswift_GrammarNParser#ResAsg_Vector.
-func (tV *Visitor) VisitResAsg_Vector(ctx *TswiftGen.ResAsg_VectorContext) interface{} {
-	panic("not implemented") // TODO: Implement
-}
-
 // Visit a parse tree produced by Tswift_GrammarNParser#Func_Vector_Append.
 func (tV *Visitor) VisitFunc_Vector_Append(ctx *TswiftGen.Func_Vector_AppendContext) interface{} {
 	id := ctx.ID().GetText()
@@ -695,4 +675,12 @@ func (tV *Visitor) VisitExpr_Logica(ctx *TswiftGen.Expr_LogicaContext) interface
 	operador := ctx.GetOp().GetText()
 
 	return noterm.NewNT_ExprLogica(expizq, expder, operador, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Vector.
+func (tV *Visitor) VisitExpr_Vector(ctx *TswiftGen.Expr_VectorContext) interface{} {
+	id := ctx.ID().GetText()
+	exp := ctx.E().Accept(tV).(compilador.CAbstractExpr)
+
+	return terminales.NewT_VectorPos(id, exp, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
 }

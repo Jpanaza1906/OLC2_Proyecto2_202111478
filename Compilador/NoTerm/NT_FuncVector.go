@@ -293,5 +293,5 @@ func (NtIsEmpty *NT_IsEmpty) Compilar(ctx *compilador.Contexto) *compilador.Atri
 
 	ctx.Nat_EmptyVector(t3, t2) //se llama a la funcion nativa para saber si el vector esta vacio
 
-	return compilador.NewInt(t3)
+	return compilador.NewBool(t3)
 }

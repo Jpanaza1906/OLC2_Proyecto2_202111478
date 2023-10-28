@@ -59,10 +59,6 @@ func (v *BaseTswift_GrammarNVisitor) VisitS_Funcion_Vector(ctx *S_Funcion_Vector
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseTswift_GrammarNVisitor) VisitS_Asignacion_Vector(ctx *S_Asignacion_VectorContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BaseTswift_GrammarNVisitor) VisitBreak(ctx *BreakContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -179,18 +175,6 @@ func (v *BaseTswift_GrammarNVisitor) VisitDef_Vector_Id(ctx *Def_Vector_IdContex
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseTswift_GrammarNVisitor) VisitAsig_Vector(ctx *Asig_VectorContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseTswift_GrammarNVisitor) VisitSumAsg_Vector(ctx *SumAsg_VectorContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseTswift_GrammarNVisitor) VisitResAsg_Vector(ctx *ResAsg_VectorContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BaseTswift_GrammarNVisitor) VisitFunc_Vector_Append(ctx *Func_Vector_AppendContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -280,6 +264,10 @@ func (v *BaseTswift_GrammarNVisitor) VisitExpr_IsEmpty(ctx *Expr_IsEmptyContext)
 }
 
 func (v *BaseTswift_GrammarNVisitor) VisitExpr_Booleano(ctx *Expr_BooleanoContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitExpr_Vector(ctx *Expr_VectorContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
