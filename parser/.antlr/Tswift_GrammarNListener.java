@@ -139,6 +139,42 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 */
 	void exitS_For(Tswift_GrammarNParser.S_ForContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code S_Declaracion_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterS_Declaracion_Vector(Tswift_GrammarNParser.S_Declaracion_VectorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code S_Declaracion_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitS_Declaracion_Vector(Tswift_GrammarNParser.S_Declaracion_VectorContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code S_Funcion_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterS_Funcion_Vector(Tswift_GrammarNParser.S_Funcion_VectorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code S_Funcion_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitS_Funcion_Vector(Tswift_GrammarNParser.S_Funcion_VectorContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code S_Asignacion_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterS_Asignacion_Vector(Tswift_GrammarNParser.S_Asignacion_VectorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code S_Asignacion_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitS_Asignacion_Vector(Tswift_GrammarNParser.S_Asignacion_VectorContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code Break}
 	 * labeled alternative in {@link Tswift_GrammarNParser#trans_sentencia}.
 	 * @param ctx the parse tree
@@ -426,6 +462,138 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitForList(Tswift_GrammarNParser.ForListContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Declaracion_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#dec_vector}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeclaracion_Vector(Tswift_GrammarNParser.Declaracion_VectorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Declaracion_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#dec_vector}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeclaracion_Vector(Tswift_GrammarNParser.Declaracion_VectorContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Declaracion_Alterna}
+	 * labeled alternative in {@link Tswift_GrammarNParser#dec_vector}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeclaracion_Alterna(Tswift_GrammarNParser.Declaracion_AlternaContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Declaracion_Alterna}
+	 * labeled alternative in {@link Tswift_GrammarNParser#dec_vector}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeclaracion_Alterna(Tswift_GrammarNParser.Declaracion_AlternaContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Def_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#def_vector}.
+	 * @param ctx the parse tree
+	 */
+	void enterDef_Vector(Tswift_GrammarNParser.Def_VectorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Def_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#def_vector}.
+	 * @param ctx the parse tree
+	 */
+	void exitDef_Vector(Tswift_GrammarNParser.Def_VectorContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Def_Vector_Vacio}
+	 * labeled alternative in {@link Tswift_GrammarNParser#def_vector}.
+	 * @param ctx the parse tree
+	 */
+	void enterDef_Vector_Vacio(Tswift_GrammarNParser.Def_Vector_VacioContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Def_Vector_Vacio}
+	 * labeled alternative in {@link Tswift_GrammarNParser#def_vector}.
+	 * @param ctx the parse tree
+	 */
+	void exitDef_Vector_Vacio(Tswift_GrammarNParser.Def_Vector_VacioContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Def_Vector_Id}
+	 * labeled alternative in {@link Tswift_GrammarNParser#def_vector}.
+	 * @param ctx the parse tree
+	 */
+	void enterDef_Vector_Id(Tswift_GrammarNParser.Def_Vector_IdContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Def_Vector_Id}
+	 * labeled alternative in {@link Tswift_GrammarNParser#def_vector}.
+	 * @param ctx the parse tree
+	 */
+	void exitDef_Vector_Id(Tswift_GrammarNParser.Def_Vector_IdContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Asig_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#asig_vector}.
+	 * @param ctx the parse tree
+	 */
+	void enterAsig_Vector(Tswift_GrammarNParser.Asig_VectorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Asig_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#asig_vector}.
+	 * @param ctx the parse tree
+	 */
+	void exitAsig_Vector(Tswift_GrammarNParser.Asig_VectorContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code SumAsg_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#asig_vector}.
+	 * @param ctx the parse tree
+	 */
+	void enterSumAsg_Vector(Tswift_GrammarNParser.SumAsg_VectorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code SumAsg_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#asig_vector}.
+	 * @param ctx the parse tree
+	 */
+	void exitSumAsg_Vector(Tswift_GrammarNParser.SumAsg_VectorContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ResAsg_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#asig_vector}.
+	 * @param ctx the parse tree
+	 */
+	void enterResAsg_Vector(Tswift_GrammarNParser.ResAsg_VectorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ResAsg_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#asig_vector}.
+	 * @param ctx the parse tree
+	 */
+	void exitResAsg_Vector(Tswift_GrammarNParser.ResAsg_VectorContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Func_Vector_Append}
+	 * labeled alternative in {@link Tswift_GrammarNParser#func_vector}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunc_Vector_Append(Tswift_GrammarNParser.Func_Vector_AppendContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Func_Vector_Append}
+	 * labeled alternative in {@link Tswift_GrammarNParser#func_vector}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunc_Vector_Append(Tswift_GrammarNParser.Func_Vector_AppendContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Func_Vector_RemoveLast}
+	 * labeled alternative in {@link Tswift_GrammarNParser#func_vector}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunc_Vector_RemoveLast(Tswift_GrammarNParser.Func_Vector_RemoveLastContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Func_Vector_RemoveLast}
+	 * labeled alternative in {@link Tswift_GrammarNParser#func_vector}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunc_Vector_RemoveLast(Tswift_GrammarNParser.Func_Vector_RemoveLastContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Func_Vector_Remove}
+	 * labeled alternative in {@link Tswift_GrammarNParser#func_vector}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunc_Vector_Remove(Tswift_GrammarNParser.Func_Vector_RemoveContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Func_Vector_Remove}
+	 * labeled alternative in {@link Tswift_GrammarNParser#func_vector}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunc_Vector_Remove(Tswift_GrammarNParser.Func_Vector_RemoveContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Cond_Par}
 	 * labeled alternative in {@link Tswift_GrammarNParser#condicion}.

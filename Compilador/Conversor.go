@@ -59,21 +59,23 @@ func (c *Conversor) Ampliar(res *Atributos, tipo TipoE) *Atributos {
 				return NewNill()
 			}
 			respuesta := int(valorf)
-			return NewInt(respuesta)
+			//respuesta se convierte a string
+			resp := strconv.Itoa(respuesta)
+			return NewInt(resp)
 		case String:
-			valori, err := strconv.Atoi(res.Dir)
+			_, err := strconv.Atoi(res.Dir)
 			if err != nil {
 				c.ctx.AddError("Error: No se puede convertir " + res.Dir + " a int")
 				return NewNill()
 			}
-			return NewInt(valori)
+			return NewInt(res.Dir)
 		case Char:
-			valori, err := strconv.Atoi(res.Dir)
+			_, err := strconv.Atoi(res.Dir)
 			if err != nil {
 				c.ctx.AddError("Error: No se puede convertir " + res.Dir + " a int")
 				return NewNill()
 			}
-			return NewInt(valori)
+			return NewInt(res.Dir)
 		}
 	case Float:
 		switch res.Tipo {
@@ -85,29 +87,29 @@ func (c *Conversor) Ampliar(res *Atributos, tipo TipoE) *Atributos {
 			return NewNill()
 		case Integer:
 			//convertir la dir a int
-			valori, err := strconv.Atoi(res.Dir)
+			_, err := strconv.Atoi(res.Dir)
 			if err != nil {
 				c.ctx.AddError("Error: No se puede convertir " + res.Dir + " a float")
 				return NewNill()
 			}
-			return NewFloat(float64(valori))
+			return NewFloat(res.Dir)
 		case Float:
 			return res
 		case String:
-			valorf, err := strconv.ParseFloat(res.Dir, 64)
+			_, err := strconv.ParseFloat(res.Dir, 64)
 			if err != nil {
 				c.ctx.AddError("Error: No se puede convertir " + res.Dir + " a float")
 				return NewNill()
 			}
-			respuesta := NewFloat(valorf)
+			respuesta := NewFloat(res.Dir)
 			return respuesta
 		case Char:
-			valorf, err := strconv.ParseFloat(res.Dir, 64)
+			_, err := strconv.ParseFloat(res.Dir, 64)
 			if err != nil {
 				c.ctx.AddError("Error: No se puede convertir " + res.Dir + " a float")
 				return NewNill()
 			}
-			respuesta := NewFloat(valorf)
+			respuesta := NewFloat(res.Dir)
 			return respuesta
 		}
 	case String:

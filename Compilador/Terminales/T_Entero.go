@@ -20,10 +20,10 @@ func NewT_Num(num string) *T_Num {
 // Implementacion =============================================================================
 
 func (Tn *T_Num) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
-	num, err := strconv.Atoi(Tn.Num)
+	_, err := strconv.Atoi(Tn.Num)
 	if err != nil {
 		ctx.AddError("Error Semantico: No se pudo convertir el numero")
 		return compilador.NewNill()
 	}
-	return compilador.NewInt(num)
+	return compilador.NewInt(Tn.Num)
 }

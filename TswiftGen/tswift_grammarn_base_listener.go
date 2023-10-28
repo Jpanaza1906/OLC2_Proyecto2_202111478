@@ -86,6 +86,24 @@ func (s *BaseTswift_GrammarNListener) EnterS_For(ctx *S_ForContext) {}
 // ExitS_For is called when production S_For is exited.
 func (s *BaseTswift_GrammarNListener) ExitS_For(ctx *S_ForContext) {}
 
+// EnterS_Declaracion_Vector is called when production S_Declaracion_Vector is entered.
+func (s *BaseTswift_GrammarNListener) EnterS_Declaracion_Vector(ctx *S_Declaracion_VectorContext) {}
+
+// ExitS_Declaracion_Vector is called when production S_Declaracion_Vector is exited.
+func (s *BaseTswift_GrammarNListener) ExitS_Declaracion_Vector(ctx *S_Declaracion_VectorContext) {}
+
+// EnterS_Funcion_Vector is called when production S_Funcion_Vector is entered.
+func (s *BaseTswift_GrammarNListener) EnterS_Funcion_Vector(ctx *S_Funcion_VectorContext) {}
+
+// ExitS_Funcion_Vector is called when production S_Funcion_Vector is exited.
+func (s *BaseTswift_GrammarNListener) ExitS_Funcion_Vector(ctx *S_Funcion_VectorContext) {}
+
+// EnterS_Asignacion_Vector is called when production S_Asignacion_Vector is entered.
+func (s *BaseTswift_GrammarNListener) EnterS_Asignacion_Vector(ctx *S_Asignacion_VectorContext) {}
+
+// ExitS_Asignacion_Vector is called when production S_Asignacion_Vector is exited.
+func (s *BaseTswift_GrammarNListener) ExitS_Asignacion_Vector(ctx *S_Asignacion_VectorContext) {}
+
 // EnterBreak is called when production Break is entered.
 func (s *BaseTswift_GrammarNListener) EnterBreak(ctx *BreakContext) {}
 
@@ -232,6 +250,74 @@ func (s *BaseTswift_GrammarNListener) EnterForList(ctx *ForListContext) {}
 // ExitForList is called when production ForList is exited.
 func (s *BaseTswift_GrammarNListener) ExitForList(ctx *ForListContext) {}
 
+// EnterDeclaracion_Vector is called when production Declaracion_Vector is entered.
+func (s *BaseTswift_GrammarNListener) EnterDeclaracion_Vector(ctx *Declaracion_VectorContext) {}
+
+// ExitDeclaracion_Vector is called when production Declaracion_Vector is exited.
+func (s *BaseTswift_GrammarNListener) ExitDeclaracion_Vector(ctx *Declaracion_VectorContext) {}
+
+// EnterDeclaracion_Alterna is called when production Declaracion_Alterna is entered.
+func (s *BaseTswift_GrammarNListener) EnterDeclaracion_Alterna(ctx *Declaracion_AlternaContext) {}
+
+// ExitDeclaracion_Alterna is called when production Declaracion_Alterna is exited.
+func (s *BaseTswift_GrammarNListener) ExitDeclaracion_Alterna(ctx *Declaracion_AlternaContext) {}
+
+// EnterDef_Vector is called when production Def_Vector is entered.
+func (s *BaseTswift_GrammarNListener) EnterDef_Vector(ctx *Def_VectorContext) {}
+
+// ExitDef_Vector is called when production Def_Vector is exited.
+func (s *BaseTswift_GrammarNListener) ExitDef_Vector(ctx *Def_VectorContext) {}
+
+// EnterDef_Vector_Vacio is called when production Def_Vector_Vacio is entered.
+func (s *BaseTswift_GrammarNListener) EnterDef_Vector_Vacio(ctx *Def_Vector_VacioContext) {}
+
+// ExitDef_Vector_Vacio is called when production Def_Vector_Vacio is exited.
+func (s *BaseTswift_GrammarNListener) ExitDef_Vector_Vacio(ctx *Def_Vector_VacioContext) {}
+
+// EnterDef_Vector_Id is called when production Def_Vector_Id is entered.
+func (s *BaseTswift_GrammarNListener) EnterDef_Vector_Id(ctx *Def_Vector_IdContext) {}
+
+// ExitDef_Vector_Id is called when production Def_Vector_Id is exited.
+func (s *BaseTswift_GrammarNListener) ExitDef_Vector_Id(ctx *Def_Vector_IdContext) {}
+
+// EnterAsig_Vector is called when production Asig_Vector is entered.
+func (s *BaseTswift_GrammarNListener) EnterAsig_Vector(ctx *Asig_VectorContext) {}
+
+// ExitAsig_Vector is called when production Asig_Vector is exited.
+func (s *BaseTswift_GrammarNListener) ExitAsig_Vector(ctx *Asig_VectorContext) {}
+
+// EnterSumAsg_Vector is called when production SumAsg_Vector is entered.
+func (s *BaseTswift_GrammarNListener) EnterSumAsg_Vector(ctx *SumAsg_VectorContext) {}
+
+// ExitSumAsg_Vector is called when production SumAsg_Vector is exited.
+func (s *BaseTswift_GrammarNListener) ExitSumAsg_Vector(ctx *SumAsg_VectorContext) {}
+
+// EnterResAsg_Vector is called when production ResAsg_Vector is entered.
+func (s *BaseTswift_GrammarNListener) EnterResAsg_Vector(ctx *ResAsg_VectorContext) {}
+
+// ExitResAsg_Vector is called when production ResAsg_Vector is exited.
+func (s *BaseTswift_GrammarNListener) ExitResAsg_Vector(ctx *ResAsg_VectorContext) {}
+
+// EnterFunc_Vector_Append is called when production Func_Vector_Append is entered.
+func (s *BaseTswift_GrammarNListener) EnterFunc_Vector_Append(ctx *Func_Vector_AppendContext) {}
+
+// ExitFunc_Vector_Append is called when production Func_Vector_Append is exited.
+func (s *BaseTswift_GrammarNListener) ExitFunc_Vector_Append(ctx *Func_Vector_AppendContext) {}
+
+// EnterFunc_Vector_RemoveLast is called when production Func_Vector_RemoveLast is entered.
+func (s *BaseTswift_GrammarNListener) EnterFunc_Vector_RemoveLast(ctx *Func_Vector_RemoveLastContext) {
+}
+
+// ExitFunc_Vector_RemoveLast is called when production Func_Vector_RemoveLast is exited.
+func (s *BaseTswift_GrammarNListener) ExitFunc_Vector_RemoveLast(ctx *Func_Vector_RemoveLastContext) {
+}
+
+// EnterFunc_Vector_Remove is called when production Func_Vector_Remove is entered.
+func (s *BaseTswift_GrammarNListener) EnterFunc_Vector_Remove(ctx *Func_Vector_RemoveContext) {}
+
+// ExitFunc_Vector_Remove is called when production Func_Vector_Remove is exited.
+func (s *BaseTswift_GrammarNListener) ExitFunc_Vector_Remove(ctx *Func_Vector_RemoveContext) {}
+
 // EnterCond_Par is called when production Cond_Par is entered.
 func (s *BaseTswift_GrammarNListener) EnterCond_Par(ctx *Cond_ParContext) {}
 
@@ -262,6 +348,12 @@ func (s *BaseTswift_GrammarNListener) EnterCond_Logica(ctx *Cond_LogicaContext) 
 // ExitCond_Logica is called when production Cond_Logica is exited.
 func (s *BaseTswift_GrammarNListener) ExitCond_Logica(ctx *Cond_LogicaContext) {}
 
+// EnterExpr_Rel is called when production Expr_Rel is entered.
+func (s *BaseTswift_GrammarNListener) EnterExpr_Rel(ctx *Expr_RelContext) {}
+
+// ExitExpr_Rel is called when production Expr_Rel is exited.
+func (s *BaseTswift_GrammarNListener) ExitExpr_Rel(ctx *Expr_RelContext) {}
+
 // EnterExpr_Decimal is called when production Expr_Decimal is entered.
 func (s *BaseTswift_GrammarNListener) EnterExpr_Decimal(ctx *Expr_DecimalContext) {}
 
@@ -279,18 +371,6 @@ func (s *BaseTswift_GrammarNListener) EnterExpr_SumRes(ctx *Expr_SumResContext) 
 
 // ExitExpr_SumRes is called when production Expr_SumRes is exited.
 func (s *BaseTswift_GrammarNListener) ExitExpr_SumRes(ctx *Expr_SumResContext) {}
-
-// EnterExpr_Id is called when production Expr_Id is entered.
-func (s *BaseTswift_GrammarNListener) EnterExpr_Id(ctx *Expr_IdContext) {}
-
-// ExitExpr_Id is called when production Expr_Id is exited.
-func (s *BaseTswift_GrammarNListener) ExitExpr_Id(ctx *Expr_IdContext) {}
-
-// EnterExpr_Mod is called when production Expr_Mod is entered.
-func (s *BaseTswift_GrammarNListener) EnterExpr_Mod(ctx *Expr_ModContext) {}
-
-// ExitExpr_Mod is called when production Expr_Mod is exited.
-func (s *BaseTswift_GrammarNListener) ExitExpr_Mod(ctx *Expr_ModContext) {}
 
 // EnterExpr_Neg is called when production Expr_Neg is entered.
 func (s *BaseTswift_GrammarNListener) EnterExpr_Neg(ctx *Expr_NegContext) {}
@@ -310,11 +390,47 @@ func (s *BaseTswift_GrammarNListener) EnterExpr_Nil(ctx *Expr_NilContext) {}
 // ExitExpr_Nil is called when production Expr_Nil is exited.
 func (s *BaseTswift_GrammarNListener) ExitExpr_Nil(ctx *Expr_NilContext) {}
 
+// EnterExpr_Cadena is called when production Expr_Cadena is entered.
+func (s *BaseTswift_GrammarNListener) EnterExpr_Cadena(ctx *Expr_CadenaContext) {}
+
+// ExitExpr_Cadena is called when production Expr_Cadena is exited.
+func (s *BaseTswift_GrammarNListener) ExitExpr_Cadena(ctx *Expr_CadenaContext) {}
+
+// EnterExpr_Count is called when production Expr_Count is entered.
+func (s *BaseTswift_GrammarNListener) EnterExpr_Count(ctx *Expr_CountContext) {}
+
+// ExitExpr_Count is called when production Expr_Count is exited.
+func (s *BaseTswift_GrammarNListener) ExitExpr_Count(ctx *Expr_CountContext) {}
+
+// EnterExpr_Id is called when production Expr_Id is entered.
+func (s *BaseTswift_GrammarNListener) EnterExpr_Id(ctx *Expr_IdContext) {}
+
+// ExitExpr_Id is called when production Expr_Id is exited.
+func (s *BaseTswift_GrammarNListener) ExitExpr_Id(ctx *Expr_IdContext) {}
+
+// EnterExpr_Mod is called when production Expr_Mod is entered.
+func (s *BaseTswift_GrammarNListener) EnterExpr_Mod(ctx *Expr_ModContext) {}
+
+// ExitExpr_Mod is called when production Expr_Mod is exited.
+func (s *BaseTswift_GrammarNListener) ExitExpr_Mod(ctx *Expr_ModContext) {}
+
 // EnterExpr_Par is called when production Expr_Par is entered.
 func (s *BaseTswift_GrammarNListener) EnterExpr_Par(ctx *Expr_ParContext) {}
 
 // ExitExpr_Par is called when production Expr_Par is exited.
 func (s *BaseTswift_GrammarNListener) ExitExpr_Par(ctx *Expr_ParContext) {}
+
+// EnterExpr_Logica is called when production Expr_Logica is entered.
+func (s *BaseTswift_GrammarNListener) EnterExpr_Logica(ctx *Expr_LogicaContext) {}
+
+// ExitExpr_Logica is called when production Expr_Logica is exited.
+func (s *BaseTswift_GrammarNListener) ExitExpr_Logica(ctx *Expr_LogicaContext) {}
+
+// EnterExpr_IsEmpty is called when production Expr_IsEmpty is entered.
+func (s *BaseTswift_GrammarNListener) EnterExpr_IsEmpty(ctx *Expr_IsEmptyContext) {}
+
+// ExitExpr_IsEmpty is called when production Expr_IsEmpty is exited.
+func (s *BaseTswift_GrammarNListener) ExitExpr_IsEmpty(ctx *Expr_IsEmptyContext) {}
 
 // EnterExpr_Booleano is called when production Expr_Booleano is entered.
 func (s *BaseTswift_GrammarNListener) EnterExpr_Booleano(ctx *Expr_BooleanoContext) {}
@@ -327,9 +443,3 @@ func (s *BaseTswift_GrammarNListener) EnterExpr_Entero(ctx *Expr_EnteroContext) 
 
 // ExitExpr_Entero is called when production Expr_Entero is exited.
 func (s *BaseTswift_GrammarNListener) ExitExpr_Entero(ctx *Expr_EnteroContext) {}
-
-// EnterExpr_Cadena is called when production Expr_Cadena is entered.
-func (s *BaseTswift_GrammarNListener) EnterExpr_Cadena(ctx *Expr_CadenaContext) {}
-
-// ExitExpr_Cadena is called when production Expr_Cadena is exited.
-func (s *BaseTswift_GrammarNListener) ExitExpr_Cadena(ctx *Expr_CadenaContext) {}

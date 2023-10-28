@@ -102,9 +102,9 @@ func (Nmd *NT_Negativo) Compilar(ctx *compilador.Contexto) *compilador.Atributos
 	tmp := ctx.NewTemp()
 
 	ctx.Gen(tmp + " = -1")
-	ctx.Gen(tmp + " = " + tmp + " * " + expr.Dir)
+	ctx.Gen(tmp + " = (int)" + tmp + " * (int)" + expr.Dir)
 
-	return compilador.NewDirAtributo(tmp)
+	return compilador.NewInt(tmp)
 }
 
 // NT_Mod ====================================================================================
@@ -135,7 +135,7 @@ func (Nmd *NT_Mod) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
 
 	tmp := ctx.NewTemp()
 
-	ctx.Gen(tmp + " = " + exprIzq.Dir + " % " + exprDer.Dir)
+	ctx.Gen(tmp + " = (int)" + exprIzq.Dir + " % (int)" + exprDer.Dir)
 
-	return compilador.NewDirAtributo(tmp)
+	return compilador.NewInt(tmp)
 }

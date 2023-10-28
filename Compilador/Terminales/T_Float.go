@@ -18,10 +18,10 @@ func NewT_Float(num string) *T_Float {
 
 // Implementacion =============================================================================
 func (Tn *T_Float) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
-	num, err := strconv.ParseFloat(Tn.Num, 64)
+	_, err := strconv.ParseFloat(Tn.Num, 64)
 	if err != nil {
 		ctx.AddError("Error Semantico: No se pudo convertir el numero")
 		return compilador.NewNill()
 	}
-	return compilador.NewFloat(num)
+	return compilador.NewFloat(Tn.Num)
 }

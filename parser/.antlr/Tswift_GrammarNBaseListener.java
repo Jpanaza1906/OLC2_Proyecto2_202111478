@@ -148,6 +148,42 @@ public class Tswift_GrammarNBaseListener implements Tswift_GrammarNListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterS_Declaracion_Vector(Tswift_GrammarNParser.S_Declaracion_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitS_Declaracion_Vector(Tswift_GrammarNParser.S_Declaracion_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterS_Funcion_Vector(Tswift_GrammarNParser.S_Funcion_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitS_Funcion_Vector(Tswift_GrammarNParser.S_Funcion_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterS_Asignacion_Vector(Tswift_GrammarNParser.S_Asignacion_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitS_Asignacion_Vector(Tswift_GrammarNParser.S_Asignacion_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterBreak(Tswift_GrammarNParser.BreakContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -431,6 +467,138 @@ public class Tswift_GrammarNBaseListener implements Tswift_GrammarNListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitForList(Tswift_GrammarNParser.ForListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclaracion_Vector(Tswift_GrammarNParser.Declaracion_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclaracion_Vector(Tswift_GrammarNParser.Declaracion_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclaracion_Alterna(Tswift_GrammarNParser.Declaracion_AlternaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclaracion_Alterna(Tswift_GrammarNParser.Declaracion_AlternaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDef_Vector(Tswift_GrammarNParser.Def_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDef_Vector(Tswift_GrammarNParser.Def_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDef_Vector_Vacio(Tswift_GrammarNParser.Def_Vector_VacioContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDef_Vector_Vacio(Tswift_GrammarNParser.Def_Vector_VacioContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDef_Vector_Id(Tswift_GrammarNParser.Def_Vector_IdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDef_Vector_Id(Tswift_GrammarNParser.Def_Vector_IdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAsig_Vector(Tswift_GrammarNParser.Asig_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAsig_Vector(Tswift_GrammarNParser.Asig_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSumAsg_Vector(Tswift_GrammarNParser.SumAsg_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSumAsg_Vector(Tswift_GrammarNParser.SumAsg_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterResAsg_Vector(Tswift_GrammarNParser.ResAsg_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitResAsg_Vector(Tswift_GrammarNParser.ResAsg_VectorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunc_Vector_Append(Tswift_GrammarNParser.Func_Vector_AppendContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunc_Vector_Append(Tswift_GrammarNParser.Func_Vector_AppendContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunc_Vector_RemoveLast(Tswift_GrammarNParser.Func_Vector_RemoveLastContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunc_Vector_RemoveLast(Tswift_GrammarNParser.Func_Vector_RemoveLastContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunc_Vector_Remove(Tswift_GrammarNParser.Func_Vector_RemoveContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunc_Vector_Remove(Tswift_GrammarNParser.Func_Vector_RemoveContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

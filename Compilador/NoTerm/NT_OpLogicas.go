@@ -91,3 +91,54 @@ func (NtNot *NT_Not) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
 	return compilador.NewAtributo(cond.EF, cond.EV, "", "", compilador.Bool)
 
 }
+
+// NT_NotExp =================================================================================
+
+type NT_NotExp struct {
+	Exp    compilador.CAbstractExpr
+	Linea  int
+	Columa int
+}
+
+// Constructor ================================================================================
+
+func NewNT_NotExp(exp compilador.CAbstractExpr, linea int, columna int) *NT_NotExp {
+	return &NT_NotExp{
+		Exp:    exp,
+		Linea:  linea,
+		Columa: columna,
+	}
+}
+
+// Implementacion =============================================================================
+
+func (NtNotExp *NT_NotExp) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
+	exp := NtNotExp.Exp.Compilar(ctx)
+
+	//verificar que sea booleano
+	if exp.Tipo != compilador.Bool {
+		ctx.AddErrorLine("Semantico", "La expresion no es booleana", NtNotExp.Linea, NtNotExp.Columa)
+		return compilador.NewNill()
+	}
+
+	// si en dir viene 1, se cambia por 0
+	// si en dir viene 0, se cambia por 1
+
+	//se genera el codigo 3d para asignar el valor a la variable
+	ctx.GenComentario("Not")
+	t1 := ctx.NewTemp()
+	ctx.Gen(t1 + " = " + exp.Dir)
+	//if que si viene 1, se cambia por 0
+	l1 := ctx.NewEtq()
+	l2 := ctx.NewEtq()
+
+	ctx.Gen("if (" + t1 + " == 1)" + " goto " + l1)
+	ctx.Gen(t1 + " = 1")
+	ctx.Gen("goto " + l2)
+	ctx.GenLabel(l1 + ":")
+	ctx.Gen(t1 + " = 0")
+	ctx.GenLabel(l2 + ":")
+
+	return compilador.NewBool(t1)
+
+}

@@ -17,9 +17,9 @@ func NewT_Bool(valor string) *T_Bool {
 
 func (Tb *T_Bool) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
 	if Tb.Valor == "true" {
-		return compilador.NewBool(1)
+		return compilador.NewBool("1")
 	} else if Tb.Valor == "false" {
-		return compilador.NewBool(0)
+		return compilador.NewBool("0")
 	}
 	return compilador.NewNill()
 }

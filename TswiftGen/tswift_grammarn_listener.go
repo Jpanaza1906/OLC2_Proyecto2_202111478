@@ -40,6 +40,15 @@ type Tswift_GrammarNListener interface {
 	// EnterS_For is called when entering the S_For production.
 	EnterS_For(c *S_ForContext)
 
+	// EnterS_Declaracion_Vector is called when entering the S_Declaracion_Vector production.
+	EnterS_Declaracion_Vector(c *S_Declaracion_VectorContext)
+
+	// EnterS_Funcion_Vector is called when entering the S_Funcion_Vector production.
+	EnterS_Funcion_Vector(c *S_Funcion_VectorContext)
+
+	// EnterS_Asignacion_Vector is called when entering the S_Asignacion_Vector production.
+	EnterS_Asignacion_Vector(c *S_Asignacion_VectorContext)
+
 	// EnterBreak is called when entering the Break production.
 	EnterBreak(c *BreakContext)
 
@@ -112,6 +121,39 @@ type Tswift_GrammarNListener interface {
 	// EnterForList is called when entering the ForList production.
 	EnterForList(c *ForListContext)
 
+	// EnterDeclaracion_Vector is called when entering the Declaracion_Vector production.
+	EnterDeclaracion_Vector(c *Declaracion_VectorContext)
+
+	// EnterDeclaracion_Alterna is called when entering the Declaracion_Alterna production.
+	EnterDeclaracion_Alterna(c *Declaracion_AlternaContext)
+
+	// EnterDef_Vector is called when entering the Def_Vector production.
+	EnterDef_Vector(c *Def_VectorContext)
+
+	// EnterDef_Vector_Vacio is called when entering the Def_Vector_Vacio production.
+	EnterDef_Vector_Vacio(c *Def_Vector_VacioContext)
+
+	// EnterDef_Vector_Id is called when entering the Def_Vector_Id production.
+	EnterDef_Vector_Id(c *Def_Vector_IdContext)
+
+	// EnterAsig_Vector is called when entering the Asig_Vector production.
+	EnterAsig_Vector(c *Asig_VectorContext)
+
+	// EnterSumAsg_Vector is called when entering the SumAsg_Vector production.
+	EnterSumAsg_Vector(c *SumAsg_VectorContext)
+
+	// EnterResAsg_Vector is called when entering the ResAsg_Vector production.
+	EnterResAsg_Vector(c *ResAsg_VectorContext)
+
+	// EnterFunc_Vector_Append is called when entering the Func_Vector_Append production.
+	EnterFunc_Vector_Append(c *Func_Vector_AppendContext)
+
+	// EnterFunc_Vector_RemoveLast is called when entering the Func_Vector_RemoveLast production.
+	EnterFunc_Vector_RemoveLast(c *Func_Vector_RemoveLastContext)
+
+	// EnterFunc_Vector_Remove is called when entering the Func_Vector_Remove production.
+	EnterFunc_Vector_Remove(c *Func_Vector_RemoveContext)
+
 	// EnterCond_Par is called when entering the Cond_Par production.
 	EnterCond_Par(c *Cond_ParContext)
 
@@ -127,6 +169,9 @@ type Tswift_GrammarNListener interface {
 	// EnterCond_Logica is called when entering the Cond_Logica production.
 	EnterCond_Logica(c *Cond_LogicaContext)
 
+	// EnterExpr_Rel is called when entering the Expr_Rel production.
+	EnterExpr_Rel(c *Expr_RelContext)
+
 	// EnterExpr_Decimal is called when entering the Expr_Decimal production.
 	EnterExpr_Decimal(c *Expr_DecimalContext)
 
@@ -135,12 +180,6 @@ type Tswift_GrammarNListener interface {
 
 	// EnterExpr_SumRes is called when entering the Expr_SumRes production.
 	EnterExpr_SumRes(c *Expr_SumResContext)
-
-	// EnterExpr_Id is called when entering the Expr_Id production.
-	EnterExpr_Id(c *Expr_IdContext)
-
-	// EnterExpr_Mod is called when entering the Expr_Mod production.
-	EnterExpr_Mod(c *Expr_ModContext)
 
 	// EnterExpr_Neg is called when entering the Expr_Neg production.
 	EnterExpr_Neg(c *Expr_NegContext)
@@ -151,17 +190,32 @@ type Tswift_GrammarNListener interface {
 	// EnterExpr_Nil is called when entering the Expr_Nil production.
 	EnterExpr_Nil(c *Expr_NilContext)
 
+	// EnterExpr_Cadena is called when entering the Expr_Cadena production.
+	EnterExpr_Cadena(c *Expr_CadenaContext)
+
+	// EnterExpr_Count is called when entering the Expr_Count production.
+	EnterExpr_Count(c *Expr_CountContext)
+
+	// EnterExpr_Id is called when entering the Expr_Id production.
+	EnterExpr_Id(c *Expr_IdContext)
+
+	// EnterExpr_Mod is called when entering the Expr_Mod production.
+	EnterExpr_Mod(c *Expr_ModContext)
+
 	// EnterExpr_Par is called when entering the Expr_Par production.
 	EnterExpr_Par(c *Expr_ParContext)
+
+	// EnterExpr_Logica is called when entering the Expr_Logica production.
+	EnterExpr_Logica(c *Expr_LogicaContext)
+
+	// EnterExpr_IsEmpty is called when entering the Expr_IsEmpty production.
+	EnterExpr_IsEmpty(c *Expr_IsEmptyContext)
 
 	// EnterExpr_Booleano is called when entering the Expr_Booleano production.
 	EnterExpr_Booleano(c *Expr_BooleanoContext)
 
 	// EnterExpr_Entero is called when entering the Expr_Entero production.
 	EnterExpr_Entero(c *Expr_EnteroContext)
-
-	// EnterExpr_Cadena is called when entering the Expr_Cadena production.
-	EnterExpr_Cadena(c *Expr_CadenaContext)
 
 	// ExitSLSentencias is called when exiting the SLSentencias production.
 	ExitSLSentencias(c *SLSentenciasContext)
@@ -195,6 +249,15 @@ type Tswift_GrammarNListener interface {
 
 	// ExitS_For is called when exiting the S_For production.
 	ExitS_For(c *S_ForContext)
+
+	// ExitS_Declaracion_Vector is called when exiting the S_Declaracion_Vector production.
+	ExitS_Declaracion_Vector(c *S_Declaracion_VectorContext)
+
+	// ExitS_Funcion_Vector is called when exiting the S_Funcion_Vector production.
+	ExitS_Funcion_Vector(c *S_Funcion_VectorContext)
+
+	// ExitS_Asignacion_Vector is called when exiting the S_Asignacion_Vector production.
+	ExitS_Asignacion_Vector(c *S_Asignacion_VectorContext)
 
 	// ExitBreak is called when exiting the Break production.
 	ExitBreak(c *BreakContext)
@@ -268,6 +331,39 @@ type Tswift_GrammarNListener interface {
 	// ExitForList is called when exiting the ForList production.
 	ExitForList(c *ForListContext)
 
+	// ExitDeclaracion_Vector is called when exiting the Declaracion_Vector production.
+	ExitDeclaracion_Vector(c *Declaracion_VectorContext)
+
+	// ExitDeclaracion_Alterna is called when exiting the Declaracion_Alterna production.
+	ExitDeclaracion_Alterna(c *Declaracion_AlternaContext)
+
+	// ExitDef_Vector is called when exiting the Def_Vector production.
+	ExitDef_Vector(c *Def_VectorContext)
+
+	// ExitDef_Vector_Vacio is called when exiting the Def_Vector_Vacio production.
+	ExitDef_Vector_Vacio(c *Def_Vector_VacioContext)
+
+	// ExitDef_Vector_Id is called when exiting the Def_Vector_Id production.
+	ExitDef_Vector_Id(c *Def_Vector_IdContext)
+
+	// ExitAsig_Vector is called when exiting the Asig_Vector production.
+	ExitAsig_Vector(c *Asig_VectorContext)
+
+	// ExitSumAsg_Vector is called when exiting the SumAsg_Vector production.
+	ExitSumAsg_Vector(c *SumAsg_VectorContext)
+
+	// ExitResAsg_Vector is called when exiting the ResAsg_Vector production.
+	ExitResAsg_Vector(c *ResAsg_VectorContext)
+
+	// ExitFunc_Vector_Append is called when exiting the Func_Vector_Append production.
+	ExitFunc_Vector_Append(c *Func_Vector_AppendContext)
+
+	// ExitFunc_Vector_RemoveLast is called when exiting the Func_Vector_RemoveLast production.
+	ExitFunc_Vector_RemoveLast(c *Func_Vector_RemoveLastContext)
+
+	// ExitFunc_Vector_Remove is called when exiting the Func_Vector_Remove production.
+	ExitFunc_Vector_Remove(c *Func_Vector_RemoveContext)
+
 	// ExitCond_Par is called when exiting the Cond_Par production.
 	ExitCond_Par(c *Cond_ParContext)
 
@@ -283,6 +379,9 @@ type Tswift_GrammarNListener interface {
 	// ExitCond_Logica is called when exiting the Cond_Logica production.
 	ExitCond_Logica(c *Cond_LogicaContext)
 
+	// ExitExpr_Rel is called when exiting the Expr_Rel production.
+	ExitExpr_Rel(c *Expr_RelContext)
+
 	// ExitExpr_Decimal is called when exiting the Expr_Decimal production.
 	ExitExpr_Decimal(c *Expr_DecimalContext)
 
@@ -291,12 +390,6 @@ type Tswift_GrammarNListener interface {
 
 	// ExitExpr_SumRes is called when exiting the Expr_SumRes production.
 	ExitExpr_SumRes(c *Expr_SumResContext)
-
-	// ExitExpr_Id is called when exiting the Expr_Id production.
-	ExitExpr_Id(c *Expr_IdContext)
-
-	// ExitExpr_Mod is called when exiting the Expr_Mod production.
-	ExitExpr_Mod(c *Expr_ModContext)
 
 	// ExitExpr_Neg is called when exiting the Expr_Neg production.
 	ExitExpr_Neg(c *Expr_NegContext)
@@ -307,15 +400,30 @@ type Tswift_GrammarNListener interface {
 	// ExitExpr_Nil is called when exiting the Expr_Nil production.
 	ExitExpr_Nil(c *Expr_NilContext)
 
+	// ExitExpr_Cadena is called when exiting the Expr_Cadena production.
+	ExitExpr_Cadena(c *Expr_CadenaContext)
+
+	// ExitExpr_Count is called when exiting the Expr_Count production.
+	ExitExpr_Count(c *Expr_CountContext)
+
+	// ExitExpr_Id is called when exiting the Expr_Id production.
+	ExitExpr_Id(c *Expr_IdContext)
+
+	// ExitExpr_Mod is called when exiting the Expr_Mod production.
+	ExitExpr_Mod(c *Expr_ModContext)
+
 	// ExitExpr_Par is called when exiting the Expr_Par production.
 	ExitExpr_Par(c *Expr_ParContext)
+
+	// ExitExpr_Logica is called when exiting the Expr_Logica production.
+	ExitExpr_Logica(c *Expr_LogicaContext)
+
+	// ExitExpr_IsEmpty is called when exiting the Expr_IsEmpty production.
+	ExitExpr_IsEmpty(c *Expr_IsEmptyContext)
 
 	// ExitExpr_Booleano is called when exiting the Expr_Booleano production.
 	ExitExpr_Booleano(c *Expr_BooleanoContext)
 
 	// ExitExpr_Entero is called when exiting the Expr_Entero production.
 	ExitExpr_Entero(c *Expr_EnteroContext)
-
-	// ExitExpr_Cadena is called when exiting the Expr_Cadena production.
-	ExitExpr_Cadena(c *Expr_CadenaContext)
 }

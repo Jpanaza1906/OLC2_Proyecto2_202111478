@@ -22,6 +22,9 @@ sentencia
     |trans_sentencia PTCOMA? #S_Trans
     |while_sentencia #S_While
     |for_sentencia #S_For
+    |dec_vector PTCOMA?#S_Declaracion_Vector
+    |func_vector PTCOMA?#S_Funcion_Vector
+    |asig_vector PTCOMA?#S_Asignacion_Vector
     ;
 
 //Sentencias de transferencias---------------------------------------------------
@@ -96,6 +99,29 @@ for_sentencia:
     | FOR ID IN e LLAVEIZQ l_sentencias LLAVEDER #ForList
     ;
 
+//Vectores-----------------------------------------------------------------------
+dec_vector:
+    tipod=(VAR|LET) ID DOSPT CORCHETEIZQ tipo CORCHETEDER IGUAL def_vector #Declaracion_Vector
+    |tipod=(VAR|LET) ID IGUAL CORCHETEIZQ tipo CORCHETEDER PARIZQ PARDER #Declaracion_Alterna
+    ;
+
+def_vector:
+    CORCHETEIZQ e (',' e)* CORCHETEDER #Def_Vector
+    |CORCHETEIZQ CORCHETEDER #Def_Vector_Vacio
+    |ID #Def_Vector_Id
+    ;
+asig_vector:
+    ID CORCHETEIZQ e CORCHETEDER IGUAL e #Asig_Vector
+    |ID CORCHETEIZQ e CORCHETEDER MASIGUAL e #SumAsg_Vector
+    |ID CORCHETEIZQ e CORCHETEDER MENOSIGUAL e #ResAsg_Vector
+    ;
+
+func_vector:
+    ID PUNTO APPEND PARIZQ e PARDER #Func_Vector_Append
+    |ID PUNTO REMOVELAST PARIZQ PARDER #Func_Vector_RemoveLast
+    |ID PUNTO REMOVE PARIZQ AT DOSPT e PARDER #Func_Vector_Remove
+    ;
+
 //Condiciones--------------------------------------------------------------------
 
 condicion
@@ -108,12 +134,16 @@ condicion
 
 //Expresiones--------------------------------------------------------------------
 e
-    : <assoc=right> op=MENOS e1=e      # Expr_Neg
+    : <assoc=right> op=(MENOS|NOT) e1=e      # Expr_Neg
     | e1=e op=(POR | DIV) e2=e    # Expr_MulDiv
     | e1=e op=(MAS | MENOS) e2=e  # Expr_SumRes
     | e1=e op=MOD e2=e           # Expr_Mod
+    | e op=(IGUALIGUAL | DIFERENTE | MAYORIGUAL | MAYOR | MENORIGUAL | MENOR) e     # Expr_Rel
+    | e op=(AND | OR) e     # Expr_Logica
     | n=(TRUE | FALSE)    # Expr_Booleano
     | n=NIL              # Expr_Nil
+    | ID PUNTO ISEMPTY  # Expr_IsEmpty
+    | ID PUNTO COUNT    # Expr_Count
     | id=ID                # Expr_Id
     | n=ENTERO            # Expr_Entero
     | n=DECIMAL           # Expr_Decimal

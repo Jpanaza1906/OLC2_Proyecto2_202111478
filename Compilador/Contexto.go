@@ -68,6 +68,10 @@ func (ctx *Contexto) GenComentario(out string) {
 	ctx.Consola += "\t//" + out + "\n"
 	fmt.Println(out)
 }
+func (ctx *Contexto) GenNewLine() {
+	ctx.Consola += "\n"
+	fmt.Println()
+}
 
 func (ctx *Contexto) NewTemp() string {
 	ctx.tmp++

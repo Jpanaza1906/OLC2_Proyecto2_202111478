@@ -27,9 +27,9 @@ func (Tc *T_Cad) Compilar(ctx *compilador.Contexto) *compilador.Atributos {
 	cadena := Tc.Cadena
 
 	//si viene vacia, se genera un string vacio
-	if cadena == "" {
-		return compilador.NewString("")
-	}
+	//if cadena == "" {
+	//	return compilador.NewString("")
+	//}
 
 	//se genera el codigo 3d para agregar el valor al heap
 	t1 := ctx.NewTemp()

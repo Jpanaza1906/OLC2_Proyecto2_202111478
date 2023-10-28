@@ -114,6 +114,21 @@ func (tV *Visitor) VisitS_For(ctx *TswiftGen.S_ForContext) interface{} {
 	return ctx.For_sentencia().Accept(tV).(compilador.CAbstractExpr)
 }
 
+// Visit a parse tree produced by Tswift_GrammarNParser#S_Declaracion_Vector.
+func (tV *Visitor) VisitS_Declaracion_Vector(ctx *TswiftGen.S_Declaracion_VectorContext) interface{} {
+	return ctx.Dec_vector().Accept(tV).(compilador.CAbstractExpr)
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#S_Funcion_Vector.
+func (tV *Visitor) VisitS_Funcion_Vector(ctx *TswiftGen.S_Funcion_VectorContext) interface{} {
+	return ctx.Func_vector().Accept(tV).(compilador.CAbstractExpr)
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#S_Asignacion_Vector.
+func (tV *Visitor) VisitS_Asignacion_Vector(ctx *TswiftGen.S_Asignacion_VectorContext) interface{} {
+	return ctx.Asig_vector().Accept(tV).(compilador.CAbstractExpr)
+}
+
 // SENTENCIAS DE TRANSFERENCIA =========================================
 
 // Visit a parse tree produced by Tswift_GrammarNParser#Break.
@@ -377,6 +392,130 @@ func (tV *Visitor) VisitForList(ctx *TswiftGen.ForListContext) interface{} {
 	return noterm.NewNT_ForList(id, exp, sentencias, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
 }
 
+// VECTORES =============================================================
+// Visit a parse tree produced by Tswift_GrammarNParser#Declaracion_Vector.
+func (tV *Visitor) VisitDeclaracion_Vector(ctx *TswiftGen.Declaracion_VectorContext) interface{} {
+	tipodec := ctx.GetTipod().GetText()
+
+	//si es let, mutable es false
+	mutable := false
+
+	if tipodec == "let" {
+		mutable = false
+	} else {
+		mutable = true
+	}
+
+	id := ctx.ID().GetText()
+
+	tipo := ctx.Tipo().Accept(tV).(string)
+
+	defvector := ctx.Def_vector().Accept(tV).(compilador.CAbstractExpr)
+
+	return noterm.NewNT_DecVector(id, tipo, mutable, defvector, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Declaracion_Alterna.
+func (tV *Visitor) VisitDeclaracion_Alterna(ctx *TswiftGen.Declaracion_AlternaContext) interface{} {
+	tipodec := ctx.GetTipod().GetText()
+
+	//si es let, mutable es false
+	mutable := false
+
+	if tipodec == "let" {
+		mutable = false
+	} else {
+		mutable = true
+	}
+
+	id := ctx.ID().GetText()
+
+	tipo := ctx.Tipo().Accept(tV).(string)
+
+	return noterm.NewNT_DecVector(id, tipo, mutable, nil, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Def_Vector.
+func (tV *Visitor) VisitDef_Vector(ctx *TswiftGen.Def_VectorContext) interface{} {
+	lexpresiones := ctx.AllE()
+
+	vector := []compilador.CAbstractExpr{}
+
+	for _, exp := range lexpresiones {
+		vector = append(vector, exp.Accept(tV).(compilador.CAbstractExpr))
+	}
+
+	return noterm.NewNT_DefVector("", vector, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Def_Vector_Vacio.
+func (tV *Visitor) VisitDef_Vector_Vacio(ctx *TswiftGen.Def_Vector_VacioContext) interface{} {
+	vector := []compilador.CAbstractExpr{}
+
+	return noterm.NewNT_DefVector("", vector, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Def_Vector_Id.
+func (tV *Visitor) VisitDef_Vector_Id(ctx *TswiftGen.Def_Vector_IdContext) interface{} {
+	id := ctx.ID().GetText()
+
+	return noterm.NewNT_DefVector(id, nil, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Asig_Vector.
+func (tV *Visitor) VisitAsig_Vector(ctx *TswiftGen.Asig_VectorContext) interface{} {
+	panic("not implemented") // TODO: Implement
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#SumAsg_Vector.
+func (tV *Visitor) VisitSumAsg_Vector(ctx *TswiftGen.SumAsg_VectorContext) interface{} {
+	panic("not implemented") // TODO: Implement
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#ResAsg_Vector.
+func (tV *Visitor) VisitResAsg_Vector(ctx *TswiftGen.ResAsg_VectorContext) interface{} {
+	panic("not implemented") // TODO: Implement
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Func_Vector_Append.
+func (tV *Visitor) VisitFunc_Vector_Append(ctx *TswiftGen.Func_Vector_AppendContext) interface{} {
+	id := ctx.ID().GetText()
+	exp := ctx.E().Accept(tV).(compilador.CAbstractExpr)
+
+	return noterm.NewNT_Append(id, exp, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Func_Vector_RemoveLast.
+func (tV *Visitor) VisitFunc_Vector_RemoveLast(ctx *TswiftGen.Func_Vector_RemoveLastContext) interface{} {
+	id := ctx.ID().GetText()
+
+	return noterm.NewNT_RemoveLast(id, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Func_Vector_Remove.
+func (tV *Visitor) VisitFunc_Vector_Remove(ctx *TswiftGen.Func_Vector_RemoveContext) interface{} {
+	id := ctx.ID().GetText()
+	exp := ctx.E().Accept(tV).(compilador.CAbstractExpr)
+
+	return noterm.NewNT_Remove(id, exp, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Count.
+func (tV *Visitor) VisitExpr_Count(ctx *TswiftGen.Expr_CountContext) interface{} {
+	id := ctx.ID().GetText()
+
+	return noterm.NewNT_Count(id, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Expr_IsEmpty.
+func (tV *Visitor) VisitExpr_IsEmpty(ctx *TswiftGen.Expr_IsEmptyContext) interface{} {
+	id := ctx.ID().GetText()
+
+	return noterm.NewNT_IsEmpty(id, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+}
+
 // CONDICIONES ========================================================
 
 // Visit a parse tree produced by Tswift_GrammarNParser#Cond_Par.
@@ -477,7 +616,12 @@ func (tV *Visitor) VisitExpr_Mod(ctx *TswiftGen.Expr_ModContext) interface{} {
 
 // Visit a parse tree produced by Tswift_GrammarNParser#Expr_Neg.
 func (tV *Visitor) VisitExpr_Neg(ctx *TswiftGen.Expr_NegContext) interface{} {
+	// expresion
 	expr := ctx.GetE1().Accept(tV).(compilador.CAbstractExpr)
+
+	if ctx.GetOp().GetText() == "!" {
+		return noterm.NewNT_NotExp(expr, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+	}
 	return noterm.NewNT_Negativo(expr, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
 }
 
@@ -530,4 +674,25 @@ func (tV *Visitor) VisitExpr_Cadena(ctx *TswiftGen.Expr_CadenaContext) interface
 	//eliminar las comillas
 	cadena = cadena[1 : len(cadena)-1]
 	return terminales.NewT_Cad(cadena)
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Rel.
+func (tV *Visitor) VisitExpr_Rel(ctx *TswiftGen.Expr_RelContext) interface{} {
+	expizq := ctx.E(0).Accept(tV).(compilador.CAbstractExpr)
+	expder := ctx.E(1).Accept(tV).(compilador.CAbstractExpr)
+
+	operador := ctx.GetOp().GetText()
+
+	return noterm.NewNT_ExprRelacional(expizq, expder, operador, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Logica.
+func (tV *Visitor) VisitExpr_Logica(ctx *TswiftGen.Expr_LogicaContext) interface{} {
+	expizq := ctx.E(0).Accept(tV).(compilador.CAbstractExpr)
+	expder := ctx.E(1).Accept(tV).(compilador.CAbstractExpr)
+
+	operador := ctx.GetOp().GetText()
+
+	return noterm.NewNT_ExprLogica(expizq, expder, operador, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
 }

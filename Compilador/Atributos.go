@@ -1,7 +1,5 @@
 package compilador
 
-import "strconv"
-
 type TipoE uint
 
 const (
@@ -106,31 +104,31 @@ func NewNill() *Atributos {
 	}
 }
 
-func NewBool(valor int) *Atributos {
+func NewBool(valor string) *Atributos {
 	return &Atributos{
 		EV:   []string{},
 		EF:   []string{},
-		Dir:  strconv.Itoa(valor),
+		Dir:  valor,
 		Op:   "",
 		Tipo: Bool,
 	}
 }
 
-func NewInt(valor int) *Atributos {
+func NewInt(valor string) *Atributos {
 	return &Atributos{
 		EV:   []string{},
 		EF:   []string{},
-		Dir:  strconv.Itoa(valor),
+		Dir:  valor,
 		Op:   "",
 		Tipo: Integer,
 	}
 }
 
-func NewFloat(valor float64) *Atributos {
+func NewFloat(valor string) *Atributos {
 	return &Atributos{
 		EV:   []string{},
 		EF:   []string{},
-		Dir:  strconv.FormatFloat(valor, 'f', 4, 64),
+		Dir:  valor,
 		Op:   "",
 		Tipo: Float,
 	}
@@ -156,11 +154,11 @@ func NewChar(valor string) *Atributos {
 	}
 }
 
-func NewVector() *Atributos {
+func NewVector(dir string) *Atributos {
 	return &Atributos{
 		EV:   []string{},
 		EF:   []string{},
-		Dir:  "",
+		Dir:  dir,
 		Op:   "",
 		Tipo: Vector,
 	}
