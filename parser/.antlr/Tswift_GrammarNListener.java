@@ -163,17 +163,17 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 */
 	void exitS_Funcion_Vector(Tswift_GrammarNParser.S_Funcion_VectorContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code S_Asignacion_Vector}
+	 * Enter a parse tree produced by the {@code S_Declaracion_Matriz}
 	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
 	 * @param ctx the parse tree
 	 */
-	void enterS_Asignacion_Vector(Tswift_GrammarNParser.S_Asignacion_VectorContext ctx);
+	void enterS_Declaracion_Matriz(Tswift_GrammarNParser.S_Declaracion_MatrizContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code S_Asignacion_Vector}
+	 * Exit a parse tree produced by the {@code S_Declaracion_Matriz}
 	 * labeled alternative in {@link Tswift_GrammarNParser#sentencia}.
 	 * @param ctx the parse tree
 	 */
-	void exitS_Asignacion_Vector(Tswift_GrammarNParser.S_Asignacion_VectorContext ctx);
+	void exitS_Declaracion_Matriz(Tswift_GrammarNParser.S_Declaracion_MatrizContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Break}
 	 * labeled alternative in {@link Tswift_GrammarNParser#trans_sentencia}.
@@ -523,42 +523,6 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 */
 	void exitDef_Vector_Id(Tswift_GrammarNParser.Def_Vector_IdContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code Asig_Vector}
-	 * labeled alternative in {@link Tswift_GrammarNParser#asig_vector}.
-	 * @param ctx the parse tree
-	 */
-	void enterAsig_Vector(Tswift_GrammarNParser.Asig_VectorContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Asig_Vector}
-	 * labeled alternative in {@link Tswift_GrammarNParser#asig_vector}.
-	 * @param ctx the parse tree
-	 */
-	void exitAsig_Vector(Tswift_GrammarNParser.Asig_VectorContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code SumAsg_Vector}
-	 * labeled alternative in {@link Tswift_GrammarNParser#asig_vector}.
-	 * @param ctx the parse tree
-	 */
-	void enterSumAsg_Vector(Tswift_GrammarNParser.SumAsg_VectorContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code SumAsg_Vector}
-	 * labeled alternative in {@link Tswift_GrammarNParser#asig_vector}.
-	 * @param ctx the parse tree
-	 */
-	void exitSumAsg_Vector(Tswift_GrammarNParser.SumAsg_VectorContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ResAsg_Vector}
-	 * labeled alternative in {@link Tswift_GrammarNParser#asig_vector}.
-	 * @param ctx the parse tree
-	 */
-	void enterResAsg_Vector(Tswift_GrammarNParser.ResAsg_VectorContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ResAsg_Vector}
-	 * labeled alternative in {@link Tswift_GrammarNParser#asig_vector}.
-	 * @param ctx the parse tree
-	 */
-	void exitResAsg_Vector(Tswift_GrammarNParser.ResAsg_VectorContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code Func_Vector_Append}
 	 * labeled alternative in {@link Tswift_GrammarNParser#func_vector}.
 	 * @param ctx the parse tree
@@ -594,6 +558,114 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFunc_Vector_Remove(Tswift_GrammarNParser.Func_Vector_RemoveContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Declaracion_Matriz}
+	 * labeled alternative in {@link Tswift_GrammarNParser#dec_matriz}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeclaracion_Matriz(Tswift_GrammarNParser.Declaracion_MatrizContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Declaracion_Matriz}
+	 * labeled alternative in {@link Tswift_GrammarNParser#dec_matriz}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeclaracion_Matriz(Tswift_GrammarNParser.Declaracion_MatrizContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Def_Matriz}
+	 * labeled alternative in {@link Tswift_GrammarNParser#def_matriz}.
+	 * @param ctx the parse tree
+	 */
+	void enterDef_Matriz(Tswift_GrammarNParser.Def_MatrizContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Def_Matriz}
+	 * labeled alternative in {@link Tswift_GrammarNParser#def_matriz}.
+	 * @param ctx the parse tree
+	 */
+	void exitDef_Matriz(Tswift_GrammarNParser.Def_MatrizContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Def_Matriz_Simple}
+	 * labeled alternative in {@link Tswift_GrammarNParser#def_matriz}.
+	 * @param ctx the parse tree
+	 */
+	void enterDef_Matriz_Simple(Tswift_GrammarNParser.Def_Matriz_SimpleContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Def_Matriz_Simple}
+	 * labeled alternative in {@link Tswift_GrammarNParser#def_matriz}.
+	 * @param ctx the parse tree
+	 */
+	void exitDef_Matriz_Simple(Tswift_GrammarNParser.Def_Matriz_SimpleContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Def_Matriz_Valor}
+	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz}.
+	 * @param ctx the parse tree
+	 */
+	void enterDef_Matriz_Valor(Tswift_GrammarNParser.Def_Matriz_ValorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Def_Matriz_Valor}
+	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz}.
+	 * @param ctx the parse tree
+	 */
+	void exitDef_Matriz_Valor(Tswift_GrammarNParser.Def_Matriz_ValorContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Def_Matriz_Valor4}
+	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz2}.
+	 * @param ctx the parse tree
+	 */
+	void enterDef_Matriz_Valor4(Tswift_GrammarNParser.Def_Matriz_Valor4Context ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Def_Matriz_Valor4}
+	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz2}.
+	 * @param ctx the parse tree
+	 */
+	void exitDef_Matriz_Valor4(Tswift_GrammarNParser.Def_Matriz_Valor4Context ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Def_Matriz_Valor3}
+	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz2}.
+	 * @param ctx the parse tree
+	 */
+	void enterDef_Matriz_Valor3(Tswift_GrammarNParser.Def_Matriz_Valor3Context ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Def_Matriz_Valor3}
+	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz2}.
+	 * @param ctx the parse tree
+	 */
+	void exitDef_Matriz_Valor3(Tswift_GrammarNParser.Def_Matriz_Valor3Context ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Def_Matriz_Valor2}
+	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz2}.
+	 * @param ctx the parse tree
+	 */
+	void enterDef_Matriz_Valor2(Tswift_GrammarNParser.Def_Matriz_Valor2Context ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Def_Matriz_Valor2}
+	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz2}.
+	 * @param ctx the parse tree
+	 */
+	void exitDef_Matriz_Valor2(Tswift_GrammarNParser.Def_Matriz_Valor2Context ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Def_Matriz_Simple2}
+	 * labeled alternative in {@link Tswift_GrammarNParser#simple_matriz}.
+	 * @param ctx the parse tree
+	 */
+	void enterDef_Matriz_Simple2(Tswift_GrammarNParser.Def_Matriz_Simple2Context ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Def_Matriz_Simple2}
+	 * labeled alternative in {@link Tswift_GrammarNParser#simple_matriz}.
+	 * @param ctx the parse tree
+	 */
+	void exitDef_Matriz_Simple2(Tswift_GrammarNParser.Def_Matriz_Simple2Context ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Def_Matriz_Simple3}
+	 * labeled alternative in {@link Tswift_GrammarNParser#simple_matriz}.
+	 * @param ctx the parse tree
+	 */
+	void enterDef_Matriz_Simple3(Tswift_GrammarNParser.Def_Matriz_Simple3Context ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Def_Matriz_Simple3}
+	 * labeled alternative in {@link Tswift_GrammarNParser#simple_matriz}.
+	 * @param ctx the parse tree
+	 */
+	void exitDef_Matriz_Simple3(Tswift_GrammarNParser.Def_Matriz_Simple3Context ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Cond_Par}
 	 * labeled alternative in {@link Tswift_GrammarNParser#condicion}.
@@ -655,6 +727,18 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 */
 	void exitCond_Logica(Tswift_GrammarNParser.Cond_LogicaContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code Expr_Rel}
+	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_Rel(Tswift_GrammarNParser.Expr_RelContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Expr_Rel}
+	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_Rel(Tswift_GrammarNParser.Expr_RelContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code Expr_Decimal}
 	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
 	 * @param ctx the parse tree
@@ -690,30 +774,6 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitExpr_SumRes(Tswift_GrammarNParser.Expr_SumResContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code Expr_Id}
-	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_Id(Tswift_GrammarNParser.Expr_IdContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Expr_Id}
-	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_Id(Tswift_GrammarNParser.Expr_IdContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code Expr_Mod}
-	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_Mod(Tswift_GrammarNParser.Expr_ModContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Expr_Mod}
-	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_Mod(Tswift_GrammarNParser.Expr_ModContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Expr_Neg}
 	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
@@ -751,6 +811,54 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 */
 	void exitExpr_Nil(Tswift_GrammarNParser.Expr_NilContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code Expr_Cadena}
+	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_Cadena(Tswift_GrammarNParser.Expr_CadenaContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Expr_Cadena}
+	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_Cadena(Tswift_GrammarNParser.Expr_CadenaContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Expr_Count}
+	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_Count(Tswift_GrammarNParser.Expr_CountContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Expr_Count}
+	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_Count(Tswift_GrammarNParser.Expr_CountContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Expr_Id}
+	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_Id(Tswift_GrammarNParser.Expr_IdContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Expr_Id}
+	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_Id(Tswift_GrammarNParser.Expr_IdContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Expr_Mod}
+	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_Mod(Tswift_GrammarNParser.Expr_ModContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Expr_Mod}
+	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_Mod(Tswift_GrammarNParser.Expr_ModContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code Expr_Par}
 	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
 	 * @param ctx the parse tree
@@ -762,6 +870,30 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitExpr_Par(Tswift_GrammarNParser.Expr_ParContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Expr_Logica}
+	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_Logica(Tswift_GrammarNParser.Expr_LogicaContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Expr_Logica}
+	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_Logica(Tswift_GrammarNParser.Expr_LogicaContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Expr_IsEmpty}
+	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_IsEmpty(Tswift_GrammarNParser.Expr_IsEmptyContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Expr_IsEmpty}
+	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_IsEmpty(Tswift_GrammarNParser.Expr_IsEmptyContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Expr_Booleano}
 	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
@@ -775,6 +907,18 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 */
 	void exitExpr_Booleano(Tswift_GrammarNParser.Expr_BooleanoContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code Expr_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_Vector(Tswift_GrammarNParser.Expr_VectorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Expr_Vector}
+	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_Vector(Tswift_GrammarNParser.Expr_VectorContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code Expr_Entero}
 	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
 	 * @param ctx the parse tree
@@ -786,16 +930,4 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitExpr_Entero(Tswift_GrammarNParser.Expr_EnteroContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code Expr_Cadena}
-	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_Cadena(Tswift_GrammarNParser.Expr_CadenaContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Expr_Cadena}
-	 * labeled alternative in {@link Tswift_GrammarNParser#e}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_Cadena(Tswift_GrammarNParser.Expr_CadenaContext ctx);
 }

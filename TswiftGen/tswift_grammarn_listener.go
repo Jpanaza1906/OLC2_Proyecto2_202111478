@@ -46,6 +46,9 @@ type Tswift_GrammarNListener interface {
 	// EnterS_Funcion_Vector is called when entering the S_Funcion_Vector production.
 	EnterS_Funcion_Vector(c *S_Funcion_VectorContext)
 
+	// EnterS_Declaracion_Matriz is called when entering the S_Declaracion_Matriz production.
+	EnterS_Declaracion_Matriz(c *S_Declaracion_MatrizContext)
+
 	// EnterBreak is called when entering the Break production.
 	EnterBreak(c *BreakContext)
 
@@ -141,6 +144,33 @@ type Tswift_GrammarNListener interface {
 
 	// EnterFunc_Vector_Remove is called when entering the Func_Vector_Remove production.
 	EnterFunc_Vector_Remove(c *Func_Vector_RemoveContext)
+
+	// EnterDeclaracion_Matriz is called when entering the Declaracion_Matriz production.
+	EnterDeclaracion_Matriz(c *Declaracion_MatrizContext)
+
+	// EnterDef_Matriz is called when entering the Def_Matriz production.
+	EnterDef_Matriz(c *Def_MatrizContext)
+
+	// EnterDef_Matriz_Simple is called when entering the Def_Matriz_Simple production.
+	EnterDef_Matriz_Simple(c *Def_Matriz_SimpleContext)
+
+	// EnterDef_Matriz_Valor is called when entering the Def_Matriz_Valor production.
+	EnterDef_Matriz_Valor(c *Def_Matriz_ValorContext)
+
+	// EnterDef_Matriz_Valor4 is called when entering the Def_Matriz_Valor4 production.
+	EnterDef_Matriz_Valor4(c *Def_Matriz_Valor4Context)
+
+	// EnterDef_Matriz_Valor3 is called when entering the Def_Matriz_Valor3 production.
+	EnterDef_Matriz_Valor3(c *Def_Matriz_Valor3Context)
+
+	// EnterDef_Matriz_Valor2 is called when entering the Def_Matriz_Valor2 production.
+	EnterDef_Matriz_Valor2(c *Def_Matriz_Valor2Context)
+
+	// EnterDef_Matriz_Simple2 is called when entering the Def_Matriz_Simple2 production.
+	EnterDef_Matriz_Simple2(c *Def_Matriz_Simple2Context)
+
+	// EnterDef_Matriz_Simple3 is called when entering the Def_Matriz_Simple3 production.
+	EnterDef_Matriz_Simple3(c *Def_Matriz_Simple3Context)
 
 	// EnterCond_Par is called when entering the Cond_Par production.
 	EnterCond_Par(c *Cond_ParContext)
@@ -247,6 +277,9 @@ type Tswift_GrammarNListener interface {
 	// ExitS_Funcion_Vector is called when exiting the S_Funcion_Vector production.
 	ExitS_Funcion_Vector(c *S_Funcion_VectorContext)
 
+	// ExitS_Declaracion_Matriz is called when exiting the S_Declaracion_Matriz production.
+	ExitS_Declaracion_Matriz(c *S_Declaracion_MatrizContext)
+
 	// ExitBreak is called when exiting the Break production.
 	ExitBreak(c *BreakContext)
 
@@ -342,6 +375,33 @@ type Tswift_GrammarNListener interface {
 
 	// ExitFunc_Vector_Remove is called when exiting the Func_Vector_Remove production.
 	ExitFunc_Vector_Remove(c *Func_Vector_RemoveContext)
+
+	// ExitDeclaracion_Matriz is called when exiting the Declaracion_Matriz production.
+	ExitDeclaracion_Matriz(c *Declaracion_MatrizContext)
+
+	// ExitDef_Matriz is called when exiting the Def_Matriz production.
+	ExitDef_Matriz(c *Def_MatrizContext)
+
+	// ExitDef_Matriz_Simple is called when exiting the Def_Matriz_Simple production.
+	ExitDef_Matriz_Simple(c *Def_Matriz_SimpleContext)
+
+	// ExitDef_Matriz_Valor is called when exiting the Def_Matriz_Valor production.
+	ExitDef_Matriz_Valor(c *Def_Matriz_ValorContext)
+
+	// ExitDef_Matriz_Valor4 is called when exiting the Def_Matriz_Valor4 production.
+	ExitDef_Matriz_Valor4(c *Def_Matriz_Valor4Context)
+
+	// ExitDef_Matriz_Valor3 is called when exiting the Def_Matriz_Valor3 production.
+	ExitDef_Matriz_Valor3(c *Def_Matriz_Valor3Context)
+
+	// ExitDef_Matriz_Valor2 is called when exiting the Def_Matriz_Valor2 production.
+	ExitDef_Matriz_Valor2(c *Def_Matriz_Valor2Context)
+
+	// ExitDef_Matriz_Simple2 is called when exiting the Def_Matriz_Simple2 production.
+	ExitDef_Matriz_Simple2(c *Def_Matriz_Simple2Context)
+
+	// ExitDef_Matriz_Simple3 is called when exiting the Def_Matriz_Simple3 production.
+	ExitDef_Matriz_Simple3(c *Def_Matriz_Simple3Context)
 
 	// ExitCond_Par is called when exiting the Cond_Par production.
 	ExitCond_Par(c *Cond_ParContext)

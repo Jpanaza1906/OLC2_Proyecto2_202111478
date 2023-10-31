@@ -24,6 +24,7 @@ sentencia
     |for_sentencia #S_For
     |dec_vector PTCOMA?#S_Declaracion_Vector
     |func_vector PTCOMA?#S_Funcion_Vector
+    |dec_matriz PTCOMA?#S_Declaracion_Matriz
     ;
 
 //Sentencias de transferencias---------------------------------------------------
@@ -116,6 +117,30 @@ func_vector:
     |ID PUNTO REMOVE PARIZQ AT DOSPT e PARDER #Func_Vector_Remove
     ;
 
+//Matrices-----------------------------------------------------------------------
+dec_matriz:
+    tipod=(VAR|LET) ID (DOSPT CORCHETEIZQ tipo CORCHETEDER)? IGUAL def_matriz #Declaracion_Matriz
+    ;
+
+def_matriz:
+    listavalores_matriz #Def_Matriz
+    |simple_matriz #Def_Matriz_Simple
+    ;
+
+listavalores_matriz:
+    CORCHETEIZQ listavalores_matriz2 CORCHETEDER #Def_Matriz_Valor
+    ;
+
+listavalores_matriz2:
+    listavalores_matriz2 COMA listavalores_matriz #Def_Matriz_Valor2
+    |listavalores_matriz #Def_Matriz_Valor3
+    | e (COMA e)+ #Def_Matriz_Valor4
+    ;
+
+simple_matriz:
+    CORCHETEIZQ tipo CORCHETEDER PARIZQ REPEATING DOSPT simple_matriz COMA COUNT DOSPT e PARDER #Def_Matriz_Simple2
+    | CORCHETEIZQ tipo CORCHETEDER PARIZQ REPEATING DOSPT e COMA COUNT DOSPT e PARDER #Def_Matriz_Simple3
+    ;
 //Condiciones--------------------------------------------------------------------
 
 condicion

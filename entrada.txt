@@ -1,9 +1,18 @@
-if 10 < 11{
+dec_matriz:
+    tipod=(VAR|LET) ID (DOSPT CORCHETEIZQ tipo CORCHETEDER)? IGUAL def_matriz #Declaracion_Matriz
+    ;
 
-} else if 1 == 1{
+def_matriz:
+    listavalores_matriz #Def_Matriz
+    |simple_matriz #Def_Matriz_Simple
+    ;
 
-} else if 2 == 2{
+listamat:
+    CORCHETEIZQ listamatriz (COMA listamatriz)* CORCHETEDER
 
-}else{
-    
-}
+listamatriz:
+    CORCHETEIZQ listavalores_matriz (COMA listavalores_matriz)* CORCHETEDER
+
+listavalores_matriz:
+    CORCHETEIZQ e (COMA e)* CORCHETEDER
+    ;

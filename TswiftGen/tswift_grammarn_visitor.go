@@ -46,6 +46,9 @@ type Tswift_GrammarNVisitor interface {
 	// Visit a parse tree produced by Tswift_GrammarNParser#S_Funcion_Vector.
 	VisitS_Funcion_Vector(ctx *S_Funcion_VectorContext) interface{}
 
+	// Visit a parse tree produced by Tswift_GrammarNParser#S_Declaracion_Matriz.
+	VisitS_Declaracion_Matriz(ctx *S_Declaracion_MatrizContext) interface{}
+
 	// Visit a parse tree produced by Tswift_GrammarNParser#Break.
 	VisitBreak(ctx *BreakContext) interface{}
 
@@ -141,6 +144,33 @@ type Tswift_GrammarNVisitor interface {
 
 	// Visit a parse tree produced by Tswift_GrammarNParser#Func_Vector_Remove.
 	VisitFunc_Vector_Remove(ctx *Func_Vector_RemoveContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Declaracion_Matriz.
+	VisitDeclaracion_Matriz(ctx *Declaracion_MatrizContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz.
+	VisitDef_Matriz(ctx *Def_MatrizContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Simple.
+	VisitDef_Matriz_Simple(ctx *Def_Matriz_SimpleContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Valor.
+	VisitDef_Matriz_Valor(ctx *Def_Matriz_ValorContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Valor4.
+	VisitDef_Matriz_Valor4(ctx *Def_Matriz_Valor4Context) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Valor3.
+	VisitDef_Matriz_Valor3(ctx *Def_Matriz_Valor3Context) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Valor2.
+	VisitDef_Matriz_Valor2(ctx *Def_Matriz_Valor2Context) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Simple2.
+	VisitDef_Matriz_Simple2(ctx *Def_Matriz_Simple2Context) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Simple3.
+	VisitDef_Matriz_Simple3(ctx *Def_Matriz_Simple3Context) interface{}
 
 	// Visit a parse tree produced by Tswift_GrammarNParser#Cond_Par.
 	VisitCond_Par(ctx *Cond_ParContext) interface{}

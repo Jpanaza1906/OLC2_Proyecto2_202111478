@@ -59,6 +59,10 @@ func (v *BaseTswift_GrammarNVisitor) VisitS_Funcion_Vector(ctx *S_Funcion_Vector
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseTswift_GrammarNVisitor) VisitS_Declaracion_Matriz(ctx *S_Declaracion_MatrizContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseTswift_GrammarNVisitor) VisitBreak(ctx *BreakContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -184,6 +188,42 @@ func (v *BaseTswift_GrammarNVisitor) VisitFunc_Vector_RemoveLast(ctx *Func_Vecto
 }
 
 func (v *BaseTswift_GrammarNVisitor) VisitFunc_Vector_Remove(ctx *Func_Vector_RemoveContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitDeclaracion_Matriz(ctx *Declaracion_MatrizContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz(ctx *Def_MatrizContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz_Simple(ctx *Def_Matriz_SimpleContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz_Valor(ctx *Def_Matriz_ValorContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz_Valor4(ctx *Def_Matriz_Valor4Context) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz_Valor3(ctx *Def_Matriz_Valor3Context) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz_Valor2(ctx *Def_Matriz_Valor2Context) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz_Simple2(ctx *Def_Matriz_Simple2Context) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz_Simple3(ctx *Def_Matriz_Simple3Context) interface{} {
 	return v.VisitChildren(ctx)
 }
 

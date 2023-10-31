@@ -98,6 +98,12 @@ func (s *BaseTswift_GrammarNListener) EnterS_Funcion_Vector(ctx *S_Funcion_Vecto
 // ExitS_Funcion_Vector is called when production S_Funcion_Vector is exited.
 func (s *BaseTswift_GrammarNListener) ExitS_Funcion_Vector(ctx *S_Funcion_VectorContext) {}
 
+// EnterS_Declaracion_Matriz is called when production S_Declaracion_Matriz is entered.
+func (s *BaseTswift_GrammarNListener) EnterS_Declaracion_Matriz(ctx *S_Declaracion_MatrizContext) {}
+
+// ExitS_Declaracion_Matriz is called when production S_Declaracion_Matriz is exited.
+func (s *BaseTswift_GrammarNListener) ExitS_Declaracion_Matriz(ctx *S_Declaracion_MatrizContext) {}
+
 // EnterBreak is called when production Break is entered.
 func (s *BaseTswift_GrammarNListener) EnterBreak(ctx *BreakContext) {}
 
@@ -293,6 +299,60 @@ func (s *BaseTswift_GrammarNListener) EnterFunc_Vector_Remove(ctx *Func_Vector_R
 
 // ExitFunc_Vector_Remove is called when production Func_Vector_Remove is exited.
 func (s *BaseTswift_GrammarNListener) ExitFunc_Vector_Remove(ctx *Func_Vector_RemoveContext) {}
+
+// EnterDeclaracion_Matriz is called when production Declaracion_Matriz is entered.
+func (s *BaseTswift_GrammarNListener) EnterDeclaracion_Matriz(ctx *Declaracion_MatrizContext) {}
+
+// ExitDeclaracion_Matriz is called when production Declaracion_Matriz is exited.
+func (s *BaseTswift_GrammarNListener) ExitDeclaracion_Matriz(ctx *Declaracion_MatrizContext) {}
+
+// EnterDef_Matriz is called when production Def_Matriz is entered.
+func (s *BaseTswift_GrammarNListener) EnterDef_Matriz(ctx *Def_MatrizContext) {}
+
+// ExitDef_Matriz is called when production Def_Matriz is exited.
+func (s *BaseTswift_GrammarNListener) ExitDef_Matriz(ctx *Def_MatrizContext) {}
+
+// EnterDef_Matriz_Simple is called when production Def_Matriz_Simple is entered.
+func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Simple(ctx *Def_Matriz_SimpleContext) {}
+
+// ExitDef_Matriz_Simple is called when production Def_Matriz_Simple is exited.
+func (s *BaseTswift_GrammarNListener) ExitDef_Matriz_Simple(ctx *Def_Matriz_SimpleContext) {}
+
+// EnterDef_Matriz_Valor is called when production Def_Matriz_Valor is entered.
+func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Valor(ctx *Def_Matriz_ValorContext) {}
+
+// ExitDef_Matriz_Valor is called when production Def_Matriz_Valor is exited.
+func (s *BaseTswift_GrammarNListener) ExitDef_Matriz_Valor(ctx *Def_Matriz_ValorContext) {}
+
+// EnterDef_Matriz_Valor4 is called when production Def_Matriz_Valor4 is entered.
+func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Valor4(ctx *Def_Matriz_Valor4Context) {}
+
+// ExitDef_Matriz_Valor4 is called when production Def_Matriz_Valor4 is exited.
+func (s *BaseTswift_GrammarNListener) ExitDef_Matriz_Valor4(ctx *Def_Matriz_Valor4Context) {}
+
+// EnterDef_Matriz_Valor3 is called when production Def_Matriz_Valor3 is entered.
+func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Valor3(ctx *Def_Matriz_Valor3Context) {}
+
+// ExitDef_Matriz_Valor3 is called when production Def_Matriz_Valor3 is exited.
+func (s *BaseTswift_GrammarNListener) ExitDef_Matriz_Valor3(ctx *Def_Matriz_Valor3Context) {}
+
+// EnterDef_Matriz_Valor2 is called when production Def_Matriz_Valor2 is entered.
+func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Valor2(ctx *Def_Matriz_Valor2Context) {}
+
+// ExitDef_Matriz_Valor2 is called when production Def_Matriz_Valor2 is exited.
+func (s *BaseTswift_GrammarNListener) ExitDef_Matriz_Valor2(ctx *Def_Matriz_Valor2Context) {}
+
+// EnterDef_Matriz_Simple2 is called when production Def_Matriz_Simple2 is entered.
+func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Simple2(ctx *Def_Matriz_Simple2Context) {}
+
+// ExitDef_Matriz_Simple2 is called when production Def_Matriz_Simple2 is exited.
+func (s *BaseTswift_GrammarNListener) ExitDef_Matriz_Simple2(ctx *Def_Matriz_Simple2Context) {}
+
+// EnterDef_Matriz_Simple3 is called when production Def_Matriz_Simple3 is entered.
+func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Simple3(ctx *Def_Matriz_Simple3Context) {}
+
+// ExitDef_Matriz_Simple3 is called when production Def_Matriz_Simple3 is exited.
+func (s *BaseTswift_GrammarNListener) ExitDef_Matriz_Simple3(ctx *Def_Matriz_Simple3Context) {}
 
 // EnterCond_Par is called when production Cond_Par is entered.
 func (s *BaseTswift_GrammarNListener) EnterCond_Par(ctx *Cond_ParContext) {}
