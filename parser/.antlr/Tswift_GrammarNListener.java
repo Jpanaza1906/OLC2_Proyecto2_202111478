@@ -571,17 +571,17 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 */
 	void exitDeclaracion_Matriz(Tswift_GrammarNParser.Declaracion_MatrizContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code Def_Matriz}
+	 * Enter a parse tree produced by the {@code Def_Matriz_Lista}
 	 * labeled alternative in {@link Tswift_GrammarNParser#def_matriz}.
 	 * @param ctx the parse tree
 	 */
-	void enterDef_Matriz(Tswift_GrammarNParser.Def_MatrizContext ctx);
+	void enterDef_Matriz_Lista(Tswift_GrammarNParser.Def_Matriz_ListaContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code Def_Matriz}
+	 * Exit a parse tree produced by the {@code Def_Matriz_Lista}
 	 * labeled alternative in {@link Tswift_GrammarNParser#def_matriz}.
 	 * @param ctx the parse tree
 	 */
-	void exitDef_Matriz(Tswift_GrammarNParser.Def_MatrizContext ctx);
+	void exitDef_Matriz_Lista(Tswift_GrammarNParser.Def_Matriz_ListaContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Def_Matriz_Simple}
 	 * labeled alternative in {@link Tswift_GrammarNParser#def_matriz}.
@@ -595,53 +595,29 @@ public interface Tswift_GrammarNListener extends ParseTreeListener {
 	 */
 	void exitDef_Matriz_Simple(Tswift_GrammarNParser.Def_Matriz_SimpleContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code Def_Matriz_Valor}
+	 * Enter a parse tree produced by the {@code Def_Matriz_Lista_Valores}
 	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz}.
 	 * @param ctx the parse tree
 	 */
-	void enterDef_Matriz_Valor(Tswift_GrammarNParser.Def_Matriz_ValorContext ctx);
+	void enterDef_Matriz_Lista_Valores(Tswift_GrammarNParser.Def_Matriz_Lista_ValoresContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code Def_Matriz_Valor}
+	 * Exit a parse tree produced by the {@code Def_Matriz_Lista_Valores}
 	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz}.
 	 * @param ctx the parse tree
 	 */
-	void exitDef_Matriz_Valor(Tswift_GrammarNParser.Def_Matriz_ValorContext ctx);
+	void exitDef_Matriz_Lista_Valores(Tswift_GrammarNParser.Def_Matriz_Lista_ValoresContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code Def_Matriz_Valor4}
-	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz2}.
+	 * Enter a parse tree produced by the {@code Def_Matriz_Expresion}
+	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz}.
 	 * @param ctx the parse tree
 	 */
-	void enterDef_Matriz_Valor4(Tswift_GrammarNParser.Def_Matriz_Valor4Context ctx);
+	void enterDef_Matriz_Expresion(Tswift_GrammarNParser.Def_Matriz_ExpresionContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code Def_Matriz_Valor4}
-	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz2}.
+	 * Exit a parse tree produced by the {@code Def_Matriz_Expresion}
+	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz}.
 	 * @param ctx the parse tree
 	 */
-	void exitDef_Matriz_Valor4(Tswift_GrammarNParser.Def_Matriz_Valor4Context ctx);
-	/**
-	 * Enter a parse tree produced by the {@code Def_Matriz_Valor3}
-	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz2}.
-	 * @param ctx the parse tree
-	 */
-	void enterDef_Matriz_Valor3(Tswift_GrammarNParser.Def_Matriz_Valor3Context ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Def_Matriz_Valor3}
-	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz2}.
-	 * @param ctx the parse tree
-	 */
-	void exitDef_Matriz_Valor3(Tswift_GrammarNParser.Def_Matriz_Valor3Context ctx);
-	/**
-	 * Enter a parse tree produced by the {@code Def_Matriz_Valor2}
-	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz2}.
-	 * @param ctx the parse tree
-	 */
-	void enterDef_Matriz_Valor2(Tswift_GrammarNParser.Def_Matriz_Valor2Context ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Def_Matriz_Valor2}
-	 * labeled alternative in {@link Tswift_GrammarNParser#listavalores_matriz2}.
-	 * @param ctx the parse tree
-	 */
-	void exitDef_Matriz_Valor2(Tswift_GrammarNParser.Def_Matriz_Valor2Context ctx);
+	void exitDef_Matriz_Expresion(Tswift_GrammarNParser.Def_Matriz_ExpresionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Def_Matriz_Simple2}
 	 * labeled alternative in {@link Tswift_GrammarNParser#simple_matriz}.

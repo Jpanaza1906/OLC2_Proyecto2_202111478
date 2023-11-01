@@ -505,71 +505,90 @@ func (tV *Visitor) VisitExpr_IsEmpty(ctx *TswiftGen.Expr_IsEmptyContext) interfa
 
 // Visit a parse tree produced by Tswift_GrammarNParser#Declaracion_Matriz.
 func (tV *Visitor) VisitDeclaracion_Matriz(ctx *TswiftGen.Declaracion_MatrizContext) interface{} {
+	tipodec := ctx.GetTipod().GetText()
+
+	dimen := ctx.Tipo().GetText()
+
+	longitud := 0
+	//se recorre la cadena y se cuentan los corchetes abiertos
+
+	for i := 0; i < len(dimen); i++ {
+		if dimen[i] == '[' {
+			longitud++
+		}
+	}
+
+	//contar la longitud de la cadena
 
 	//si es let, mutable es false
-	/*
-		tipodec := ctx.GetTipod().GetText()
-		mutable := false
+	mutable := false
 
-		if tipodec == "let" {
-			mutable = false
-		} else {
-			mutable = true
-		}
+	if tipodec == "let" {
+		mutable = false
+	} else {
+		mutable = true
+	}
 
-		id := ctx.ID().GetText()
+	id := ctx.ID().GetText()
 
-		tipo := ""
-		if ctx.Tipo() != nil {
-			tipo = ctx.Tipo().Accept(tV).(string)
-		}
+	tipo := ctx.Tipo().Accept(tV).(string)
 
-		defmatriz := ctx.Def_matriz().Accept(tV).(compilador.CAbstractExpr)
+	defmatriz := ctx.Def_matriz().Accept(tV).(compilador.CAbstractExpr)
 
-		//return noterm.NewNT_DecMatriz(id, tipo, mutable, defmatriz, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
-	*/
-	return compilador.Nil
+	return noterm.NewNT_DecMatriz(id, tipo, mutable, defmatriz, longitud, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
 }
 
-// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz.
-func (tV *Visitor) VisitDef_Matriz(ctx *TswiftGen.Def_MatrizContext) interface{} {
+// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Lista.
+func (tV *Visitor) VisitDef_Matriz_Lista(ctx *TswiftGen.Def_Matriz_ListaContext) interface{} {
 	return ctx.Listavalores_matriz().Accept(tV).(compilador.CAbstractExpr)
+
+	//return noterm.NewNT_DefMatriz(lista, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
 }
 
 // Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Simple.
 func (tV *Visitor) VisitDef_Matriz_Simple(ctx *TswiftGen.Def_Matriz_SimpleContext) interface{} {
-	return ctx.Simple_matriz().Accept(tV).(compilador.CAbstractExpr)
+	panic("not implemented") // TODO: Implement
 }
 
-// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Valor.
-func (tV *Visitor) VisitDef_Matriz_Valor(ctx *TswiftGen.Def_Matriz_ValorContext) interface{} {
-	//se declara un arreglo
-	return compilador.Nil
-}
+// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Lista_Valores.
+func (tV *Visitor) VisitDef_Matriz_Lista_Valores(ctx *TswiftGen.Def_Matriz_Lista_ValoresContext) interface{} {
+	listaval := ctx.AllListavalores_matriz()
 
-// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Valor2.
-func (tV *Visitor) VisitDef_Matriz_Valor2(ctx *TswiftGen.Def_Matriz_Valor2Context) interface{} {
-	//se declara un arreglo
-	return compilador.Nil
-}
+	matriz := []compilador.CAbstractExpr{}
 
-// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Valor3.
-func (tV *Visitor) VisitDef_Matriz_Valor3(ctx *TswiftGen.Def_Matriz_Valor3Context) interface{} {
-	return ctx.Listavalores_matriz().Accept(tV).(compilador.CAbstractExpr)
-}
-
-// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Valor4.
-func (tV *Visitor) VisitDef_Matriz_Valor4(ctx *TswiftGen.Def_Matriz_Valor4Context) interface{} {
-	//se devuelve un arreglo de expresiones
-	lexpresiones := ctx.AllE()
-
-	vector := []compilador.CAbstractExpr{}
-
-	for _, exp := range lexpresiones {
-		vector = append(vector, exp.Accept(tV).(compilador.CAbstractExpr))
+	for _, val := range listaval {
+		matriz = append(matriz, val.Accept(tV).(compilador.CAbstractExpr))
 	}
 
-	return vector
+	return noterm.NewNT_DefMatriz(matriz, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Expresion.
+func (tV *Visitor) VisitDef_Matriz_Expresion(ctx *TswiftGen.Def_Matriz_ExpresionContext) interface{} {
+	listaexp := ctx.AllE()
+
+	matriz := []compilador.CAbstractExpr{}
+
+	for _, exp := range listaexp {
+		matriz = append(matriz, exp.Accept(tV).(compilador.CAbstractExpr))
+	}
+
+	return noterm.NewNT_DefMatriz(matriz, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
+}
+
+// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Matriz.
+func (tV *Visitor) VisitExpr_Matriz(ctx *TswiftGen.Expr_MatrizContext) interface{} {
+	listaexp := ctx.AllE()
+
+	exps := []compilador.CAbstractExpr{}
+
+	for _, exp := range listaexp {
+		exps = append(exps, exp.Accept(tV).(compilador.CAbstractExpr))
+	}
+
+	id := ctx.ID().GetText()
+
+	return terminales.NewT_MatrizPos(id, exps, ctx.GetStart().GetLine(), ctx.GetStart().GetColumn())
 }
 
 // Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Simple2.

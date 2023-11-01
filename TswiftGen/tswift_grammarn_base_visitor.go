@@ -195,7 +195,7 @@ func (v *BaseTswift_GrammarNVisitor) VisitDeclaracion_Matriz(ctx *Declaracion_Ma
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz(ctx *Def_MatrizContext) interface{} {
+func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz_Lista(ctx *Def_Matriz_ListaContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -203,19 +203,11 @@ func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz_Simple(ctx *Def_Matriz_Simp
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz_Valor(ctx *Def_Matriz_ValorContext) interface{} {
+func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz_Lista_Valores(ctx *Def_Matriz_Lista_ValoresContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz_Valor4(ctx *Def_Matriz_Valor4Context) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz_Valor3(ctx *Def_Matriz_Valor3Context) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz_Valor2(ctx *Def_Matriz_Valor2Context) interface{} {
+func (v *BaseTswift_GrammarNVisitor) VisitDef_Matriz_Expresion(ctx *Def_Matriz_ExpresionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -260,6 +252,10 @@ func (v *BaseTswift_GrammarNVisitor) VisitExpr_Caracter(ctx *Expr_CaracterContex
 }
 
 func (v *BaseTswift_GrammarNVisitor) VisitExpr_SumRes(ctx *Expr_SumResContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseTswift_GrammarNVisitor) VisitExpr_Matriz(ctx *Expr_MatrizContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

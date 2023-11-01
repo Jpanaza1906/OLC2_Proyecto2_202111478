@@ -148,23 +148,17 @@ type Tswift_GrammarNListener interface {
 	// EnterDeclaracion_Matriz is called when entering the Declaracion_Matriz production.
 	EnterDeclaracion_Matriz(c *Declaracion_MatrizContext)
 
-	// EnterDef_Matriz is called when entering the Def_Matriz production.
-	EnterDef_Matriz(c *Def_MatrizContext)
+	// EnterDef_Matriz_Lista is called when entering the Def_Matriz_Lista production.
+	EnterDef_Matriz_Lista(c *Def_Matriz_ListaContext)
 
 	// EnterDef_Matriz_Simple is called when entering the Def_Matriz_Simple production.
 	EnterDef_Matriz_Simple(c *Def_Matriz_SimpleContext)
 
-	// EnterDef_Matriz_Valor is called when entering the Def_Matriz_Valor production.
-	EnterDef_Matriz_Valor(c *Def_Matriz_ValorContext)
+	// EnterDef_Matriz_Lista_Valores is called when entering the Def_Matriz_Lista_Valores production.
+	EnterDef_Matriz_Lista_Valores(c *Def_Matriz_Lista_ValoresContext)
 
-	// EnterDef_Matriz_Valor4 is called when entering the Def_Matriz_Valor4 production.
-	EnterDef_Matriz_Valor4(c *Def_Matriz_Valor4Context)
-
-	// EnterDef_Matriz_Valor3 is called when entering the Def_Matriz_Valor3 production.
-	EnterDef_Matriz_Valor3(c *Def_Matriz_Valor3Context)
-
-	// EnterDef_Matriz_Valor2 is called when entering the Def_Matriz_Valor2 production.
-	EnterDef_Matriz_Valor2(c *Def_Matriz_Valor2Context)
+	// EnterDef_Matriz_Expresion is called when entering the Def_Matriz_Expresion production.
+	EnterDef_Matriz_Expresion(c *Def_Matriz_ExpresionContext)
 
 	// EnterDef_Matriz_Simple2 is called when entering the Def_Matriz_Simple2 production.
 	EnterDef_Matriz_Simple2(c *Def_Matriz_Simple2Context)
@@ -198,6 +192,9 @@ type Tswift_GrammarNListener interface {
 
 	// EnterExpr_SumRes is called when entering the Expr_SumRes production.
 	EnterExpr_SumRes(c *Expr_SumResContext)
+
+	// EnterExpr_Matriz is called when entering the Expr_Matriz production.
+	EnterExpr_Matriz(c *Expr_MatrizContext)
 
 	// EnterExpr_Neg is called when entering the Expr_Neg production.
 	EnterExpr_Neg(c *Expr_NegContext)
@@ -379,23 +376,17 @@ type Tswift_GrammarNListener interface {
 	// ExitDeclaracion_Matriz is called when exiting the Declaracion_Matriz production.
 	ExitDeclaracion_Matriz(c *Declaracion_MatrizContext)
 
-	// ExitDef_Matriz is called when exiting the Def_Matriz production.
-	ExitDef_Matriz(c *Def_MatrizContext)
+	// ExitDef_Matriz_Lista is called when exiting the Def_Matriz_Lista production.
+	ExitDef_Matriz_Lista(c *Def_Matriz_ListaContext)
 
 	// ExitDef_Matriz_Simple is called when exiting the Def_Matriz_Simple production.
 	ExitDef_Matriz_Simple(c *Def_Matriz_SimpleContext)
 
-	// ExitDef_Matriz_Valor is called when exiting the Def_Matriz_Valor production.
-	ExitDef_Matriz_Valor(c *Def_Matriz_ValorContext)
+	// ExitDef_Matriz_Lista_Valores is called when exiting the Def_Matriz_Lista_Valores production.
+	ExitDef_Matriz_Lista_Valores(c *Def_Matriz_Lista_ValoresContext)
 
-	// ExitDef_Matriz_Valor4 is called when exiting the Def_Matriz_Valor4 production.
-	ExitDef_Matriz_Valor4(c *Def_Matriz_Valor4Context)
-
-	// ExitDef_Matriz_Valor3 is called when exiting the Def_Matriz_Valor3 production.
-	ExitDef_Matriz_Valor3(c *Def_Matriz_Valor3Context)
-
-	// ExitDef_Matriz_Valor2 is called when exiting the Def_Matriz_Valor2 production.
-	ExitDef_Matriz_Valor2(c *Def_Matriz_Valor2Context)
+	// ExitDef_Matriz_Expresion is called when exiting the Def_Matriz_Expresion production.
+	ExitDef_Matriz_Expresion(c *Def_Matriz_ExpresionContext)
 
 	// ExitDef_Matriz_Simple2 is called when exiting the Def_Matriz_Simple2 production.
 	ExitDef_Matriz_Simple2(c *Def_Matriz_Simple2Context)
@@ -429,6 +420,9 @@ type Tswift_GrammarNListener interface {
 
 	// ExitExpr_SumRes is called when exiting the Expr_SumRes production.
 	ExitExpr_SumRes(c *Expr_SumResContext)
+
+	// ExitExpr_Matriz is called when exiting the Expr_Matriz production.
+	ExitExpr_Matriz(c *Expr_MatrizContext)
 
 	// ExitExpr_Neg is called when exiting the Expr_Neg production.
 	ExitExpr_Neg(c *Expr_NegContext)

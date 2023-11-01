@@ -119,23 +119,19 @@ func_vector:
 
 //Matrices-----------------------------------------------------------------------
 dec_matriz:
-    tipod=(VAR|LET) ID (DOSPT CORCHETEIZQ tipo CORCHETEDER)? IGUAL def_matriz #Declaracion_Matriz
+    tipod=(VAR|LET) ID (DOSPT  tipo )? IGUAL def_matriz #Declaracion_Matriz
     ;
 
 def_matriz:
-    listavalores_matriz #Def_Matriz
+    listavalores_matriz #Def_Matriz_Lista
     |simple_matriz #Def_Matriz_Simple
     ;
 
 listavalores_matriz:
-    CORCHETEIZQ listavalores_matriz2 CORCHETEDER #Def_Matriz_Valor
+    CORCHETEIZQ listavalores_matriz (COMA listavalores_matriz)* CORCHETEDER #Def_Matriz_Lista_Valores
+    |CORCHETEIZQ e (COMA e)* CORCHETEDER #Def_Matriz_Expresion
     ;
 
-listavalores_matriz2:
-    listavalores_matriz2 COMA listavalores_matriz #Def_Matriz_Valor2
-    |listavalores_matriz #Def_Matriz_Valor3
-    | e (COMA e)+ #Def_Matriz_Valor4
-    ;
 
 simple_matriz:
     CORCHETEIZQ tipo CORCHETEDER PARIZQ REPEATING DOSPT simple_matriz COMA COUNT DOSPT e PARDER #Def_Matriz_Simple2
@@ -162,6 +158,7 @@ e
     | n=(TRUE | FALSE)    # Expr_Booleano
     | n=NIL              # Expr_Nil
     | ID CORCHETEIZQ e CORCHETEDER # Expr_Vector
+    | ID CORCHETEIZQ e CORCHETEDER (CORCHETEIZQ e CORCHETEDER)+ # Expr_Matriz
     | ID PUNTO ISEMPTY  # Expr_IsEmpty
     | ID PUNTO COUNT    # Expr_Count
     | id=ID                # Expr_Id

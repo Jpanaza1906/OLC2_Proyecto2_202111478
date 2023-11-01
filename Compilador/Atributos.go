@@ -11,7 +11,8 @@ const (
 	Char    TipoE = 4
 	String  TipoE = 5
 	Vector  TipoE = 6
-	StructT TipoE = 7
+	Matriz  TipoE = 7
+	StructT TipoE = 8
 )
 
 func (t TipoE) String() string {
@@ -30,6 +31,8 @@ func (t TipoE) String() string {
 		return "Char"
 	case Vector:
 		return "Vector"
+	case Matriz:
+		return "Matriz"
 	case StructT:
 		return "Struct"
 	default:
@@ -161,6 +164,16 @@ func NewVector(dir string) *Atributos {
 		Dir:  dir,
 		Op:   "",
 		Tipo: Vector,
+	}
+}
+
+func NewMatriz(dir string) *Atributos {
+	return &Atributos{
+		EV:   []string{},
+		EF:   []string{},
+		Dir:  dir,
+		Op:   "",
+		Tipo: Matriz,
 	}
 }
 

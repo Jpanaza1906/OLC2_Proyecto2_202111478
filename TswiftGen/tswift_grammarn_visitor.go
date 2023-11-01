@@ -148,23 +148,17 @@ type Tswift_GrammarNVisitor interface {
 	// Visit a parse tree produced by Tswift_GrammarNParser#Declaracion_Matriz.
 	VisitDeclaracion_Matriz(ctx *Declaracion_MatrizContext) interface{}
 
-	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz.
-	VisitDef_Matriz(ctx *Def_MatrizContext) interface{}
+	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Lista.
+	VisitDef_Matriz_Lista(ctx *Def_Matriz_ListaContext) interface{}
 
 	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Simple.
 	VisitDef_Matriz_Simple(ctx *Def_Matriz_SimpleContext) interface{}
 
-	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Valor.
-	VisitDef_Matriz_Valor(ctx *Def_Matriz_ValorContext) interface{}
+	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Lista_Valores.
+	VisitDef_Matriz_Lista_Valores(ctx *Def_Matriz_Lista_ValoresContext) interface{}
 
-	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Valor4.
-	VisitDef_Matriz_Valor4(ctx *Def_Matriz_Valor4Context) interface{}
-
-	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Valor3.
-	VisitDef_Matriz_Valor3(ctx *Def_Matriz_Valor3Context) interface{}
-
-	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Valor2.
-	VisitDef_Matriz_Valor2(ctx *Def_Matriz_Valor2Context) interface{}
+	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Expresion.
+	VisitDef_Matriz_Expresion(ctx *Def_Matriz_ExpresionContext) interface{}
 
 	// Visit a parse tree produced by Tswift_GrammarNParser#Def_Matriz_Simple2.
 	VisitDef_Matriz_Simple2(ctx *Def_Matriz_Simple2Context) interface{}
@@ -198,6 +192,9 @@ type Tswift_GrammarNVisitor interface {
 
 	// Visit a parse tree produced by Tswift_GrammarNParser#Expr_SumRes.
 	VisitExpr_SumRes(ctx *Expr_SumResContext) interface{}
+
+	// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Matriz.
+	VisitExpr_Matriz(ctx *Expr_MatrizContext) interface{}
 
 	// Visit a parse tree produced by Tswift_GrammarNParser#Expr_Neg.
 	VisitExpr_Neg(ctx *Expr_NegContext) interface{}

@@ -306,11 +306,11 @@ func (s *BaseTswift_GrammarNListener) EnterDeclaracion_Matriz(ctx *Declaracion_M
 // ExitDeclaracion_Matriz is called when production Declaracion_Matriz is exited.
 func (s *BaseTswift_GrammarNListener) ExitDeclaracion_Matriz(ctx *Declaracion_MatrizContext) {}
 
-// EnterDef_Matriz is called when production Def_Matriz is entered.
-func (s *BaseTswift_GrammarNListener) EnterDef_Matriz(ctx *Def_MatrizContext) {}
+// EnterDef_Matriz_Lista is called when production Def_Matriz_Lista is entered.
+func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Lista(ctx *Def_Matriz_ListaContext) {}
 
-// ExitDef_Matriz is called when production Def_Matriz is exited.
-func (s *BaseTswift_GrammarNListener) ExitDef_Matriz(ctx *Def_MatrizContext) {}
+// ExitDef_Matriz_Lista is called when production Def_Matriz_Lista is exited.
+func (s *BaseTswift_GrammarNListener) ExitDef_Matriz_Lista(ctx *Def_Matriz_ListaContext) {}
 
 // EnterDef_Matriz_Simple is called when production Def_Matriz_Simple is entered.
 func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Simple(ctx *Def_Matriz_SimpleContext) {}
@@ -318,29 +318,19 @@ func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Simple(ctx *Def_Matriz_Sim
 // ExitDef_Matriz_Simple is called when production Def_Matriz_Simple is exited.
 func (s *BaseTswift_GrammarNListener) ExitDef_Matriz_Simple(ctx *Def_Matriz_SimpleContext) {}
 
-// EnterDef_Matriz_Valor is called when production Def_Matriz_Valor is entered.
-func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Valor(ctx *Def_Matriz_ValorContext) {}
+// EnterDef_Matriz_Lista_Valores is called when production Def_Matriz_Lista_Valores is entered.
+func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Lista_Valores(ctx *Def_Matriz_Lista_ValoresContext) {
+}
 
-// ExitDef_Matriz_Valor is called when production Def_Matriz_Valor is exited.
-func (s *BaseTswift_GrammarNListener) ExitDef_Matriz_Valor(ctx *Def_Matriz_ValorContext) {}
+// ExitDef_Matriz_Lista_Valores is called when production Def_Matriz_Lista_Valores is exited.
+func (s *BaseTswift_GrammarNListener) ExitDef_Matriz_Lista_Valores(ctx *Def_Matriz_Lista_ValoresContext) {
+}
 
-// EnterDef_Matriz_Valor4 is called when production Def_Matriz_Valor4 is entered.
-func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Valor4(ctx *Def_Matriz_Valor4Context) {}
+// EnterDef_Matriz_Expresion is called when production Def_Matriz_Expresion is entered.
+func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Expresion(ctx *Def_Matriz_ExpresionContext) {}
 
-// ExitDef_Matriz_Valor4 is called when production Def_Matriz_Valor4 is exited.
-func (s *BaseTswift_GrammarNListener) ExitDef_Matriz_Valor4(ctx *Def_Matriz_Valor4Context) {}
-
-// EnterDef_Matriz_Valor3 is called when production Def_Matriz_Valor3 is entered.
-func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Valor3(ctx *Def_Matriz_Valor3Context) {}
-
-// ExitDef_Matriz_Valor3 is called when production Def_Matriz_Valor3 is exited.
-func (s *BaseTswift_GrammarNListener) ExitDef_Matriz_Valor3(ctx *Def_Matriz_Valor3Context) {}
-
-// EnterDef_Matriz_Valor2 is called when production Def_Matriz_Valor2 is entered.
-func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Valor2(ctx *Def_Matriz_Valor2Context) {}
-
-// ExitDef_Matriz_Valor2 is called when production Def_Matriz_Valor2 is exited.
-func (s *BaseTswift_GrammarNListener) ExitDef_Matriz_Valor2(ctx *Def_Matriz_Valor2Context) {}
+// ExitDef_Matriz_Expresion is called when production Def_Matriz_Expresion is exited.
+func (s *BaseTswift_GrammarNListener) ExitDef_Matriz_Expresion(ctx *Def_Matriz_ExpresionContext) {}
 
 // EnterDef_Matriz_Simple2 is called when production Def_Matriz_Simple2 is entered.
 func (s *BaseTswift_GrammarNListener) EnterDef_Matriz_Simple2(ctx *Def_Matriz_Simple2Context) {}
@@ -407,6 +397,12 @@ func (s *BaseTswift_GrammarNListener) EnterExpr_SumRes(ctx *Expr_SumResContext) 
 
 // ExitExpr_SumRes is called when production Expr_SumRes is exited.
 func (s *BaseTswift_GrammarNListener) ExitExpr_SumRes(ctx *Expr_SumResContext) {}
+
+// EnterExpr_Matriz is called when production Expr_Matriz is entered.
+func (s *BaseTswift_GrammarNListener) EnterExpr_Matriz(ctx *Expr_MatrizContext) {}
+
+// ExitExpr_Matriz is called when production Expr_Matriz is exited.
+func (s *BaseTswift_GrammarNListener) ExitExpr_Matriz(ctx *Expr_MatrizContext) {}
 
 // EnterExpr_Neg is called when production Expr_Neg is entered.
 func (s *BaseTswift_GrammarNListener) EnterExpr_Neg(ctx *Expr_NegContext) {}

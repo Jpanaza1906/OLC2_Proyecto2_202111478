@@ -186,7 +186,7 @@ func (ctx *Contexto) PopDisplayTrans() {
 
 // TablaSimbolos---------------------------------------------------------------------------------
 
-func (ctx *Contexto) AddSimbolo(id string, tipoId string, tipo TipoE, ambiente int, size int, valores []Rangos, referencia bool, mutable bool) {
+func (ctx *Contexto) AddSimbolo(id string, tipoId string, tipo TipoE, ambiente int, size int, valores []int, referencia bool, mutable bool) {
 	simbolo := Tsimbolos{
 		Id:         id,
 		TipoId:     tipoId,
